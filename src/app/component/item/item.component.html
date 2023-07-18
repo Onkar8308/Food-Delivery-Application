@@ -1,0 +1,18 @@
+<div class="container">
+    <div><app-registereditem></app-registereditem></div>
+    <div>
+        <div class="row">
+            <div *ngFor="let item of items" class="col-6 col-md-4 mt-4">
+                <div class="card">
+                    <img class="card-img-top" src="{{item.itemimage}}" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">{{item.itemname}}</p>
+                        <p class="card-text">{{item.itemcost}}</p>
+                        <p class="card-text">{{item.itemstatus}}</p>
+                    </div>
+                    <div> <button class="btn btn-success" (click)="addToCart">Add to Cart</button> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
