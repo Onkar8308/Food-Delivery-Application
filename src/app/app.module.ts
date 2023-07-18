@@ -20,6 +20,12 @@ import { ItemComponent } from './component/item/item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistereditemComponent } from './component/registereditem/registereditem.component';
+import {MatIconModule} from '@angular/material/icon';
+import { AddRestaurantComponent } from './component/add-restaurant/add-restaurant.component';
+import { RestaurantSignupComponent } from './component/restaurant-signup/restaurant-signup.component';
+import { RestaurantRegistrationComponent } from './component/restaurant-registration/restaurant-registration.component';
+import { RestaurantLoginComponent } from './component/restaurant-login/restaurant-login.component';
+import { UpdateItemComponent} from './component/update-item/update-item.component'
 
 
 @NgModule({
@@ -36,7 +42,12 @@ import { RegistereditemComponent } from './component/registereditem/registeredit
     RestaurantsComponent,
     RestaurantAdminComponent,
     ItemComponent,
-    RegistereditemComponent
+    RegistereditemComponent,
+    AddRestaurantComponent,
+    RestaurantSignupComponent,
+    RestaurantRegistrationComponent,
+    RestaurantLoginComponent,
+    UpdateItemComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +57,8 @@ import { RegistereditemComponent } from './component/registereditem/registeredit
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -37,4 +37,10 @@ export class ItemComponent implements OnInit {
 
   addToCart(): void {}
 
+  updateItem(id:number): void {
+    this.router.navigate(['updateItem',id]);
+  }
+  
+  deleteItem(id:number): void {}
+
 }

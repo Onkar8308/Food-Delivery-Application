@@ -1,18 +1,24 @@
 <div class="container">
-    <div><app-registereditem></app-registereditem></div>
-    <div>
-        <div class="row">
-            <div *ngFor="let item of items" class="col-6 col-md-4 mt-4">
-                <div class="card">
-                    <img class="card-img-top" src="{{item.itemimage}}" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">{{item.itemname}}</p>
-                        <p class="card-text">{{item.itemcost}}</p>
-                        <p class="card-text">{{item.itemstatus}}</p>
+    <div class="row">
+        <div class="col-8">
+            <div class="row">
+                <div *ngFor="let item of items" class="col-4 col-md-6 mt-3">
+                    <div class="card">
+                        <img class="card-img-top" src="{{item.itemimage}}" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">{{item.itemname}}</p>
+                            <p class="card-text">{{item.itemcost}}</p>
+                            <p class="card-text">{{item.itemstatus}}</p>
+                        </div>
+                        <div class="card-body">
+                            <button class=" btn-success card-text" (click)="addToCart">Add to Cart</button>
+                            <button class=" btn-success card-text" (click)="updateItem(item.itemid)"> Update Item</button>
+                            <button class=" btn-success card-text" (click)="deleteItem(item.itemid)"> Delete Item</button> 
+                        </div>
                     </div>
-                    <div> <button class="btn btn-success" (click)="addToCart">Add to Cart</button> </div>
                 </div>
             </div>
         </div>
+        <div class="col-4"><app-registereditem></app-registereditem></div>
     </div>
 </div>
