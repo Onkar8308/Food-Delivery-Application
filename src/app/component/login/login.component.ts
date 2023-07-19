@@ -10,46 +10,65 @@ import { LoginService } from 'src/app/service/login.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent{
 
-  customeremail:string="";
-  password:string="";
-  private cust = new Customer('',0,'','');
+  loginData: { restloginemail: string, restloginpassword: string } = {
 
-  //constructor(private router:Router,private hardcodedAuthentication:HardcodedAuthenticationService){}
-  constructor(private loginservice:LoginService,private route:ActivatedRoute, private router:Router,private hardcodedAuthentication:HardcodedAuthenticationService){}
-  ngOnInit(): void {
-    if(this.hardcodedAuthentication.isUserLoggedIn()){
-      this.router.navigate(['welcome',localStorage.getItem('customerid')]);
-    }
-    else{
-      this.router.navigate(['login']);
-    }
-  }
-
-  loginValid(){
-
-    this.cust.customeremail = this.customeremail;
-    this.cust.password = this.password;
-
-    // this.loginservice.getCustomerByEmail(this.customeremail,this.password).subscribe(
-    //   response =>{
-    //     let result = 
-    //   }
-    //)
-
-    if(this.hardcodedAuthentication.authenticateUser(this.customeremail,this.password)){
-      // this.res = "Valid user";
-      //this.router.navigate(['welcome',this.customername]);
-
-      this.router.navigate(['welcome',localStorage.getItem('customerid')])
-    }
-    else{
-      this.router.navigate(['login']);
-    }
-
-  }
- 
+     restloginemail: '',
+    
+     restloginpassword: ''
+    
+    };
+    
+    
+    
+    
+     constructor(private loginservice: LoginService, private router: Router) { }
+    
+    
+    
+    
+     loginValid() {
+    
+    console.log("Inside login");
+    
+    
+    
+    
+     this.loginservice.getcustomerByEmail1(this.loginData.restloginemail, this.loginData.restloginpassword)
+    
+     .subscribe(
+    
+     (data: Customer) => {
+    
+     if (data) {
+    
+     console.log("Login successful");
+    
+     // Redirect to AddRestaurant page or any other page you want
+    
+     //this.router.navigate(['AddRestaurant']);
+    
+     } else {
+    
+     console.log("Login failed");
+    
+     // Handle login failure, show error message, etc.
+    
+     }
+    
+     },
+    
+     error => {
+    
+     console.error("Login error:", error);
+    
+     // Handle login error, show error message, etc.
+    
+     }
+    
+     );
+    
+   }
 
 }
-

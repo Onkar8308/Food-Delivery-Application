@@ -12,10 +12,11 @@ export class RegisterComponent implements OnInit {
 
   // cust:Customer=new Customer(this.customername,0,'','');
   customername:string="";
-  customermobilenumber:number=0;
+  customermobilenumber:string='';
   //customeremail:string="ijk@gmail.com";
   customeremail:string="";
   password:string="";
+  successmessage:string="";
   //cust:Customer;
   cust:Customer=new Customer(this.customername,this.customermobilenumber,this.customeremail,this.password);
 
@@ -33,6 +34,7 @@ export class RegisterComponent implements OnInit {
       data=>{
         this.cust=data;
         console.log(data);
+        this.successmessage="Registration Successful!";
         //this.router.navigate(['login']);
       }
   
@@ -41,6 +43,9 @@ export class RegisterComponent implements OnInit {
 
 }
 
+
+
 export class Customer{
-  constructor(public customername:string, public customermobilenumber:number, public customeremail:string, public password:string){}
+  // [x: string]: any;
+  constructor(public customername:string, public customermobilenumber:string, public customeremail:string, public password:string){}
 }
