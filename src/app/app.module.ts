@@ -18,14 +18,18 @@ import { RestaurantsComponent } from './component/restaurants/restaurants.compon
 import { RestaurantAdminComponent } from './component/restaurant-admin/restaurant-admin.component';
 import { ItemComponent } from './component/item/item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
 import { RegistereditemComponent } from './component/registereditem/registereditem.component';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule} from '@angular/material/icon';
 import { AddRestaurantComponent } from './component/add-restaurant/add-restaurant.component';
 import { RestaurantSignupComponent } from './component/restaurant-signup/restaurant-signup.component';
 import { RestaurantRegistrationComponent } from './component/restaurant-registration/restaurant-registration.component';
 import { RestaurantLoginComponent } from './component/restaurant-login/restaurant-login.component';
-import { UpdateItemComponent} from './component/update-item/update-item.component'
+import { UpdateItemComponent} from './component/update-item/update-item.component';
+import { AdminMenuComponent } from './component/admin-menu/admin-menu.component';
+import { CustomerDataComponent } from './component/customer-data/customer-data.component';
+import { CustomerDataEditComponent } from './component/customer-data-edit/customer-data-edit.component';
+import { AdminLoginComponent } from './component/admin-login/admin-login.component';
 
 
 @NgModule({
@@ -47,7 +51,11 @@ import { UpdateItemComponent} from './component/update-item/update-item.componen
     RestaurantSignupComponent,
     RestaurantRegistrationComponent,
     RestaurantLoginComponent,
-    UpdateItemComponent
+    UpdateItemComponent,
+    AdminMenuComponent,
+    CustomerDataComponent,
+    CustomerDataEditComponent,
+    AdminLoginComponent,
   ],
   imports: [
     BrowserModule,

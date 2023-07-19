@@ -50,6 +50,7 @@ export class RegistereditemComponent implements OnInit {
     this.data.saveItemByRestId(this.id,Items).subscribe(
       (response:any) => {
         console.log(response);
+        this.router.navigate(['item',this.id]);
       },
 
       (error:any) => {

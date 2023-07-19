@@ -13,9 +13,13 @@ import { RestaurantSignupComponent } from './component/restaurant-signup/restaur
 import { AddRestaurantComponent } from './component/add-restaurant/add-restaurant.component';
 import { RestaurantRegistrationComponent } from './component/restaurant-registration/restaurant-registration.component';
 import { UpdateItemComponent } from './component/update-item/update-item.component';
+import { CustomerDataComponent } from './component/customer-data/customer-data.component';
+import { CustomerDataEditComponent } from './component/customer-data-edit/customer-data-edit.component';
 
 const routes: Routes = [
-  {path:'',component:RestaurantLoginComponent},//this is a default path
+  // {path:'',component:RestaurantLoginComponent},//this is a default path
+  // {path:'',component:CustomerDataComponent},
+
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'invoice',component:InvoiceComponent},
@@ -27,8 +31,9 @@ const routes: Routes = [
   {path:'RestaurantSignup',component:RestaurantSignupComponent},
   {path:'AddRestaurant',component:AddRestaurantComponent},
   {path: 'RegisterRestaurant', component:RestaurantRegistrationComponent},
-  {path:'RestaurantLogin',component:RestaurantLoginComponent},
   {path:'updateItem/:Iid',component:UpdateItemComponent},
+  {path:'customer',component:CustomerDataComponent},
+  {path:'customerEdit/:id',component:CustomerDataEditComponent},
 ];
 
 @NgModule({

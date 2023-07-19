@@ -27,4 +27,8 @@ export class ItemServiceService {
   updateItemById(id:number, item:any){
     return this.http.put(`http://localhost:9999/updateItemById/${id}`,item);
   }
+
+  deleteItem(id:number){
+    return this.http.delete<Item[]>(`http://localhost:9999/deleteItemById/${id}`);
+  }
 }

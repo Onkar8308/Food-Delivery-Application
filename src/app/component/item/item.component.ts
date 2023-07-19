@@ -26,7 +26,6 @@ export class ItemComponent implements OnInit {
 
       this.itemservice.getItemByRestId(this.id).subscribe(
         data=>{
-        
         console.log(data);
         this.items=data;
         }
@@ -41,6 +40,16 @@ export class ItemComponent implements OnInit {
     this.router.navigate(['updateItem',id]);
   }
   
-  deleteItem(id:number): void {}
+  deleteItem(id:number): void {
+    this.id=this.route.snapshot.params['id'];
+
+    this.itemservice.deleteItem(id).subscribe(
+      respose=>{
+        this.items=respose;
+        console.log(this.items);
+        // this.router.navigate(['item',this.id]);
+      }
+    );
+  }
 
 }
