@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Customer } from 'src/app/class/customer';
 import { CustomerdataService } from 'src/app/service/customerdata.service';
@@ -8,23 +8,35 @@ import { CustomerdataService } from 'src/app/service/customerdata.service';
   templateUrl: './customer-data-edit.component.html',
   styleUrls: ['./customer-data-edit.component.css']
 })
-export class CustomerDataEditComponent {
-  // id:number=0;
+export class CustomerDataEditComponent implements OnInit {
 
-  // customer:Customer[]=[];
+  id:number;
 
-  // constructor(private customerservice:CustomerdataService,private router:Router,private route:ActivatedRoute){}
-  // ngOnInit(): void {
-  //   this.id=this.route.snapshot.params['id']; //to take url id 
-  //   console.log(this.id);
+  customer:Customer
 
+  constructor(
+    private route: ActivatedRoute,
+    private customerservice: CustomerdataService,
+    private router:Router){};
 
-  //   this.customerservice.getCustomerById(this.id).subscribe(
-  //     response =>{
-  //       this.customer = response;
-  //       console.log(this.customer);
-  //     }
-  //   )
-  // }
+  ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
 
+    this.customer = new Customer(this.id,'',0,'','');
+
+    if(this.id!=-1){
+      this.customerservice.getCustomerById(this.id).subscribe(
+        response => this.customer = response
+      )
+    }
+  }
+
+  
+  updateItem(): void{
+    this.id = this.route.snapshot.params['id'];
+
+    this.customerservice.updateCustomerById(this.id,this.customer).subscribe(
+      data=> this.router.navigate(['customer'])
+    )
+  }
 }
