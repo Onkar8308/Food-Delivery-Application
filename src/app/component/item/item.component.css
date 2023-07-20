@@ -70,6 +70,8 @@
 
   .bg-img {
     background: url(https://wallpaperaccess.com/full/1843875.jpg);
+    background-color: grey;
+    background-blend-mode: multiply;
     height: 150vh;
     background-size: cover;
     background-position: center;

@@ -1,4 +1,4 @@
-<div class="Home">
+<div>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -23,15 +23,18 @@
           <li><button *ngIf="!hardcodedAuthentication.isUserLoggedIn()" (click)="Openpopup()" mat-raised-button class="btn btn-outline-primary mr-10">Log in</button></li>
         </ul>
 
-          <li><button *ngIf="!hardcodedAuthentication.isUserLoggedIn()" (click)="Openpopup2()"mat-raised-button class="btn btn-outline-primary ml-10">Sign in</button></li>
+          <li><button *ngIf="!hardcodedAuthentication.isUserLoggedIn()" (click)="Openpopup2()"mat-raised-button class="btn btn-outline-primary ml-10">Sign up</button></li>
         
-          <li><button *ngIf="hardcodedAuthentication.isUserLoggedIn()" mat-raised-button class="btn btn-outline-primary ml-10">Log Out</button></li>
+          <li><button *ngIf="hardcodedAuthentication.isUserLoggedIn()" routerLink="/logout" mat-raised-button class="btn btn-outline-primary ml-10">Log Out</button></li>
       </div>
     </nav>
 
-    
-<div class="container">
-  <h1 class="heading2">Food Delivery Application</h1>
+</div>
+
+
+
+  <div class="container1" *ngIf="!hardcodedAuthentication.isUserLoggedIn()">
+    <h1 class="heading2">Food Delivery Application</h1>
   <div class="container2">
       <h3>Discover the best food & drinks near you</h3>
   </div>
@@ -43,6 +46,4 @@
           </form>
         </nav>
   </div>
-</div>
-
 </div>

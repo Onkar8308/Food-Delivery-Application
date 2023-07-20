@@ -11,7 +11,7 @@ import { HardcodedAuthenticationService } from 'src/app/service/hardcoded-authen
 })
 export class MenuComponent {
 
-  // constructor(private dialog:MatDialog, public hardcodedAuthentication:HardcodedAuthenticationService){}
+  //constructor(private dialog:MatDialog, public hardcodedAuthentication:HardcodedAuthenticationService){}
 
   // //for login popup
   // Openpopup(){

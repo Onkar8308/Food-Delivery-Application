@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from 'src/app/class/item';
 import { ItemServiceService } from 'src/app/service/item-service.service';
 import { Restaurant } from '../restaurants/restaurants.component';
+import { HardcodedAuthenticationService } from 'src/app/service/hardcoded-authentication.service';
 
 @Component({
   selector: 'app-item',
@@ -16,7 +17,7 @@ export class ItemComponent implements OnInit {
 
 
   restaurant : Restaurant;
-  constructor(private itemservice: ItemServiceService,private router:Router,private route:ActivatedRoute){};
+  constructor(public hardcodedAuthentication:HardcodedAuthenticationService,private itemservice: ItemServiceService,private router:Router,private route:ActivatedRoute){};
 
   ngOnInit(): void {
      this.id=this.route.snapshot.params['id'];

@@ -4,22 +4,39 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class HardcodedAuthenticationService {
+
+  constructor() { }
+
   authenticate(email:string,password:string){
 
     sessionStorage.setItem("authenticateduser",email);
     return true;
 }
 
+isUserLoggedIn(){
+  let user = sessionStorage.getItem('authenticateduser');
+  return !(user==null);
+}
 
-  constructor() { }
+logout(){
+  sessionStorage.removeItem('authenticateduser');
+}
 
 
-  isUserLoggedIn(){
-    let user = sessionStorage.getItem('authenticateduser');
-    return !(user==null);
+  authenticateAdmin(email:string,password:string){
+    sessionStorage.setItem("authenticatedadmin",email);
+    return true;
   }
 
-  logout(){
-    sessionStorage.removeItem('authenticateduser');
+
+  isAdminLoggedIn(){
+    let admin = sessionStorage.getItem('authenticatedadmin');
+    return !(admin==null);
   }
+
+
+  Adminlogout(){
+    sessionStorage.removeItem('authenticatedadmin');
+  }
+  
 }
