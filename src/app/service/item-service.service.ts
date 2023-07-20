@@ -28,8 +28,8 @@ export class ItemServiceService {
     return this.http.put<Item>(`http://localhost:9999/updateItemById/${id}`,item);
   }
 
-  deleteItem(id:number){
-    return this.http.delete<Item[]>(`http://localhost:9999/deleteItemById/${id}`);
+  deleteItem(id:number,rid:number){
+    return this.http.delete<Item[]>(`http://localhost:9999/deleteItemById/${id}/${rid}`);
   }
 
   getItemById(id:number){

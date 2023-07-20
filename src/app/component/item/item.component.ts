@@ -48,12 +48,12 @@ export class ItemComponent implements OnInit {
   deleteItem(id:number): void {
     this.id=this.route.snapshot.params['id'];
 
-    this.itemservice.deleteItem(id).subscribe(
+    this.itemservice.deleteItem(id,this.id).subscribe(
       respose=>{
         this.items=respose;
         console.log(this.items);
         // this.router.navigate(['item',this.id]);
-      }
+      } 
     );
   }
 
