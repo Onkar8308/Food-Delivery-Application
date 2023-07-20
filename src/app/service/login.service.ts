@@ -10,7 +10,7 @@ export class LoginService {
   constructor(private http:HttpClient) { }
 
   addCustomer(customer:Customer){
-    return this.http.post<Customer>(`http://localhost:8990/saveCustomer`,customer);
+    return this.http.post<Customer>(`http://localhost:9999/saveCustomer`,customer);
   }
 
   
@@ -19,6 +19,6 @@ export class LoginService {
   // }
 
   getcustomerByEmail1(customeremail:string,password:string){
-    return this.http.get<Customer>(`http://localhost:8990/getCustomerByEmail/${customeremail}/${password}`);
+    return this.http.get<Customer>(`http://localhost:9999/getCustomerByEmail/${customeremail}/${password}`);
   }
 }

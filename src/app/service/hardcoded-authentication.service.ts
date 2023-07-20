@@ -4,21 +4,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class HardcodedAuthenticationService {
-  authenticateAdmin(adminname:string,password:string){
-    if(adminname==="admin" && password==="admin123"){
-      sessionStorage.setItem("authenticatedAdmin",adminname);
-      return true;
-    }
-    return false;
-  }
-
-  authenticateUser(username:string,userpassword:string){
-    if(username==="admin" && userpassword==="admin123"){
-      sessionStorage.setItem("authenticatedUser",username);
-      return true;
-    }
-    return false;
-  }
+  authenticate(email:string,password:string){
+    sessionStorage.setItem("authenticateduser",email);
+    return true;
+}
 
 
   constructor() { }
