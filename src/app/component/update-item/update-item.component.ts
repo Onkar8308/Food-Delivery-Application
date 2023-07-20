@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from 'src/app/class/item';
 import { ItemServiceService } from 'src/app/service/item-service.service';
@@ -9,52 +8,37 @@ import { ItemServiceService } from 'src/app/service/item-service.service';
   templateUrl: './update-item.component.html',
   styleUrls: ['./update-item.component.css']
 })
-export class UpdateItemComponent implements OnInit {
-  id: number;
+export class UpdateItemComponent  implements OnInit {
+  
+  id:number;
+  rid:number;
+  item:Item;
 
-  item: Item;
-
-  constructor(private router: Router, private route: ActivatedRoute, private data:ItemServiceService){};
+  constructor(private router:Router, private itemService:ItemServiceService, private route:ActivatedRoute){};
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
+
+    console.log(this.id);
+
     this.item = new Item(this.id,'','',0,'');
 
-    // if (this.id != -1) {
-    //   this.data.getItemByRestId(this.id).subscribe(
-    //     data => this.item = data;
-    // }
+    if(this.id!=-1){
+      this.itemService.getItemById(this.id).subscribe(
+        response => this.item = response
+      )
+    }
   }
 
-  
-  updateForm = new FormGroup({
-    itemname : new FormControl(''),
-    itemstatus : new FormControl(''),
-    itemcost : new FormControl('')
-  });
+  updateItem(): void {
+      this.id = this.route.snapshot.params['id'];
+      this.rid = this.route.snapshot.params['rid'];
+      console.log(this.id)
 
-  
-  updateItem() : void {
-    this.id = this.route.snapshot.params['id'];
-
-    // this.item = {
-    //   this.itemname = this.updateForm.value.itemname,
-    //   this.itemstatus = this.updateForm.value.itemstatus,
-    //   this.itemcost = this.updateForm.value.itemcost
-    // };
-
-
-
-    // this.item = new Item(this.id,'','',0,'');
-
-    this.data.updateItemById(this.id,this.item).subscribe(
-      (response:any) => {
-        console.log(response);
-      },
-
-      (error:any) => {
-        console.log(error);
-      }
-    )
-  }; 
+      this.itemService.updateItemById(this.id,this.item).subscribe(
+        data =>{
+          this.router.navigate(['item',this.rid]);
+        }
+      )
+  };
 }

@@ -11,7 +11,7 @@ import { ItemServiceService } from 'src/app/service/item-service.service';
   styleUrls: ['./registereditem.component.css']
 })
 export class RegistereditemComponent implements OnInit {
-  id:number=0;
+  id:number;
 
   // items : Item[] = [];
 
