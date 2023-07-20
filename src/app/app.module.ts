@@ -30,6 +30,7 @@ import { AdminMenuComponent } from './component/admin-menu/admin-menu.component'
 import { CustomerDataComponent } from './component/customer-data/customer-data.component';
 import { CustomerDataEditComponent } from './component/customer-data-edit/customer-data-edit.component';
 import { AdminLoginComponent } from './component/admin-login/admin-login.component';
+import { AdminComponent } from './class/admin/admin.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { AdminLoginComponent } from './component/admin-login/admin-login.compone
     CustomerDataComponent,
     CustomerDataEditComponent,
     AdminLoginComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
