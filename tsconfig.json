@@ -11,6 +11,7 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "strictPropertyInitialization": false, //don't want to initialize since data might come late
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,

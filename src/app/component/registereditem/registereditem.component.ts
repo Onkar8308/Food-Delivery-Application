@@ -11,7 +11,7 @@ import { ItemServiceService } from 'src/app/service/item-service.service';
   styleUrls: ['./registereditem.component.css']
 })
 export class RegistereditemComponent implements OnInit {
-  id:number=0;
+  id:number;
 
   // items : Item[] = [];
 
@@ -50,6 +50,7 @@ export class RegistereditemComponent implements OnInit {
     this.data.saveItemByRestId(this.id,Items).subscribe(
       (response:any) => {
         console.log(response);
+        this.router.navigate(['item',this.id]);
       },
 
       (error:any) => {

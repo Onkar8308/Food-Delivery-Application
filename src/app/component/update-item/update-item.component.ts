@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Item } from 'src/app/class/item';
 import { ItemServiceService } from 'src/app/service/item-service.service';
 
 @Component({
@@ -8,38 +8,37 @@ import { ItemServiceService } from 'src/app/service/item-service.service';
   templateUrl: './update-item.component.html',
   styleUrls: ['./update-item.component.css']
 })
-export class UpdateItemComponent implements OnInit {
-  id: number = 0;
+export class UpdateItemComponent  implements OnInit {
+  
+  id:number;
+  rid:number;
+  item:Item;
+
+  constructor(private router:Router, private itemService:ItemServiceService, private route:ActivatedRoute){};
 
   ngOnInit(): void {
-    
-  }
-
-  constructor(private router: Router, private route: ActivatedRoute, private data:ItemServiceService){};
-  
-  updateForm = new FormGroup({
-    itemname : new FormControl(''),
-    itemstatus : new FormControl(''),
-    itemcost : new FormControl('')
-  });
-
-  updateItem() : void {
     this.id = this.route.snapshot.params['id'];
 
-    const Items = {
-      itemname : this.updateForm.value.itemname,
-      itemstatus : this.updateForm.value.itemstatus,
-      itemcost : this.updateForm.value.itemcost
-    };
+    console.log(this.id);
 
-    this.data.updateItemById(this.id,Items).subscribe(
-      (response:any) => {
-        console.log(response);
-      },
+    this.item = new Item(this.id,'','',0,'');
 
-      (error:any) => {
-        console.log(error);
-      }
-    )
-  }; 
+    if(this.id!=-1){
+      this.itemService.getItemById(this.id).subscribe(
+        response => this.item = response
+      )
+    }
+  }
+
+  updateItem(): void {
+      this.id = this.route.snapshot.params['id'];
+      this.rid = this.route.snapshot.params['rid'];
+      console.log(this.id)
+
+      this.itemService.updateItemById(this.id,this.item).subscribe(
+        data =>{
+          this.router.navigate(['item',this.rid]);
+        }
+      )
+  };
 }

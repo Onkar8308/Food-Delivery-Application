@@ -12,10 +12,15 @@ import { RestaurantLoginComponent } from './component/restaurant-login/restauran
 import { RestaurantSignupComponent } from './component/restaurant-signup/restaurant-signup.component';
 import { AddRestaurantComponent } from './component/add-restaurant/add-restaurant.component';
 import { RestaurantRegistrationComponent } from './component/restaurant-registration/restaurant-registration.component';
+import { CustomerDataComponent } from './component/customer-data/customer-data.component';
+import { CustomerDataEditComponent } from './component/customer-data-edit/customer-data-edit.component';
+import { RegistereditemComponent } from './component/registereditem/registereditem.component';
 import { UpdateItemComponent } from './component/update-item/update-item.component';
 
 const routes: Routes = [
-  {path:'',component:RestaurantLoginComponent},//this is a default path
+  // {path:'',component:RestaurantLoginComponent},//this is a default path
+  // {path:'',component:CustomerDataComponent},
+
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'invoice',component:InvoiceComponent},
@@ -27,8 +32,10 @@ const routes: Routes = [
   {path:'RestaurantSignup',component:RestaurantSignupComponent},
   {path:'AddRestaurant',component:AddRestaurantComponent},
   {path: 'RegisterRestaurant', component:RestaurantRegistrationComponent},
-  {path:'RestaurantLogin',component:RestaurantLoginComponent},
-  {path:'updateItem/:Iid',component:UpdateItemComponent},
+  {path:'customer',component:CustomerDataComponent},
+  {path:'customerEdit/:id',component:CustomerDataEditComponent},
+  {path:'registerItem/:id',component:RegistereditemComponent},
+  {path:'updateItem/:id/:rid',component:UpdateItemComponent},
 ];
 
 @NgModule({

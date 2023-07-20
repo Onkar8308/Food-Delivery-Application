@@ -24,7 +24,15 @@ export class ItemServiceService {
     return this.http.post(`http://localhost:9999/saveItemByRestIdi/${id}`,item);
   }
 
-  updateItemById(id:number, item:any){
-    return this.http.put(`http://localhost:9999/updateItemById/${id}`,item);
+  updateItemById(id:number,item:Item){
+    return this.http.put<Item>(`http://localhost:9999/updateItemById/${id}`,item);
+  }
+
+  deleteItem(id:number){
+    return this.http.delete<Item[]>(`http://localhost:9999/deleteItemById/${id}`);
+  }
+
+  getItemById(id:number){
+    return this.http.get<Item>(`http://localhost:9999/getItemById/${id}`);
   }
 }

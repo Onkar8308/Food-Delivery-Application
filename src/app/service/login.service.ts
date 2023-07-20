@@ -15,7 +15,7 @@ export class LoginService {
 
   
   // getCustomerByEmail(customeremail:string,password:string){
-  //   return this.http.get<Customer>(`http://localhost:8990/getCustomerByEmail/${customeremail}/${password}`);
+  //   return this.http.get<Customer>(`http://localhost:9999/getCustomerByEmail/${customeremail}/${password}`);
   // }
 
   getcustomerByEmail1(customeremail:string,password:string){
