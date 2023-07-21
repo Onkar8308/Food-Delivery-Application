@@ -66,8 +66,8 @@ export class MenuComponent {
 
   adminlogout(){
     sessionStorage.removeItem("authenticatedadmin");
-    this.router.navigate(['logout']);
+    sessionStorage.removeItem("authenticateduser");
+    sessionStorage.removeItem("authenticatedrest");
+    this.router.navigate(['']);
   }
-
-
 }
