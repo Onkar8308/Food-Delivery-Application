@@ -1,0 +1,31 @@
+
+<div class="container">
+    <div class="form-wrapper">
+        <form (ngSubmit)="!customerForm.invalid && updatingCustomer()" #customerForm="ngForm">
+            <div class="form-group">
+                <label for="name">Customer name:</label>
+                <input type="text" class="form-control" placeholder="Enter name" id="customername"
+                #customername="ngModel" [(ngModel)]="customer.customername" name="customername" required="required">
+            </div>
+            <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" class="form-control" placeholder="Enter email" id="customeremail"
+                #customeremail="ngModel" [(ngModel)]="customer.customeremail" name="customeremail">
+            </div>
+            <div class="form-group">
+                <label for="mobilenumber">Mobile number:</label>
+                <input type="number" class="form-control" placeholder="Enter mobile number" id="customermobilenumber"
+                #customermobilenumber="ngModel" [(ngModel)]="customer.customermobilenumber" name="customermobilenumber">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" placeholder="Enter password" id="password"
+                #password="ngModel" [(ngModel)]="customer.password" name="password">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">update</button>
+            </div>
+        </form>
+    </div>
+</div>
+

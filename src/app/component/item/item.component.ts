@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from 'src/app/class/item';
 import { ItemServiceService } from 'src/app/service/item-service.service';
+import { Restaurant } from '../restaurants/restaurants.component';
 
 @Component({
   selector: 'app-item',
@@ -9,9 +10,12 @@ import { ItemServiceService } from 'src/app/service/item-service.service';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
-  id:number=0;
+  id:number;
 
   items : Item[] = [];
+
+
+  restaurant : Restaurant;
   constructor(private itemservice: ItemServiceService,private router:Router,private route:ActivatedRoute){};
 
   ngOnInit(): void {
@@ -37,19 +41,24 @@ export class ItemComponent implements OnInit {
   addToCart(): void {}
 
   updateItem(id:number): void {
-    this.router.navigate(['updateItem',id]);
+    this.id = this.route.snapshot.params['id'];
+    this.router.navigate(['updateItem',id,this.id]);
   }
   
   deleteItem(id:number): void {
     this.id=this.route.snapshot.params['id'];
 
-    this.itemservice.deleteItem(id).subscribe(
+    this.itemservice.deleteItem(id,this.id).subscribe(
       respose=>{
         this.items=respose;
         console.log(this.items);
         // this.router.navigate(['item',this.id]);
-      }
+      } 
     );
   }
 
+  addItem(): void {
+    this.id = this.route.snapshot.params['id'];
+    this.router.navigate(['registerItem',this.id]);
+  }
 }

@@ -13,4 +13,8 @@ export class DataRestaurantService {
     return this.http.get<Restaurant[]>
       (`http://localhost:9999/getAllRestaurant`);
   }
+  deleterest(id:number){
+    return this.http.delete<Restaurant[]>
+      (`http://localhost:9999/deleteRestaurantById/${id}`);
+  }
 }

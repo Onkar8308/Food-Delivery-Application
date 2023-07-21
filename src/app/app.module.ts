@@ -7,7 +7,7 @@ import { LoginComponent } from './component/login/login.component';
 import { LogoutComponent } from './component/logout/logout.component';
 import { MenuComponent } from './component/menu/menu.component';
 import { FooterComponent } from './component/footer/footer.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './component/register/register.component';
 import { MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule,HttpHeaders } from '@angular/common/http';
@@ -31,6 +31,8 @@ import { CustomerDataComponent } from './component/customer-data/customer-data.c
 import { CustomerDataEditComponent } from './component/customer-data-edit/customer-data-edit.component';
 import { AdminLoginComponent } from './component/admin-login/admin-login.component';
 import { AdminComponent } from './class/admin/admin.component';
+import { RestaurantDataComponent } from './component/restaurant-data/restaurant-data.component';
+import { RestaurantdataEditComponent } from './component/restaurantdata-edit/restaurantdata-edit.component';
 
 
 @NgModule({
@@ -58,6 +60,8 @@ import { AdminComponent } from './class/admin/admin.component';
     CustomerDataEditComponent,
     AdminLoginComponent,
     AdminComponent,
+    RestaurantDataComponent,
+    RestaurantdataEditComponent,
   ],
   imports: [
     BrowserModule,
