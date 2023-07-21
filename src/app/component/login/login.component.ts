@@ -100,7 +100,9 @@ export class LoginComponent{
       //sessionStorage.setItem("authenticatedAdmin",this.loginData.restloginemail);
         console.log(data.username);
         this.dialog.close();
-        this.router.navigate(['admin']);
+        
+        this.router.navigate(['customeradmin']);
+        
    
     } else {
    

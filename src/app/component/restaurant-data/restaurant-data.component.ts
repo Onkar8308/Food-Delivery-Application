@@ -36,4 +36,8 @@ export class RestaurantDataComponent {
     );
   }
 
+  viewItems(id:number){
+    this.router.navigate(['item',id]);
+  }
+
 }

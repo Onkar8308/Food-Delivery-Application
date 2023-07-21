@@ -6,27 +6,37 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
+
+          <!-- user -->
           <li class="nav-item active">
             <a class="nav-link" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Add Restaurant</a>
+            <a class="nav-link" *ngIf="!hardcodedAuthentication.isUserLoggedIn() || hardcodedAuthentication.isAdminLoggedIn()">Add Restaurant</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Help</a>
+            <a *ngIf="!hardcodedAuthentication.isUserLoggedIn() && !hardcodedAuthentication.isAdminLoggedIn()" class="nav-link" href="#">Help</a>
           </li>
           <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <input *ngIf="hardcodedAuthentication.isUserLoggedIn()" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button *ngIf="hardcodedAuthentication.isUserLoggedIn()" class="btn btn-outline-success" type="submit">Search</button>
           </form>
+
+          <!-- Admin -->
+          <li class="nav-item">
+            <a *ngIf="hardcodedAuthentication.isAdminLoggedIn()" class="nav-link" (click)="customerview()">All Customer</a>
+          </li>
+          <li class="nav-item">
+            <a *ngIf="hardcodedAuthentication.isAdminLoggedIn()" class="nav-link" (click)="resturantview()">All Restaurant</a>
+          </li>
         </ul>
         <ul class="navbar-nav navbar-collapse justify-content-end">
-          <li><button *ngIf="!hardcodedAuthentication.isUserLoggedIn()" (click)="Openpopup()" mat-raised-button class="btn btn-outline-primary mr-10">Log in</button></li>
+          <li><button *ngIf="!hardcodedAuthentication.isUserLoggedIn() && !hardcodedAuthentication.isAdminLoggedIn()" (click)="Openpopup()" mat-raised-button class="btn btn-outline-primary mr-10">Log in</button></li>
         </ul>
 
-          <li><button *ngIf="!hardcodedAuthentication.isUserLoggedIn()" (click)="Openpopup2()"mat-raised-button class="btn btn-outline-primary ml-10">Sign up</button></li>
+          <li><button *ngIf="!hardcodedAuthentication.isUserLoggedIn() && !hardcodedAuthentication.isAdminLoggedIn()" (click)="Openpopup2()"mat-raised-button class="btn btn-outline-primary ml-10">Sign up</button></li>
         
-          <li><button *ngIf="hardcodedAuthentication.isUserLoggedIn()" routerLink="/logout" mat-raised-button class="btn btn-outline-primary ml-10">Log Out</button></li>
+          <li><button *ngIf="hardcodedAuthentication.isUserLoggedIn() || hardcodedAuthentication.isAdminLoggedIn()" (click)="adminlogout()" mat-raised-button class="btn btn-outline-primary ml-10">Log Out</button></li>
       </div>
     </nav>
 
@@ -34,7 +44,7 @@
 
 
 
-  <div class="container1" *ngIf="!hardcodedAuthentication.isUserLoggedIn()">
+  <div class="container1" *ngIf="!hardcodedAuthentication.isUserLoggedIn() && !hardcodedAuthentication.isAdminLoggedIn() ">
     <h1 class="heading2">Food Delivery Application</h1>
   <div class="container2">
       <h3>Discover the best food & drinks near you</h3>

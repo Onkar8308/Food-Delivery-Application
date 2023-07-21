@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import { HardcodedAuthenticationService } from 'src/app/service/hardcoded-authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -35,7 +36,7 @@ export class MenuComponent {
 
   isUserLoggedIn:boolean=false;
 
-  constructor(private dialog:MatDialog, public hardcodedAuthentication:HardcodedAuthenticationService){}
+  constructor(private dialog:MatDialog, public hardcodedAuthentication:HardcodedAuthenticationService,public router:Router){}
 
   ngOnInit(): void {
     this.isUserLoggedIn=this.hardcodedAuthentication.isUserLoggedIn();
@@ -54,6 +55,18 @@ export class MenuComponent {
       width:'50%',
       height:'500px'
     })
+  }
+
+  customerview(){ 
+    this.router.navigate(['customeradmin']); 
+  }
+  resturantview(){
+    this.router.navigate(['restaurantadmin'])
+  }
+
+  adminlogout(){
+    sessionStorage.removeItem("authenticatedadmin");
+    this.router.navigate(['logout']);
   }
 
 

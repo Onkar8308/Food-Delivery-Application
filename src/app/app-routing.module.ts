@@ -25,8 +25,7 @@ import { MenuComponent } from './component/menu/menu.component';
 
 const routes: Routes = [
   // {path:'',component:RestaurantLoginComponent},//this is a default path
-  // {path:'',component:CustomerDataComponent},
-{path:"",component:MenuComponent},
+   {path:'logoutadmin',component:MenuComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'invoice',component:InvoiceComponent},
