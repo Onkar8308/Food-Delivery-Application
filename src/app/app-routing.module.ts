@@ -16,8 +16,10 @@ import { CustomerDataComponent } from './component/customer-data/customer-data.c
 import { CustomerDataEditComponent } from './component/customer-data-edit/customer-data-edit.component';
 import { RegistereditemComponent } from './component/registereditem/registereditem.component';
 import { UpdateItemComponent } from './component/update-item/update-item.component';
+
 import { RestaurantDataComponent } from './component/restaurant-data/restaurant-data.component';
 import { RestaurantdataEditComponent } from './component/restaurantdata-edit/restaurantdata-edit.component';
+
 
 const routes: Routes = [
   // {path:'',component:RestaurantLoginComponent},//this is a default path
@@ -39,6 +41,7 @@ const routes: Routes = [
   {path:'registerItem/:id',component:RegistereditemComponent},
   {path:'updateItem/:id/:rid',component:UpdateItemComponent},
   {path:'restaurantEdit/:id',component:RestaurantdataEditComponent},
+
 ];
 
 @NgModule({

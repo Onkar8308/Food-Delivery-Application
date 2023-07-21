@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
 
@@ -20,7 +21,7 @@ export class RegisterComponent implements OnInit {
   //cust:Customer;
   cust:Customer=new Customer(this.customername,this.customermobilenumber,this.customeremail,this.password);
 
-  constructor(private loginservice:LoginService,private route:ActivatedRoute, private router:Router){}
+  constructor(public dialog: MatDialogRef<RegisterComponent>,private loginservice:LoginService,private route:ActivatedRoute, private router:Router){}
   ngOnInit(): void {
     this.customername=this.route.snapshot.params['customername']; //to take url id 
     
@@ -34,7 +35,8 @@ export class RegisterComponent implements OnInit {
       data=>{
         this.cust=data;
         console.log(data);
-        this.successmessage="Registration Successful!";
+        this.successmessage="Registration Successful! Please Login";
+        this.dialog.close();
         //this.router.navigate(['login']);
       }
   
@@ -47,5 +49,6 @@ export class RegisterComponent implements OnInit {
 
 export class Customer{
   // [x: string]: any;
+  // role : string = '';
   constructor(public customername:string, public customermobilenumber:string, public customeremail:string, public password:string){}
 }

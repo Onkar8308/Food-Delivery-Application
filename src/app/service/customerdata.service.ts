@@ -14,12 +14,17 @@ export class CustomerdataService {
       (`http://localhost:9999/getAllCustomer`);
   }
   getCustomerById(id:number){
-    return this.http.get<Customer[]>
+    return this.http.get<Customer>
     (`http://localhost:9999/getCustomerById/${id}`);
   }
 
   deleteCustomerById(id:number){
     return this.http.delete<Customer[]>
       (`http://localhost:9999/deleteCustomerById/${id}`)
+  }
+
+  updateCustomerById(id:number, customer:Customer){
+    return this.http.put<Customer>
+      (`http://localhost:9999/updateCustomerById/${id}`,customer)
   }
 }

@@ -19,6 +19,7 @@ export class UpdateItemComponent  implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
 
+
     console.log(this.id);
 
     this.item = new Item(this.id,'','',0,'');
@@ -43,4 +44,29 @@ export class UpdateItemComponent  implements OnInit {
   };
 
   
+
+
+  //   console.log(this.id);
+
+  //   this.item = new Item(this.id,'','',0,'');
+
+  //   if(this.id!=-1){
+  //     this.itemService.getItemById(this.id).subscribe(
+  //       response => this.item = response
+  //     )
+  //   }
+  // }
+
+  // updateItem(): void {
+  //     this.id = this.route.snapshot.params['id'];
+  //     this.rid = this.route.snapshot.params['rid'];
+  //     console.log(this.id)
+
+  //     this.itemService.updateItemById(this.id,this.item).subscribe(
+  //       data =>{
+  //         this.router.navigate(['item',this.rid]);
+  //       }
+  //     )
+  // };
+
 }

@@ -20,13 +20,13 @@ export class AdminLoginComponent {
    
     loginValid() {
       console.log("Inside login");
-    this.loginservice.getAdminByEmail(this.loginData.adminloginemail, this.loginData.adminloginpassword).subscribe(
-   (data: Admin) => {
-   if (data) {
-   console.log("Login successful");
-   sessionStorage.setItem("authenticatedAdmin",this.loginData.adminloginemail);
-    console.log(data.username);
-    this.router.navigate(['naviagte']);
+      this.loginservice.getAdminByEmail(this.loginData.adminloginemail, this.loginData.adminloginpassword).subscribe(
+      (data: Admin) => {
+      if (data) {
+      console.log("Login successful");
+      sessionStorage.setItem("authenticatedAdmin",this.loginData.adminloginemail);
+      console.log(data.username);
+      this.router.navigate(['naviagte']);
    
     } else {
    

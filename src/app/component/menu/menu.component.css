@@ -5,14 +5,20 @@
   /* Center and scale the image nicely */
   background-position: center;
   background-color: grey;
-background-blend-mode: multiply;
+  background-blend-mode: multiply;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.container{
+.container1{
+    background-image: url("Home.jpg");
+    width: 100%;
+    min-height: 500px;
     text-align: center;
     padding-top: 70px;
+    background-position: center;
+    background-color: grey;
+    background-blend-mode: multiply;
 }
 
 .heading2{
