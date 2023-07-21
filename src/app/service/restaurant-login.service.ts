@@ -11,20 +11,26 @@ export class RestaurantLoginService {
   }
   constructor(private http: HttpClient) {}
 
-  addRestaurant(restaurantLogin: RestaurantLogin): Observable<RestaurantLogin> {
-    return this.http.post<RestaurantLogin>(`http://localhost:9999/saveRestaurantRegistration`, restaurantLogin);
-  }
+  // addRestaurant(restaurantLogin: RestaurantRegistration): Observable<RestaurantRegistration> {
+  //   return this.http.post<RestaurantRegistration>(`http://localhost:9999/saveRestaurantRegistration`, restaurantLogin);
+  // }
 
-  getResaturantLoginByEmail(restloginemail: string, password: string): Observable<RestaurantLogin> {
-    return this.http.get<RestaurantLogin>(`http://localhost:9999/getRestaurantByEmail/${restloginemail}/${password}`);
+  getResaturantLoginByEmail(email: string, password: string): Observable<RestaurantRegistration> {
+    return this.http.get<RestaurantRegistration>(`http://localhost:9999/getRestaurantByEmail/${email}/${password}`);
   }
 }
-
-export class RestaurantLogin {
+export class RestaurantRegistration {
   constructor(
-    public restloginname: string,
-    public restloginmobilenumber: number,
-    public restloginemail: string,
-    public password: string
+    public restid:number,
+    public restname :string,
+    public area: string,
+    public city: string,
+    public state:string,
+    public country:string,
+    public pincode:number,
+    public managerName:string,
+    public contactNumber:number,
+    public email:string,
+    public password:string
   ) {}
 }

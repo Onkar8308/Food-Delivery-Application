@@ -18,7 +18,6 @@ export class CustomerDataComponent {
       response =>{
         this.customer = response;
         console.log(this.customer);
-        console.log("ddbfhdsfbdhf");
       }
     )
   }

@@ -24,7 +24,6 @@ import { MatIconModule} from '@angular/material/icon';
 import { AddRestaurantComponent } from './component/add-restaurant/add-restaurant.component';
 import { RestaurantSignupComponent } from './component/restaurant-signup/restaurant-signup.component';
 import { RestaurantRegistrationComponent } from './component/restaurant-registration/restaurant-registration.component';
-import { RestaurantLoginComponent } from './component/restaurant-login/restaurant-login.component';
 import { UpdateItemComponent} from './component/update-item/update-item.component';
 import { AdminMenuComponent } from './component/admin-menu/admin-menu.component';
 import { CustomerDataComponent } from './component/customer-data/customer-data.component';
@@ -53,7 +52,6 @@ import { RestaurantdataEditComponent } from './component/restaurantdata-edit/res
     AddRestaurantComponent,
     RestaurantSignupComponent,
     RestaurantRegistrationComponent,
-    RestaurantLoginComponent,
     UpdateItemComponent,
     AdminMenuComponent,
     CustomerDataComponent,

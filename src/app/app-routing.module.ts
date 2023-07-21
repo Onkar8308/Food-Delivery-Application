@@ -8,7 +8,6 @@ import { InvoiceComponent } from './component/invoice/invoice.component';
 import { PaymentModuleComponent } from './component/payment-module/payment-module.component';
 import { ItemComponent } from './component/item/item.component';
 import { RestaurantsComponent } from './component/restaurants/restaurants.component';
-import { RestaurantLoginComponent } from './component/restaurant-login/restaurant-login.component';
 import { RestaurantSignupComponent } from './component/restaurant-signup/restaurant-signup.component';
 import { AddRestaurantComponent } from './component/add-restaurant/add-restaurant.component';
 import { RestaurantRegistrationComponent } from './component/restaurant-registration/restaurant-registration.component';
@@ -34,7 +33,6 @@ const routes: Routes = [
   {path:'restaurant',component:RestaurantsComponent},
   {path:'item/:id',component:ItemComponent},
   {path:'logout',component:LogoutComponent},
-  {path:'RestaurantLogin',component:RestaurantLoginComponent},
   {path:'RestaurantSignup',component:RestaurantSignupComponent},
   {path:'AddRestaurant',component:AddRestaurantComponent},
   {path: 'RegisterRestaurant', component:RestaurantRegistrationComponent},
@@ -43,8 +41,9 @@ const routes: Routes = [
   {path:'customerEdit/:id',component:CustomerDataEditComponent},
   {path:'registerItem/:id',component:RegistereditemComponent},
   {path:'updateItem/:id/:rid',component:UpdateItemComponent},
-  {path:'restaurantadmin',component:RestaurantDataComponent},
   {path:'restaurantEdit/:id',component:RestaurantdataEditComponent},
+  {path: 'restaurantadmin',component:RestaurantDataComponent},
+  {path:'customeradmin',component:CustomerDataComponent},
 
 ];
 
