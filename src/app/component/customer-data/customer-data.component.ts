@@ -32,7 +32,7 @@ export class CustomerDataComponent {
     this.customerservice.deleteCustomerById(id).subscribe(
       response => {
         this.customer = response;
-        this.router.navigate(['customer']);
+        this.router.navigate(['customeradmin']);
       }
     )
   }

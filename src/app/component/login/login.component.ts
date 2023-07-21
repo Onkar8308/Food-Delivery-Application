@@ -19,16 +19,6 @@ export class LoginComponent{
 
     restloginemail: '',
    
-<<<<<<< HEAD
-    restloginpassword: ''
-   
-   };
-   
-   
-   
-   
-    constructor(private hardcodedAuthentication:HardcodedAuthenticationService,private loginservice: LoginService, private router: Router) { }
-=======
     restloginpassword: '',
     
     role : ''
@@ -44,20 +34,12 @@ export class LoginComponent{
         'Admin','User'
       ];
      }
->>>>>>> f3f8f164639993abaad4775c0165625346fd6c5b
    
    
    
    
     loginValid() {
    
-<<<<<<< HEAD
-   console.log("Inside login");
-   
-   
-   
-   
-=======
       // this.cust.role = this.role;
       console.log("Inside login");
    
@@ -65,7 +47,6 @@ export class LoginComponent{
 
       if(this.loginData.role=='User'){
 
->>>>>>> f3f8f164639993abaad4775c0165625346fd6c5b
     this.loginservice.getcustomerByEmail1(this.loginData.restloginemail, this.loginData.restloginpassword)
    
     .subscribe(
@@ -74,15 +55,6 @@ export class LoginComponent{
    
     if (data) {
    
-<<<<<<< HEAD
-   this.hardcodedAuthentication.authenticate(this.loginData.restloginemail,this.loginData.restloginpassword);
-
-    console.log("Login successful");
-   
-    // Redirect to AddRestaurant page or any other page you want
-   
-    this.router.navigate(['restaurant']);
-=======
       this.hardcodedAuthentication.authenticate(this.loginData.restloginemail,this.loginData.restloginpassword);
 
       console.log("Login successful");
@@ -92,7 +64,6 @@ export class LoginComponent{
       // Redirect to AddRestaurant page or any other page you want
      
       this.router.navigate(['restaurant']);
->>>>>>> f3f8f164639993abaad4775c0165625346fd6c5b
    
     } else {
    
@@ -115,8 +86,6 @@ export class LoginComponent{
     );
    
   }
-<<<<<<< HEAD
-=======
 
     
   else{
@@ -131,7 +100,7 @@ export class LoginComponent{
       //sessionStorage.setItem("authenticatedAdmin",this.loginData.restloginemail);
         console.log(data.username);
         this.dialog.close();
-        //this.router.navigate(['naviagte']);
+        this.router.navigate(['admin']);
    
     } else {
    
@@ -160,6 +129,5 @@ export class LoginComponent{
    
    
     
->>>>>>> f3f8f164639993abaad4775c0165625346fd6c5b
 
 }

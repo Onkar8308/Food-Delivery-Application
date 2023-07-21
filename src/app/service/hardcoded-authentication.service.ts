@@ -19,7 +19,10 @@ export class HardcodedAuthenticationService {
 }
 
 
-
+authenticateAdmin(email:string,password:string){
+  sessionStorage.setItem("authenticatedadmin",email);
+  return true;
+}
 
   isUserLoggedIn(){
     let user = sessionStorage.getItem('authenticateduser');

@@ -19,12 +19,14 @@ import { UpdateItemComponent } from './component/update-item/update-item.compone
 
 import { RestaurantDataComponent } from './component/restaurant-data/restaurant-data.component';
 import { RestaurantdataEditComponent } from './component/restaurantdata-edit/restaurantdata-edit.component';
+import { AdminMenuComponent } from 'src_back/app/component/admin-menu/admin-menu.component';
+import { MenuComponent } from './component/menu/menu.component';
 
 
 const routes: Routes = [
   // {path:'',component:RestaurantLoginComponent},//this is a default path
   // {path:'',component:CustomerDataComponent},
-
+{path:"",component:MenuComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'invoice',component:InvoiceComponent},
@@ -36,10 +38,12 @@ const routes: Routes = [
   {path:'RestaurantSignup',component:RestaurantSignupComponent},
   {path:'AddRestaurant',component:AddRestaurantComponent},
   {path: 'RegisterRestaurant', component:RestaurantRegistrationComponent},
-  {path:'customer',component:CustomerDataComponent},
+  {path:'admin',component:AdminMenuComponent},
+  {path:'customeradmin',component:CustomerDataComponent},
   {path:'customerEdit/:id',component:CustomerDataEditComponent},
   {path:'registerItem/:id',component:RegistereditemComponent},
   {path:'updateItem/:id/:rid',component:UpdateItemComponent},
+  {path:'restaurantadmin',component:RestaurantDataComponent},
   {path:'restaurantEdit/:id',component:RestaurantdataEditComponent},
 
 ];

@@ -26,7 +26,7 @@ export class AdminLoginComponent {
       console.log("Login successful");
       sessionStorage.setItem("authenticatedAdmin",this.loginData.adminloginemail);
       console.log(data.username);
-      this.router.navigate(['naviagte']);
+      this.router.navigate(['admin']);
    
     } else {
    

@@ -36,7 +36,7 @@ export class CustomerDataEditComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
 
     this.customerservice.updateCustomerById(this.id,this.customer).subscribe(
-      data=> this.router.navigate(['customer'])
+      data=> this.router.navigate(['customeradmin'])
     )
   }
 }

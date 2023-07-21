@@ -1,7 +1,5 @@
-
 <div class="bg-img">
     <div class="content" >
-        <header>Login Form</header>
         <form (ngSubmit)="updateRest()" #itemForm="ngForm" >
             <div class="field">
                 <span class="fa fa-user"></span>
@@ -44,7 +42,7 @@
                 name= "contactNumber" [(ngModel)]="rest.contactNumber" #contactNumber="ngModel">
             </div>
             <br>
-            <div class="field space">
+            <!-- <div class="field space">
                 <label for="itemImage">Upload Item Image:</label>
                 <input
                   type="file"
@@ -53,17 +51,17 @@
                   name="pic"
                   (change)="onImageChange($event)"
                 />
-              </div>
+              </div> -->
               <!-- Add this image tag to show the preview of the selected image -->
-<div class="col-12">
+<!-- <div class="col-12">
     <div class="d-flex flex-column">
       <p class="text mb-1">Image Preview</p>
       <img [src]="rest.pic" *ngIf="rest.pic" height="100px" width="100px" alt="Image Preview">
     </div>
-  </div>
+  </div> -->
   
             <div class="field">
-                <input type="submit" value="Update rest">
+                <input type="submit" value="Update restaurant">
             </div>           
         </form>
     </div>

@@ -11,11 +11,11 @@ import { HardcodedAuthenticationService } from 'src/app/service/hardcoded-authen
 })
 export class MenuComponent {
 
-<<<<<<< HEAD
+
   // constructor(private dialog:MatDialog, public hardcodedAuthentication:HardcodedAuthenticationService){}
-=======
+
   //constructor(private dialog:MatDialog, public hardcodedAuthentication:HardcodedAuthenticationService){}
->>>>>>> f3f8f164639993abaad4775c0165625346fd6c5b
+
 
   // //for login popup
   // Openpopup(){

@@ -92,6 +92,7 @@ export class RestaurantdataEditComponent {
     this.restService.updaterestById(this.id, this.rest).subscribe(
       (response: any) => {
         console.log(response);
+        this.router.navigate(['restaurantadmin']);
       },
       (error: any) => {
         console.log(error);
