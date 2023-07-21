@@ -54,5 +54,19 @@ authenticateAdmin(email:string,password:string){
   Adminlogout(){
     sessionStorage.removeItem('authenticatedadmin');
   }
+
+  authenticateRest(email:string,password:string){
+    sessionStorage.setItem("authenticatedrest",email);
+    return true;
+  }
+  
+  isRestLoggedIn(){
+    let rest = sessionStorage.getItem('authenticatedrest');
+    return !(rest==null);
+  }
+
+  Restlogout(){
+    sessionStorage.removeItem('authenticatedrest');
+  }
   
 }

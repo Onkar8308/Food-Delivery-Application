@@ -1,7 +1,7 @@
-
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { RestaurantLogin, RestaurantLoginService } from 'src/app/service/restaurant-login.service';
+import { HardcodedAuthenticationService } from 'src/app/service/hardcoded-authentication.service';
+import { RestaurantLoginService, RestaurantRegistration } from 'src/app/service/restaurant-login.service';
 
 @Component({
   selector: 'app-restaurant-signup',
@@ -10,23 +10,26 @@ import { RestaurantLogin, RestaurantLoginService } from 'src/app/service/restaur
 })
 
 export class RestaurantSignupComponent {
+  id:number;
+
   loginData: { restloginemail: string, restloginpassword: string } = {
     restloginemail: '',
     restloginpassword: ''
   };
 
-  constructor(private loginservice: RestaurantLoginService, private router: Router) { }
+  constructor(private loginservice: RestaurantLoginService, private router: Router,
+    private hardcodedAuth:HardcodedAuthenticationService) { }
 
   loginRestaurant() {
     console.log("Inside login");
 
     this.loginservice.getResaturantLoginByEmail(this.loginData.restloginemail, this.loginData.restloginpassword)
       .subscribe(
-        (data: RestaurantLogin) => {
+        (data: RestaurantRegistration) => {
           if (data) {
-            console.log("Login successful");
+            this.hardcodedAuth.authenticateRest(this.loginData.restloginemail,this.loginData.restloginpassword);
             // Redirect to AddRestaurant page or any other page you want
-            this.router.navigate(['AddRestaurant']);
+            this.router.navigate(['item',data.restid]);
           } else {
             console.log("Login failed");
             // Handle login failure, show error message, etc.
@@ -38,5 +41,6 @@ export class RestaurantSignupComponent {
         }
       );
   }
-}
 
+
+}
