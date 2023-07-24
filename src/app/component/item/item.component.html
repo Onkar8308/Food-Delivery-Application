@@ -11,7 +11,7 @@
                             <div class="price col-6">{{item.itemcost | currency:"INR"}}</div>
                         </div>
                         <div class="row" style=" margin-top: 2%; margin-left: 8%;">
-                            <button class=" a btn-success col-5" style="margin-right: 3%;" *ngIf="hardcodedAuthentication.isUserLoggedIn() || hardcodedAuthentication.isRestLoggedIn() " (click)="addToCart">Add to Cart</button>
+                            <button class=" a btn-success col-5" style="margin-right: 3%;" *ngIf="hardcodedAuthentication.isUserLoggedIn() || !hardcodedAuthentication.isRestLoggedIn() " (click)="addToCart">Add to Cart</button>
                             <button class=" a col-5 btn-success" style="text-align: center;">{{item.itemstatus}}</button>
                         </div>
                         <div class="row" style=" margin-top: 2%; margin-left: 8%;">

@@ -20,7 +20,8 @@ export class RegistereditemComponent implements OnInit {
   registrationForm = new FormGroup({
     itemname : new FormControl(''),
     itemstatus : new FormControl(''),
-    itemcost : new FormControl('')
+    itemcost : new FormControl(''),
+    itemimage : new FormControl(''),
   });
 
   ngOnInit(): void {
@@ -44,7 +45,8 @@ export class RegistereditemComponent implements OnInit {
     const Items = {
       itemname : this.registrationForm.value.itemname,
       itemstatus : this.registrationForm.value.itemstatus,
-      itemcost : this.registrationForm.value.itemcost
+      itemcost : this.registrationForm.value.itemcost,
+      itemimage : this.registrationForm.value.itemimage,
     };
 
     this.data.saveItemByRestId(this.id,Items).subscribe(

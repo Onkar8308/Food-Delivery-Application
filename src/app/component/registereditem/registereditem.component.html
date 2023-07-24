@@ -33,7 +33,7 @@
 
   <div class="bg-img">
     <div class="content">
-        <header>Login Form</header>
+        <header>Add Item</header>
         <form [formGroup]="registrationForm" (ngSubmit)="saveItem()">
             <div class="field">
               <span class="fa fa-user"></span>
@@ -50,6 +50,12 @@
               <span class="fa fa-lock"></span>
               <input required minlength="3" maxlength="20" type="text" id="itemstatus"
                 require placeholder="Enter Status" formControlName="itemstatus" name="itemstatus">
+            </div>
+
+            <div class="field space">
+              <span class="fa fa-lock"></span>
+              <input required minlength="3" type="text" id="itemimage"
+                require placeholder="Enter Image url" formControlName="itemimage" name="itemimage">
             </div>
 
             <br>
