@@ -140,7 +140,7 @@
 
                 <div class="form-group">
                   <!-- <label for="password" class="form-label"><b>Password</b></label>  -->
-                  <input type="text" class="form-control" id="password" placeholder="Enter your password"
+                  <input type="password" class="form-control" id="password" placeholder="Enter your password"
                     formControlName="password" name="password">
                 </div>
                 <span style="color: red;" *ngIf="password?.invalid && password?.touched"> The password to contain at
@@ -148,6 +148,12 @@
                   one
                   uppercase letter, one lowercase letter, one digit, and one special character and of minimum
                   length of 8 characters.</span>
+
+                  <div class="form-group">
+                    <!-- <label for="password" class="form-label"><b>Password</b></label>  -->
+                    <input type="text" class="form-control" id="pic" placeholder="Enter your pic url"
+                      formControlName="pic" name="pic">
+                  </div>
 
 
 
