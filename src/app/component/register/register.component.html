@@ -49,7 +49,7 @@
       <fieldset class="form-group">
         <label>Mobile</label>
         <input type="text" class="form-control" #customermobilenumber="ngModel" [(ngModel)]="cust.customermobilenumber"
-          name="customermobilenumber" pattern="^[5-9]\d{0,9}$" maxlength="10" required>
+          name="customermobilenumber" pattern="^[5-9]\d{0,9}$" minlength="10" maxlength="10" required>
       </fieldset>
      
       <span class="text-danger"

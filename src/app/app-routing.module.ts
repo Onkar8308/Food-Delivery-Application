@@ -21,30 +21,33 @@ import { RestaurantdataEditComponent } from './component/restaurantdata-edit/res
 import { MenuComponent } from './component/menu/menu.component';
 import { HomeComponent } from './component/home/home.component';
 import { ErrorComponent } from './component/error/error.component';
+import { RouteGuardService } from './service/route-guard.service';
+import { HelpComponent } from './component/help/help.component';
 
 
 const routes: Routes = [
   // {path:'',component:RestaurantLoginComponent},//this is a default path
   {path:'',component:HomeComponent},
   {path:'home',component:HomeComponent},
-   {path:'logoutadmin',component:MenuComponent},
-  {path:'login',component:LoginComponent},
-  {path:'register',component:RegisterComponent},
-  {path:'invoice',component:InvoiceComponent},
-  {path:'paymentModule',component:PaymentModuleComponent},
-  {path:'restaurant',component:RestaurantsComponent},
-  {path:'item/:id',component:ItemComponent},
-  {path:'logout',component:HomeComponent},
-  {path:'RestaurantSignup',component:RestaurantSignupComponent},
-  {path:'AddRestaurant',component:AddRestaurantComponent},
-  {path: 'RegisterRestaurant', component:RestaurantRegistrationComponent},
-  {path:'customeradmin',component:CustomerDataComponent},
-  {path:'customerEdit/:id',component:CustomerDataEditComponent},
-  {path:'registerItem/:id',component:RegistereditemComponent},
-  {path:'updateItem/:id/:rid',component:UpdateItemComponent},
-  {path:'restaurantEdit/:id',component:RestaurantdataEditComponent},
-  {path: 'restaurantadmin',component:RestaurantDataComponent},
-  {path:'customeradmin',component:CustomerDataComponent},
+   {path:'logoutadmin',component:MenuComponent,canActivate:[RouteGuardService]},
+  {path:'login',component:LoginComponent,canActivate:[RouteGuardService]},
+  {path:'register',component:RegisterComponent,canActivate:[RouteGuardService]},
+  {path:'invoice',component:InvoiceComponent,canActivate:[RouteGuardService]},
+  {path:'paymentModule',component:PaymentModuleComponent,canActivate:[RouteGuardService]},
+  {path:'restaurant',component:RestaurantsComponent,canActivate:[RouteGuardService]},
+  {path:'item/:id',component:ItemComponent,canActivate:[RouteGuardService]},
+  {path:'logout',component:HomeComponent,canActivate:[RouteGuardService]},
+  {path:'RestaurantSignup',component:RestaurantSignupComponent,canActivate:[RouteGuardService]},
+  {path:'AddRestaurant',component:AddRestaurantComponent,canActivate:[RouteGuardService]},
+  {path: 'RegisterRestaurant', component:RestaurantRegistrationComponent,canActivate:[RouteGuardService]},
+  {path:'customeradmin',component:CustomerDataComponent,canActivate:[RouteGuardService]},
+  {path:'customerEdit/:id',component:CustomerDataEditComponent,canActivate:[RouteGuardService]},
+  {path:'registerItem/:id',component:RegistereditemComponent,canActivate:[RouteGuardService]},
+  {path:'updateItem/:id/:rid',component:UpdateItemComponent,canActivate:[RouteGuardService]},
+  {path:'restaurantEdit/:id',component:RestaurantdataEditComponent,canActivate:[RouteGuardService]},
+  {path: 'restaurantadmin',component:RestaurantDataComponent,canActivate:[RouteGuardService]},
+  {path:'customeradmin',component:CustomerDataComponent,canActivate:[RouteGuardService]},
+  {path:'help',component:HelpComponent},
   {path:'**',component:ErrorComponent}
 ];
 

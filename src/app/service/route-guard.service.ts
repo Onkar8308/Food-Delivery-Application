@@ -8,9 +8,11 @@ import { HardcodedAuthenticationService } from './hardcoded-authentication.servi
 export class RouteGuardService implements CanActivate{
 
   constructor(private hardcodedAuthentication:HardcodedAuthenticationService) { }
+  
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
    if(this.hardcodedAuthentication.isAdminLoggedIn())
       return true;
+    window.alert("You dont have access!!! Please connect to Administrator ");
     return false;
   }
 }

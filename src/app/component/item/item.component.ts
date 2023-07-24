@@ -13,6 +13,8 @@ import { HardcodedAuthenticationService } from 'src/app/service/hardcoded-authen
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
+  p: number = 1;
+  count: number = 6;
   id:number;
 
   items : Item[] = [];

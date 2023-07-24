@@ -9,7 +9,7 @@
 
           <!-- user -->
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="/home">Home</a>
           </li>
           <li class="nav-item">
             <!-- user false true-->
@@ -17,7 +17,7 @@
           </li>
           
           <li class="nav-item">
-            <a *ngIf="!hardcodedAuthentication.isUserLoggedIn() && !hardcodedAuthentication.isAdminLoggedIn()" class="nav-link" href="#">Help</a>
+            <a *ngIf="!hardcodedAuthentication.isUserLoggedIn() && !hardcodedAuthentication.isAdminLoggedIn()" class="nav-link" href="/help">Help</a>
           </li>
           <form class="d-flex" role="search">
             <!-- <input *ngIf="hardcodedAuthentication.isUserLoggedIn()" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
