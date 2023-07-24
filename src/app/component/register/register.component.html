@@ -7,7 +7,6 @@
         <input type="text" class="form-control" #customername="ngModel" [(ngModel)]="cust.customername"
           name="customername" pattern="^[A-Za-z][A-Za-z0-9_]{2,19}$" minlength="3" maxlength="20" required>
           
-          <!-- ^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$ -->
       </fieldset>
         <span class="text-danger"
         *ngIf="(customername.touched || RegisterForm.submitted) && customername.errors?.['required']">
@@ -19,13 +18,6 @@
           Name cannot start with a number and length should be between 3 to 20
         </span>
     
-      
-  
-      <!-- <div class="invalid-feedback" *ngIf="RegisterForm.invalid && RegisterForm.dirty">
-            <p *ngIf="customername.invalid">Name is required</p>
-          </div> -->
-      <!-- <div class="alert alert-warning" *ngIf="todoForm.dirty && username.invalid">Enter valid username min 3 chars</div> -->
-  
       <fieldset class="form-group">
         <label>Password</label>
         <input type="password" class="form-control" #password="ngModel" [(ngModel)]="cust.password" name="password"
@@ -53,44 +45,13 @@
       <span class="text-danger" *ngIf="customeremail.touched && customeremail.errors?.['pattern']">
         Enter a valid email address
       </span>
-  
-  
-      <!-- <span class="text-danger"
-       *ngIf="(email.touched || registerForm.submitted) && email.errors?.required">
-       Email is required
-   </span>
-   <span class="text-danger" *ngIf="email.touched && email.errors?.email">
-       Enter a valid email address
-   </span> -->
-  
-      <!-- username should not start with a number
-      restrict mobile number to number only with text input -->
-  
-      <!-- <fieldset class="form-group">
-        <label>Mobile</label>
-        <input type="text" class="form-control" #customermobilenumber="ngModel" [(ngModel)]="cust.customermobilenumber"
-          name="customermobilenumber" pattern="^((\\+91-?)|0)?[0-9]{10}$" maxlength="10" required>
-      </fieldset>
-  
-      <span class="text-danger"
-        *ngIf="(customermobilenumber.touched || RegisterForm.submitted) && customermobilenumber.errors?.['required']">
-        Mobile Number is required
-      </span>
-      <span class="text-danger" *ngIf="customermobilenumber.touched && customermobilenumber.errors?.['pattern']">
-        Enter 10 digit valid mobile number
-      </span>
-  
-      <br><br> -->
 
       <fieldset class="form-group">
         <label>Mobile</label>
         <input type="text" class="form-control" #customermobilenumber="ngModel" [(ngModel)]="cust.customermobilenumber"
           name="customermobilenumber" pattern="^[5-9]\d{0,9}$" maxlength="10" required>
       </fieldset>
-      <!-- ^[5-9]\d{0,9}$ -->
-      <!--original /^[5-9][0-9]{10}$/ -->
-  <!-- //^[5-9]((\\+91-?)|0)?[0-9]{10}$ -->
-  <!-- ^[0-9]\d{0,5}$ -->
+     
       <span class="text-danger"
         *ngIf="(customermobilenumber.touched || RegisterForm.submitted) && customermobilenumber.errors?.['required']">
         Mobile Number is required

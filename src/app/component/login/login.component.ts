@@ -57,6 +57,8 @@ export class LoginComponent{
    
       this.hardcodedAuthentication.authenticate(this.loginData.restloginemail,this.loginData.restloginpassword);
 
+      alert("Login Successful");
+
       console.log("Login successful");
  
       this.dialog.close();
@@ -67,6 +69,8 @@ export class LoginComponent{
    
     } else {
    
+      alert("Login failed");
+
     console.log("Login failed");
    
     // Handle login failure, show error message, etc.
@@ -96,6 +100,7 @@ export class LoginComponent{
       (data: Admin) => {
       if (data) {
         this.hardcodedAuthentication.authenticateAdmin(this.loginData.restloginemail, this.loginData.restloginpassword);
+        alert("Login Successful!")
         console.log("Login successful");
       //sessionStorage.setItem("authenticatedAdmin",this.loginData.restloginemail);
         console.log(data.username);
@@ -106,6 +111,7 @@ export class LoginComponent{
    
     } else {
    
+      alert("Login failed");
     console.log("Login failed");
    
     // Handle login failure, show error message, etc.

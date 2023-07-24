@@ -23,14 +23,14 @@
             <!-- <input *ngIf="hardcodedAuthentication.isUserLoggedIn()" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button *ngIf="hardcodedAuthentication.isUserLoggedIn()" class="btn btn-outline-success" type="submit">Search</button> -->
             <mat-form-field *ngIf="hardcodedAuthentication.isUserLoggedIn()">
-              <mat-label>Search any product</mat-label>
+              <mat-label>Search any restaurant</mat-label>
               <input matInput
               #searchkeyword
               (keyup)="searchByKeyword(searchkeyword.value)"
               name="searchKey"
               id="searchkey"
               placeholder="Search any product">
-              <mat-hint>Search any product</mat-hint>
+              <mat-hint>Search any restaurant</mat-hint>
               </mat-form-field>
           </form>
 
