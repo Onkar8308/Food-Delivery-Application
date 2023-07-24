@@ -20,11 +20,13 @@ import { RestaurantDataComponent } from './component/restaurant-data/restaurant-
 import { RestaurantdataEditComponent } from './component/restaurantdata-edit/restaurantdata-edit.component';
 import { MenuComponent } from './component/menu/menu.component';
 import { HomeComponent } from './component/home/home.component';
+import { ErrorComponent } from './component/error/error.component';
 
 
 const routes: Routes = [
   // {path:'',component:RestaurantLoginComponent},//this is a default path
   {path:'',component:HomeComponent},
+  {path:'home',component:HomeComponent},
    {path:'logoutadmin',component:MenuComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
@@ -43,7 +45,7 @@ const routes: Routes = [
   {path:'restaurantEdit/:id',component:RestaurantdataEditComponent},
   {path: 'restaurantadmin',component:RestaurantDataComponent},
   {path:'customeradmin',component:CustomerDataComponent},
-
+  {path:'**',component:ErrorComponent}
 ];
 
 @NgModule({

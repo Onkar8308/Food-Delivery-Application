@@ -10,5 +10,6 @@ export class Restaurant {
         public pincode:number,
         public restname:string, 
         public state:string
-    ){}
+    ){
+    }
 }

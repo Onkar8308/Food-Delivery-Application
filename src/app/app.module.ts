@@ -31,6 +31,11 @@ import { AdminComponent } from './class/admin/admin.component';
 import { RestaurantDataComponent } from './component/restaurant-data/restaurant-data.component';
 import { RestaurantdataEditComponent } from './component/restaurantdata-edit/restaurantdata-edit.component';
 import { HomeComponent } from './component/home/home.component';
+import { HelpComponent } from './component/help/help.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ErrorComponent } from './component/error/error.component';
 
 
 @NgModule({
@@ -58,6 +63,8 @@ import { HomeComponent } from './component/home/home.component';
     RestaurantDataComponent,
     RestaurantdataEditComponent,
     HomeComponent,
+    HelpComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +76,9 @@ import { HomeComponent } from './component/home/home.component';
     BrowserAnimationsModule,
     NgbModule,
     MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
