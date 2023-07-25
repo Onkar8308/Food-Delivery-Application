@@ -6,8 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./help.component.css']
 })
 export class HelpComponent {
-  helpValid(){
-
-  }
 
 }
