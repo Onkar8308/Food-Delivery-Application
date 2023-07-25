@@ -49,7 +49,9 @@
           <li><button *ngIf="!hardcodedAuthentication.isUserLoggedIn() && !hardcodedAuthentication.isAdminLoggedIn() && !hardcodedAuthentication.isRestLoggedIn()" (click)="Openpopup2()"mat-raised-button class="btn btn-outline-primary ml-10">Sign up</button></li>
         
           <li><button *ngIf="hardcodedAuthentication.isUserLoggedIn() || hardcodedAuthentication.isAdminLoggedIn() || hardcodedAuthentication.isRestLoggedIn()" (click)="adminlogout()" mat-raised-button class="btn btn-outline-primary ml-10">Log Out</button></li>
-      </div>
+          <li><button *ngIf="hardcodedAuthentication.isUserLoggedIn() || hardcodedAuthentication.isAdminLoggedIn() || hardcodedAuthentication.isRestLoggedIn()" mat-raised-button class="btn btn-outline-primary ml-10" routerLink="/cart">view cart</button></li>
+   
+        </div>
     </nav>
 
 </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CartService } from 'src/app/service/cart.service';
 import { LoginService } from 'src/app/service/login.service';
 
 @Component({
@@ -10,6 +11,9 @@ import { LoginService } from 'src/app/service/login.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
+  cartId:number;
+  cart1 = { };
 
   // cust:Customer=new Customer(this.customername,0,'','');
   customername:string="";
@@ -21,7 +25,7 @@ export class RegisterComponent implements OnInit {
   //cust:Customer;
   cust:Customer=new Customer(this.customername,this.customermobilenumber,this.customeremail,this.password);
 
-  constructor(public dialog: MatDialogRef<RegisterComponent>,private loginservice:LoginService,private route:ActivatedRoute, private router:Router){}
+  constructor(public dialog: MatDialogRef<RegisterComponent>,private loginservice:LoginService,private route:ActivatedRoute, private router:Router,private cart:CartService){}
   ngOnInit(): void {
     this.customername=this.route.snapshot.params['customername']; //to take url id 
     
@@ -32,19 +36,36 @@ export class RegisterComponent implements OnInit {
   saveCustomer(){
     console.log("Inside register"+this.customername);
     this.loginservice.addCustomer(this.cust).subscribe(
-      data=>{
-        this.cust=data;
-        console.log(data);
-        alert("Registration Successful! Please Login");
+      customer=>{
+        this.cust=customer;
+        console.log(customer);
         this.successmessage="Registration Successful! Please Login";
         this.dialog.close();
-        //this.router.navigate(['login']);
+
+        console.log(this.cust);
+        this.cart.saveCart(this.cart1).subscribe(data=>{
+          console.log(data);
+          this.cartId=data.id;  
+    
+          this.cart.addCustomerToCart(this.cartId,customer).subscribe(cartwithcu=>{
+            console.log(cartwithcu);
+      
+          })
+    
+         })
       }
   
     )
+     
+
+   
+
+
   }
 
 }
+
+
 
 
 

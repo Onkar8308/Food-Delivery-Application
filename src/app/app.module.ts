@@ -36,6 +36,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ErrorComponent } from './component/error/error.component';
+import { CartComponent } from './component/cart/cart.component';
+import { CustomerAddComponent } from './component/customer-add/customer-add.component';
+import { PaymentSuccessComponent } from './component/payment-success/payment-success.component';
 
 
 @NgModule({
@@ -65,6 +68,9 @@ import { ErrorComponent } from './component/error/error.component';
     HomeComponent,
     HelpComponent,
     ErrorComponent,
+    CartComponent,
+    CustomerAddComponent,
+    PaymentSuccessComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,11 @@
 export class CustomerAddress {
     constructor(
-        addressid:number,
-        area:string,
-        city:string,
-        state:string,
-        country:string,
-        pincode:number
+        public addressid:number,
+        public area:string,
+        public city:string,
+        public state:string,
+        public country:string,
+        public pincode:number
     ){  }
 
 }
