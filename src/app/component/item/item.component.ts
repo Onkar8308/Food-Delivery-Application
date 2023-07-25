@@ -22,7 +22,9 @@ export class ItemComponent implements OnInit {
 
   restaurant : Restaurant;
 
-  constructor(public hardcodedAuthentication:HardcodedAuthenticationService,private itemservice: ItemServiceService,private router:Router,private route:ActivatedRoute){};
+  constructor(public hardcodedAuthentication:HardcodedAuthenticationService,private itemservice: ItemServiceService,private router:Router,private route:ActivatedRoute){
+    console.log('Application loaded. Initializing data.');
+  };
 
 
   ngOnInit(): void {

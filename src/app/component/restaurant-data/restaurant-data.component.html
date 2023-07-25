@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let rest of restaurants">
+      <tr *ngFor="let rest of restaurants | paginate: { itemsPerPage: count, currentPage: p }">
         <td>{{rest.restname}}</td>
         <td>
             <!-- Use the img tag to display the image -->
@@ -35,3 +35,7 @@
   
     </tbody>
   </table>
+  <br>
+  <div class="text-right">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

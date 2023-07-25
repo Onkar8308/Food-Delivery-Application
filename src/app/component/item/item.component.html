@@ -1,9 +1,9 @@
 <div class="bg-img">
     
-<div><button class="btn btn-success" *ngIf="!hardcodedAuthentication.isAdminLoggedIn() && hardcodedAuthentication.isRestLoggedIn() && !hardcodedAuthentication.isUserLoggedIn()" (click)="addItem()">Add Item</button></div>
+<div><button class="btn btn-success" *ngIf="!hardcodedAuthentication.isAdminLoggedIn() && hardcodedAuthentication.isRestLoggedIn() && !hardcodedAuthentication.isUserLoggedIn()" routerLink="/registerItem" (click)="addItem()">Add Item</button></div>
 <div class="container">
             <div class="row">
-                <div *ngFor="let item of items" class="col-4 col-md-4 mt-3">
+                <div *ngFor="let item of items | paginate: { itemsPerPage: count, currentPage: p }" class="col-4 col-md-4 mt-3">
                     <div class="card">
                         <img class="card-img-top" src="{{item.itemimage}}" alt="Card image cap"><br>
                         <div class="row">
@@ -11,7 +11,7 @@
                             <div class="price col-6">{{item.itemcost | currency:"INR"}}</div>
                         </div>
                         <div class="row" style=" margin-top: 2%; margin-left: 8%;">
-                            <button class=" a btn-success col-5" style="margin-right: 3%;" *ngIf="hardcodedAuthentication.isUserLoggedIn() || !hardcodedAuthentication.isRestLoggedIn() " (click)="addToCart">Add to Cart</button>
+                            <button class=" a btn-success col-5" style="margin-right: 3%;" *ngIf="hardcodedAuthentication.isUserLoggedIn() || !hardcodedAuthentication.isRestLoggedIn() || item.itemstatus=='Available'" (click)="addToCart">Add to Cart</button>
                             <button class=" a col-5 btn-success" style="text-align: center;">{{item.itemstatus}}</button>
                         </div>
                         <div class="row" style=" margin-top: 2%; margin-left: 8%;">
@@ -24,7 +24,7 @@
 </div>
 
 </div>
-
+<br>
 <div class="text-right">
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
