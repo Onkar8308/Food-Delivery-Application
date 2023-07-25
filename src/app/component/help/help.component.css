@@ -1,5 +1,5 @@
 div{
-    background-image: url("bg.jpeg");
+    background-image: url("bg3.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgb(92, 88, 88); 
@@ -20,7 +20,7 @@ li{
     font-family: Georgia, 'Times New Roman', Times, serif;
     /* -webkit-text-stroke: 0.5px burlywood; */
     /* color: rgb(205, 215, 230); */
-    color: rgb(83, 235, 219);
+    color: rgb(204, 173, 233);
     font-size: large;
 }
 
