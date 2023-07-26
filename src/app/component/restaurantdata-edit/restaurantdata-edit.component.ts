@@ -1,8 +1,8 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Restaurant } from 'src/app/class/restaurant';
 import { RestaurantService } from 'src/app/service/restaurant.service';
+import { Restaurant } from '../restaurants/restaurants.component';
 
 @Component({
   selector: 'app-restaurantdata-edit',
@@ -25,7 +25,7 @@ export class RestaurantdataEditComponent {
     this.id = this.route.snapshot.params['id'];
     console.log(this.id);
 
-    this.rest = new Restaurant(this.id, '', '', '', '', '', '', 0, '', '');
+    this.rest = new Restaurant(this.id, '', '', '', 0, '', '', '', '', '',false);
 
     if (this.id !== -1) {
       this.restService.getrestById(this.id).subscribe(
@@ -101,3 +101,6 @@ export class RestaurantdataEditComponent {
   }
   
 }
+
+
+

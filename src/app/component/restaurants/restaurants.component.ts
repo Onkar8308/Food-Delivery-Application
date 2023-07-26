@@ -48,6 +48,7 @@ constructor(
   public pic:string,
   public restname:string,
   public managerName:string,
-  public contactNumber:string
+  public contactNumber:string,
+  public status:boolean,
 ){}
 }
