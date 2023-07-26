@@ -4,10 +4,10 @@ import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import { HardcodedAuthenticationService } from 'src/app/service/hardcoded-authentication.service';
 import { Router } from '@angular/router';
-import { Restaurant } from '../restaurants/restaurants.component';
 import { DataRestaurantService } from 'src/app/service/data-restaurant.service';
 import { BehaviorSubject, map } from 'rxjs';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { Restaurant } from 'src/app/class/restaurant';
 
 @Component({
   selector: 'app-menu',

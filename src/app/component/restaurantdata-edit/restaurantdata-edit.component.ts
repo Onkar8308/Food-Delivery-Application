@@ -25,7 +25,7 @@ export class RestaurantdataEditComponent {
     this.id = this.route.snapshot.params['id'];
     console.log(this.id);
 
-    this.rest = new Restaurant(this.id, '', '', '', '', '', '', 0, '', '');
+    this.rest = new Restaurant(this.id, '', '', '', '', '', '', 0, '', '',false);
 
     if (this.id !== -1) {
       this.restService.getrestById(this.id).subscribe(

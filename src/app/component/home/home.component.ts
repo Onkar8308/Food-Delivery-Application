@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Restaurant } from '../restaurants/restaurants.component';
 import { HardcodedAuthenticationService } from 'src/app/service/hardcoded-authentication.service';
 import { DataRestaurantService } from 'src/app/service/data-restaurant.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Restaurant } from 'src/app/class/restaurant';
 
 @Component({
   selector: 'app-home',

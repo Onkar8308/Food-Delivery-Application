@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from 'src/app/class/item';
 import { ItemServiceService } from 'src/app/service/item-service.service';
-import { Restaurant } from '../restaurants/restaurants.component';
 import { HardcodedAuthenticationService } from 'src/app/service/hardcoded-authentication.service';
 import { CartService } from 'src/app/service/cart.service';
 import { ItemService } from 'src/app/service/item.service';
+import { Restaurant } from 'src/app/class/restaurant';
 
 
 

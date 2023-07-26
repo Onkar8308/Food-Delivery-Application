@@ -26,6 +26,8 @@ export class RestaurantSignupComponent {
     this.loginservice.getResaturantLoginByEmail(this.loginData.restloginemail, this.loginData.restloginpassword)
       .subscribe(
         (data: RestaurantRegistration) => {
+          console.log(data);
+
           if (data) {
             this.hardcodedAuth.authenticateRest(this.loginData.restloginemail,this.loginData.restloginpassword);
             alert("Login Successful!")
