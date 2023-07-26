@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Restaurant } from 'src/app/class/restaurant';
 import { DataRestaurantService } from 'src/app/service/data-restaurant.service';
 
 @Component({
@@ -38,5 +37,18 @@ viewRestaurant(id:number){
 }
 
 
-
-
+export class Restaurant{
+constructor(
+  public restid:number,
+  public area:string,
+  public city:string,
+  public country:string,
+  public pincode:number,
+  public state:string,
+  public pic:string,
+  public restname:string,
+  public managerName:string,
+  public contactNumber:string,
+  public status:boolean,
+){}
+}
