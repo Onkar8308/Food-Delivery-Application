@@ -40,7 +40,7 @@ export class MenuComponent{
     .subscribe(
       (response:Restaurant[])=>{
         // resp = this.restaurant;
-       // console.log("**********"+response);
+        console.log("**********"+response);
         response.forEach((res)=>this.restaurant.push(res));
         console.log('msg',this.restaurant);
         this.restaurantservice.setRestaurantData(this.restaurant);

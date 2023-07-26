@@ -6,6 +6,7 @@
         <th scope="col">Address</th>
         <th scope="col">manger Name</th>
         <th scope="col">contact Number</th>
+        <th scope="col">Status</th>
         <th scope="col">Action</th>
         <th scope="col">Items</th>
       </tr>
@@ -23,6 +24,9 @@
         </td>
         <td>{{rest.managerName}}</td>
         <td>{{rest.contactNumber}}</td>
+        <td *ngIf="rest.status;else notdone">Approved</td>
+        <ng-template #notdone>Not Approved</ng-template>
+
         <td>
           <button class="btn btn-primary" (click)="restupdate(rest.restid)">Update</button>
           &nbsp;
