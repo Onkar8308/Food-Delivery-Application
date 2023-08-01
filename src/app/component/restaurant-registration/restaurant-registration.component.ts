@@ -50,13 +50,11 @@ export class RestaurantRegistrationComponent implements OnInit {
 
     this.data.addRestaurant(restaurant).subscribe(
       (response: any) => {
-        console.log(response);
         alert("Registration Successful!");
         this.router.navigate(['RestaurantSignup']);
       },
       (error: any) => {
         alert("Registration failed!!Please Try Again Later.")
-        console.log(error);
       }
     );
   }

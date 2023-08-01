@@ -28,13 +28,10 @@ export class PaymentModuleComponent implements OnInit {
 
 
   ngOnInit(): void {
-   // this.getInvoiceDetails(this.data);
    this.inputdata=this.data;
      this.cartService.getCartById(this.data.cartId).subscribe(cart=>{
        this.cartDetails=cart;
-      // console.log(this.cartDetails);
        this.item = cart.itemList;
-      console.log(this.item);
     });
 
   

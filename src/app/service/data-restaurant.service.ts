@@ -8,20 +8,24 @@ import { Restaurant } from '../class/restaurant';
 })
 export class DataRestaurantService {
 
+  baseUrl:string="http://localhost:9999";
   public restaurantData: BehaviorSubject<Restaurant[]> = new BehaviorSubject<Restaurant[]>([]);
   constructor(private http:HttpClient) { }
 
   retriveAllRestaurant(){
     return this.http.get<Restaurant[]>
-      (`http://localhost:9999/getAllRestaurant`);
+      (`${this.baseUrl}/getAllRestaurant`);
   }
   deleterest(id:number){
     return this.http.delete<Restaurant[]>
-      (`http://localhost:9999/deleteRestaurantById/${id}`);
+      (`${this.baseUrl}/deleteRestaurantById/${id}`);
   }
 
+  getRestaurantByEmail(email:string){
+    return this.http.get<Restaurant>(`http://localhost:9999/getRestaurantByEmail/${email}`)
+  }
   public getAllRestaurant(searchkeyword:string=""){
-    return this.http.get<Restaurant[]>(`http://localhost:9999/getAllRestaurantsearch?searchkey=`+searchkeyword);
+    return this.http.get<Restaurant[]>(`${this.baseUrl}/getAllRestaurantsearch?searchkey=`+searchkeyword);
   }
 
   setRestaurantData(data: Restaurant[]): void {

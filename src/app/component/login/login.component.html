@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
 
- <form (ngSubmit)="loginValid()" #LoginForm="ngForm" novalidate>
+ <form (ngSubmit)="loginValid()" #LoginForm="ngForm">
   
    <fieldset class="form-group">
   
@@ -61,9 +61,6 @@
  Role
  <select class="form-select" aria-label="Default select example" name="role" #role="ngModel" [(ngModel)]="loginData.role" required>
   <option *ngFor="let r of roles" [ngValue]="r">{{r}}</option>
-  <!-- <option selected>Role</option>
-  <option value="1">Admin</option>
-  <option value="2">User</option> -->
 </select>
 
 <br><br>

@@ -26,8 +26,6 @@ import { RestaurantRegistrationComponent } from './component/restaurant-registra
 import { UpdateItemComponent} from './component/update-item/update-item.component';
 import { CustomerDataComponent } from './component/customer-data/customer-data.component';
 import { CustomerDataEditComponent } from './component/customer-data-edit/customer-data-edit.component';
-import { AdminLoginComponent } from './component/admin-login/admin-login.component';
-import { AdminComponent } from './class/admin/admin.component';
 import { RestaurantDataComponent } from './component/restaurant-data/restaurant-data.component';
 import { RestaurantdataEditComponent } from './component/restaurantdata-edit/restaurantdata-edit.component';
 import { HomeComponent } from './component/home/home.component';
@@ -61,8 +59,6 @@ import { PaymentSuccessComponent } from './component/payment-success/payment-suc
     UpdateItemComponent,
     CustomerDataComponent,
     CustomerDataEditComponent,
-    AdminLoginComponent,
-    AdminComponent,
     RestaurantDataComponent,
     RestaurantdataEditComponent,
     HomeComponent,

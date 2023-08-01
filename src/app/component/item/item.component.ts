@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from 'src/app/class/item';
 import { ItemServiceService } from 'src/app/service/item-service.service';
+import { Restaurant } from '../restaurants/restaurants.component';
 import { HardcodedAuthenticationService } from 'src/app/service/hardcoded-authentication.service';
 import { CartService } from 'src/app/service/cart.service';
 import { ItemService } from 'src/app/service/item.service';
-import { Restaurant } from 'src/app/class/restaurant';
 
 
 
@@ -35,21 +35,7 @@ export class ItemComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.id=this.route.snapshot.params['id'];
-    // this.itemservice.retriveAllItem().subscribe(
-    //   response =>{
-    //     this.items = response;
-    //     console.log(response);
-    //     console.log(this.items)
-    //   }
-    // )
-
-      // this.itemservice.getItemByRestId(this.id).subscribe(
-      //   data=>{
-      //   console.log(data);
-      //   this.items=data;
-      //   }
-      //  )
+    
       this.email=  sessionStorage.getItem('authenticateduser');
     console.log(this.email);
     
@@ -72,9 +58,7 @@ export class ItemComponent implements OnInit {
   
 
   addToCart(id:number): void {
-     // this.itemservice.saveItemByRestId(this.id,this.cartItem).subscribe(restaurant=>{
-    //   console.log(restaurant);
-    // })  
+    
     this.itemservice.getItemById(id).subscribe(data=>{
       console.log(data);
       this.cartItem=data;  

@@ -7,18 +7,14 @@ import { Customer } from '../component/register/register.component';
 })
 export class LoginService {
 
+  baseUrl:string="http://localhost:9999";
   constructor(private http:HttpClient) { }
 
   addCustomer(customer:Customer){
-    return this.http.post<Customer>(`http://localhost:9999/saveCustomer`,customer);
+    return this.http.post<Customer>(`${this.baseUrl}/saveCustomer`,customer);
   }
 
-  
-  // getCustomerByEmail(customeremail:string,password:string){
-  //   return this.http.get<Customer>(`http://localhost:9999/getCustomerByEmail/${customeremail}/${password}`);
-  // }
-
   getcustomerByEmail1(customeremail:string,password:string){
-    return this.http.get<Customer>(`http://localhost:9999/getCustomerByEmail/${customeremail}/${password}`);
+    return this.http.get<Customer>(`${this.baseUrl}/getCustomerByEmail/${customeremail}/${password}`);
   }
 }

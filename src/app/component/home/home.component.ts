@@ -15,7 +15,6 @@ export class HomeComponent {
   isUserLoggedIn:boolean=false;
 
   constructor(private restaurantservice:DataRestaurantService, public hardcodedAuthentication:HardcodedAuthenticationService,public router:Router){
-    console.log('Application loaded. Initializing data.');
   }
 
   p: number = 1;
@@ -24,13 +23,11 @@ export class HomeComponent {
 
  
   ngOnInit(): void {
-    //this.restaurantservice.getAllRestaurant();
     this.getAllRestaurants();
     this.isUserLoggedIn=this.hardcodedAuthentication.isUserLoggedIn();
    }
 
    searchByKeyword(searchkeyword: string=""){
-    console.log(searchkeyword)
     this.restaurant = [];
     this.getAllRestaurants(searchkeyword);
    } 
@@ -39,17 +36,11 @@ export class HomeComponent {
     this.restaurantservice.getAllRestaurant(searchkeyword)
     .subscribe(
       (response:Restaurant[])=>{
-        // resp = this.restaurant;
-       // console.log("**********"+response);
         response.forEach((res)=>this.restaurant.push(res));
-        console.log('msg',this.restaurant);
         this.restaurantservice.setRestaurantData(this.restaurant);
-         //console.log("**********"+response);
-        //resp = this.restaurant
 
       }
       ,(error: HttpErrorResponse)=>{
-        console.log(error);
       }
     )
    }

@@ -27,7 +27,6 @@ import { CartComponent } from './component/cart/cart.component';
 
 
 const routes: Routes = [
-  // {path:'',component:RestaurantLoginComponent},//this is a default path
   {path:'',component:HomeComponent},
   {path:'home',component:HomeComponent},
    {path:'logoutadmin',component:MenuComponent,canActivate:[RouteGuardService]},

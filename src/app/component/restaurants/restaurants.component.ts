@@ -15,19 +15,11 @@ export class RestaurantsComponent implements OnInit {
  
 
 constructor(private restaurantservice:DataRestaurantService,private router:Router){
-  console.log('Application loaded. Initializing data.');
 }
 ngOnInit(): void {
-  // this.restaurantservice.retriveAllRestaurant().subscribe(
-  //   response =>{
-  //     this.restaurant = response;
-  //     console.log("nidhi"+response);
-  //   }
-  // )
   this.restaurantservice.getRestaurantData().subscribe((data) => {
         // Update the restaurants array with the data from the service
         this.restaurant = data;
-        console.log("NNNNNN"+data);
       });
 }
 viewRestaurant(id:number){

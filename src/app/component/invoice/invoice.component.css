@@ -9,6 +9,5 @@ table{
     border-color: black;
 }
 table th,tr{
-    /* border-width: 1vh; */
     text-align: center;
 }

@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <table class="table table-striped">
     <thead>
       <tr>
@@ -15,7 +16,6 @@
       <tr *ngFor="let rest of restaurants | paginate: { itemsPerPage: count, currentPage: p }">
         <td>{{rest.restname}}</td>
         <td>
-            <!-- Use the img tag to display the image -->
             <img [src]="rest.pic" alt="Image" height="100px" width="100px" />
           </td>
         <td>{{rest.area}} , {{rest.city}} ,{{rest.state}} 

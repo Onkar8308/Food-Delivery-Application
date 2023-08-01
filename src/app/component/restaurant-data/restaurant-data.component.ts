@@ -19,7 +19,6 @@ export class RestaurantDataComponent {
     this.restrservice.retriveAllRestaurant().subscribe(
       response =>{
         this.restaurants = response;
-        console.log(this.restaurants);
       }
     )
   }
@@ -33,7 +32,6 @@ export class RestaurantDataComponent {
     this.restrservice.deleterest(id).subscribe(
       respose=>{
         this.restaurants=respose;
-        console.log(this.restaurants);
       } 
     );
   }

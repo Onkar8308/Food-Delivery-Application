@@ -54,40 +54,28 @@ export class PaymentComponent implements OnInit{
     ){
        
     this.email = sessionStorage.getItem('authenticateduser');
-    console.log(this.email);
 
     this.cartService.getCartByEmail(this.email).subscribe(cartData => {
       this.cartID = cartData.id;
-      console.log(cartData);
       this.customerId = cartData.cust.customerid;
-      console.log(this.cartID);
-      console.log(this.customerId);
-      // console.log(cartData);
       this.cartService.getCartById(this.customerId).subscribe(cart => {
         if(cart.paymentStatus=="unpaid"){}
         this.cartDetails = cart;
-        console.log(this.cartDetails);
 
         this.cartService.updateStatus(this.cartID).subscribe(cart=>{
-          console.log(cart);
          
         })
     
       });
       });
       
-      // this.cartService.deleteItemInCartByID(this.cartID);
 
       this.dialog.open(PaymentSuccessComponent,{
-        // this.router.navigate(['paymentsuccess'])
         height:'73vh',
         width:'70vh'  
       });
       this.ref.close();
       alert("payment successfull");
-      
-      // console.log(DummyPayment.personName)
-      // console.log(this.cardDatils.get('personName')?.value);
     }
     else{
       alert("invalid card details");

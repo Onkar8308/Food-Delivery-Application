@@ -1,3 +1,4 @@
+
 <div class="bg-img">
     <div class="content" >
         <form (ngSubmit)="updateRest()" #itemForm="ngForm" >
@@ -41,12 +42,11 @@
                 <input type="text" required placeholder="Enter contactNumber"
                 name= "contactNumber" [(ngModel)]="rest.contactNumber" #contactNumber="ngModel">
             </div>
-            <div class="field">
+            <div class="field" *ngIf="isrestLogIn">
                 <span class="fa fa-user"></span>
-                <input type="text" required placeholder="Approval"
+                <input type="text" required placeholder="approval"
                 name= "status" [(ngModel)]="rest.status" #status="ngModel">
             </div>
-            <br>
             <!-- <div class="field space">
                 <label for="itemImage">Upload Item Image:</label>
                 <input

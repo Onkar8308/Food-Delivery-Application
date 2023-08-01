@@ -39,12 +39,6 @@ export class LoginComponent{
    
    
     loginValid() {
-   
-      // this.cust.role = this.role;
-      console.log("Inside login");
-   
-      console.log("***********"+this.loginData.role);
-
       if(this.loginData.role=='User'){
 
     this.loginservice.getcustomerByEmail1(this.loginData.restloginemail, this.loginData.restloginpassword)
@@ -58,52 +52,29 @@ export class LoginComponent{
       this.hardcodedAuthentication.authenticate(this.loginData.restloginemail,this.loginData.restloginpassword);
 
       alert("Login Successful");
-
-      console.log("Login successful");
  
       this.dialog.close();
-     
-      // Redirect to AddRestaurant page or any other page you want
      
       this.router.navigate(['restaurant']);
    
     } else {
-   
       alert("Login failed");
-
-    console.log("Login failed");
-   
-    // Handle login failure, show error message, etc.
-   
     }
    
     },
-   
     error => {
-   
-    console.error("Login error:", error);
-   
-    // Handle login error, show error message, etc.
-   
     }
-   
     );
    
   }
 
     
   else{
-
-    console.log("Inside login");
-      
     this.adminloginservice.getAdminByEmail(this.loginData.restloginemail, this.loginData.restloginpassword).subscribe(
       (data: Admin) => {
       if (data) {
         this.hardcodedAuthentication.authenticateAdmin(this.loginData.restloginemail, this.loginData.restloginpassword);
-        alert("Login Successful!")
-        console.log("Login successful");
-      //sessionStorage.setItem("authenticatedAdmin",this.loginData.restloginemail);
-        console.log(data.username);
+        alert("Login Successful!");
         this.dialog.close();
         
         this.router.navigate(['customeradmin']);
@@ -112,30 +83,14 @@ export class LoginComponent{
     } else {
    
       alert("Login failed");
-    console.log("Login failed");
-   
-    // Handle login failure, show error message, etc.
    
     }
    
     },
    
       (    error: any) => {
-   
-    console.error("Login error:", error);
-   
-    // Handle login error, show error message, etc.
-   
-    }
-   
+    }  
     );
-  }
-
-    
+  } 
    }
-   
-   
-   
-    
-
 }

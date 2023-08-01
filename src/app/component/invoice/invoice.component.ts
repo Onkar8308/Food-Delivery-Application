@@ -19,14 +19,12 @@ export class InvoiceComponent implements OnInit{
   ngOnInit(): void {
   this.invoice.getAllInvoice().subscribe(data=>{
     this.invoiceData=data;
-   // console.log(data);
   })
   }
 
   getInvoiceDetails(id:number){
     this.invoice.getInvoiceById(id).subscribe(data=>{
       this.currentInvoice=data;
-     console.log(this.currentInvoice);
     })
 
   }

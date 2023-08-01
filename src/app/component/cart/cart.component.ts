@@ -45,22 +45,14 @@ export class CartComponent {
   ngOnInit(): void {
 
     this.email = sessionStorage.getItem('authenticateduser');
-    console.log(this.email);
 
     this.cartService.getCartByEmail(this.email).subscribe(cartData => {
       this.cartID = cartData.id;
-      console.log(cartData);
       this.customerId = cartData.cust.customerid;
-      console.log(this.cartID);
-      console.log(this.customerId);
-      // console.log(cartData);
       this.cartService.getCartById(this.customerId).subscribe(cart => {
-        // if(cart.paymentStatus=="unpaid"){}
         this.cartDetails = cart;
         console.log(this.cartDetails);
         this.item = cart.itemList;
-        //   console.log(cart.itemList);
-        //   console.log(cart.itemList.length);
         for (let i = 0; i < cart.itemList.length; i++) {
           this.total = this.total +cart.itemList[i].itemcost;
           console.log(this.quantityofItem);
@@ -68,9 +60,7 @@ export class CartComponent {
             this.valid = true;
             console.log(this.total)
           }
-          //     console.log(this.item.itemcost);
         }
-        //   console.log(this.total)
       });
     });
 
@@ -98,14 +88,6 @@ export class CartComponent {
         console.log(data);
       });
     });
-
-
-
-
-
-    // this.cartService.addAddress(5,this.addressForm.value).subscribe(data=>{
-    //   console.log(data);
-    // });
     alert("address saved succefully");
   }
 
@@ -113,7 +95,6 @@ export class CartComponent {
   showPreviusAdd(){
 
     this.dialog.open(CustomerAddComponent, {
-      // this.router.navigate(['paymentsuccess'])
       height: '73vh',
       width: '120vh',
       data:this.total
@@ -127,15 +108,10 @@ export class CartComponent {
     console.log(this.cartID);
 
     this.dialog.open(PaymentComponent, {
-      // this.router.navigate(['paymentsuccess'])
       height: '73vh',
       width: '70vh',
       data:id
     });
-
-
-
-
   }
 
 
