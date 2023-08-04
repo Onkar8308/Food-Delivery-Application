@@ -6,6 +6,10 @@ import { Restaurant } from '../restaurants/restaurants.component';
 import { HardcodedAuthenticationService } from 'src/app/service/hardcoded-authentication.service';
 import { CartService } from 'src/app/service/cart.service';
 import { ItemService } from 'src/app/service/item.service';
+import { MatDialog } from '@angular/material/dialog';
+import { OrderService } from 'src/app/service/order.service';
+import { PreviousOrderrestaurantComponent } from '../previous-orderrestaurant/previous-orderrestaurant.component';
+import { QuantityComponent } from '../quantity/quantity.component';
 
 
 
@@ -18,18 +22,24 @@ export class ItemComponent implements OnInit {
   p: number = 1;
   count: number = 6;
   id:number;
-
+  intitalQuantity:number=1;
   items : Item[] = [];
+  quantityDisable:boolean=false;
   cartID:number;
   cartItem:Item
   email:any;
-
+customerid:number;
 
   restaurant : Restaurant;
 
-  constructor(public hardcodedAuthentication:HardcodedAuthenticationService,private itemservice: ItemServiceService,private router:Router,private route:ActivatedRoute,
+  constructor(public hardcodedAuthentication:HardcodedAuthenticationService,
+    private itemservice: ItemServiceService,
+    private router:Router,
+    private route:ActivatedRoute,
     private  cart:CartService,
-    private item:ItemService){
+    private item:ItemService,
+    private matDialog: MatDialog,
+    private orderService:OrderService) {
     console.log('Application loaded. Initializing data.');
   };
 
@@ -41,6 +51,7 @@ export class ItemComponent implements OnInit {
     
     this.cart.getCartByEmail(this.email).subscribe(cartData=>{
       this.cartID = cartData.id;
+      this.customerid=cartData.cust.customerid;
       console.log(this.cartID);
       console.log(cartData);
     });
@@ -57,31 +68,45 @@ export class ItemComponent implements OnInit {
 
   
 
-  addToCart(id:number): void {
-    
-    this.itemservice.getItemById(id).subscribe(data=>{
-      console.log(data);
-      this.cartItem=data;  
-      
-      //geting item details
-      
-      
-      this.cart.addItemToCart(this.cartID,data).subscribe(data1=>{   //asiging item to cartt
-        console.log(data1);
-        alert("item Added to your cart successfully");  
-        
-        this.item.assignItemToRestById(this.id,data.itemid).subscribe(updatedres=>{
-          console.log(updatedres);
-        })
+  addToCart(itemId:number): void {
+    this.id=this.route.snapshot.params['id'];
+    this.matDialog.open(QuantityComponent,{
+      height:"30vh",
+      width:"50vh",
+      data:{itemId:itemId,restId:this.id,custID:this.customerid,cartId:this.cartID}
     })
+
+    // this.itemservice.getItemById(id).subscribe(data=>{
+    //   console.log(data);
+    //   this.cartItem=data;  
+      
+    //   //geting item details
+      
+     
+
+    //   this.cart.addItemToCart(this.cartID,data).subscribe(data1=>{   //asiging item to cartt
+    //     console.log(data1);
+    //     prompt( 
+    //     );  
+    //     this.orderService.saveOrder(this.customerid,data.rest.restid,data.itemid,this.cartID,this.intitalQuantity).subscribe(order=>{
+    //       console.log(order);
+    //     })
+    //     this.item.assignItemToRestById(this.id,data.itemid).subscribe(updatedres=>{
+    //       console.log(updatedres);
+    //     })
+    // })
     
-    })
+    // })
   }
 
   updateItem(id:number): void {
     this.id = this.route.snapshot.params['id'];
     this.router.navigate(['updateItem',id,this.id]);
   }
+
+
+  
+  
   
   deleteItem(id:number): void {
     this.id=this.route.snapshot.params['id'];
@@ -98,5 +123,14 @@ export class ItemComponent implements OnInit {
   addItem(): void {
     this.id = this.route.snapshot.params['id'];
     this.router.navigate(['registerItem',this.id]);
+  }
+
+  viewOoders(){
+    this.id = this.route.snapshot.params['id'];
+    this.matDialog.open(PreviousOrderrestaurantComponent,{
+      width:'120vh',
+      height:'90vh',
+      data:this.id
+    })
   }
 }

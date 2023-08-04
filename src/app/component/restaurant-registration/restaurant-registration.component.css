@@ -1,6 +1,14 @@
-
+*{
+    font-family: 'Poppins', sans-serif;
+    /* color: white; */
+}
   .register{
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    background: url("restaurantbg.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: grey;
+    background-blend-mode: multiply;
+    /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
     margin-top: 3%;
     padding: 3%;
 }
@@ -22,7 +30,9 @@
     cursor: pointer;
 }
 .register-right{
-    background: #f8f9fa;
+    background: url("restaurantbg2.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
 }
@@ -57,9 +67,9 @@
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
-    background: #0062cc;
+    background: gray;
     color: #fff;
-    font-weight: 600;
+    font-weight: 700;
     width: 50%;
     cursor: pointer;
 }
@@ -98,4 +108,10 @@
 
 .form-group{
     margin-top: 1rem;
+}
+#btnlogin:hover{
+    background-color: lightslategray;
+}
+.btnRegister:hover{
+    background-color: lightslategray;
 }

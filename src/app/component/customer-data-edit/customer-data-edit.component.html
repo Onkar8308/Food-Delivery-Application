@@ -1,26 +1,34 @@
-<div class="container">
+<html>
+  <div class="container">
     <div class="form-wrapper">
-      <form (ngSubmit)="updateItem()" #itemForm="ngForm">
+      <form (ngSubmit)="!itemForm.invalid && updateItem()" #itemForm="ngForm">
         <div class="form-group">
+          <label>Customer Name:</label>
           <input
             type="text"
             class="form-control"
-            required
+            pattern="^[A-Za-z][A-Za-z0-9_]{2,19}$"
             placeholder="Enter name"
             name="customername"
             [(ngModel)]="customer.customername"
             #customername="ngModel"
+            required
           />
-          <div *ngIf="customername.invalid && (customername.dirty || customername.touched)">
+          <div *ngIf="(customername.dirty || customername.touched) && customername.errors?.['required']">
             <div *ngIf="customername.errors?.['required']" class="text-danger">Name is required.</div>
           </div>
+          <div class="text-danger" 
+          *ngIf="(customername.dirty || customername.touched) && customername.errors?.['pattern']">
+            Name cannot start with a number and length should be between 3 to 20
+        </div>
         </div>
         <div class="form-group">
+          <label>Email:</label>
           <input
             type="email"
             class="form-control"
             required
-            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             placeholder="Enter email"
             name="customeremail"
             [(ngModel)]="customer.customeremail"
@@ -32,15 +40,16 @@
           </div>
         </div>
         <div class="form-group">
+          <label>Mobile Number:</label>
           <input
             type="text"
             class="form-control"
             required
-            pattern="[0-9]{10}"
+            pattern="^[5-9]\d{0,9}$"
             placeholder="Enter mobile number"
             name="customermobilenumber"
             [(ngModel)]="customer.customermobilenumber"
-            #customermobilenumber="ngModel"
+            #customermobilenumber="ngModel" minlength="10" maxlength="10"
           />
           <div
             *ngIf="customermobilenumber.invalid && (customermobilenumber.dirty || customermobilenumber.touched)"
@@ -49,14 +58,15 @@
               Mobile number is required.
             </div>
             <div *ngIf="customermobilenumber.errors?.['pattern']" class="text-danger">
-              Mobile number must be 10 digits.
+              Mobile number must be 10 digits and should begin with 5,6,7,8 or 9
             </div>
           </div>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary">Update</button>
+          <button type="submit" [disabled]="!itemForm.valid" class="btn btn-danger">Update</button>
         </div>
       </form>
     </div>
   </div>
   
+</html>

@@ -11,7 +11,6 @@ import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './component/register/register.component';
 import { MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule,HttpHeaders } from '@angular/common/http';
-import { InvoiceComponent } from './component/invoice/invoice.component';
 import { PaymentComponent } from './component/payment/payment.component';
 import { PaymentModuleComponent } from './component/payment-module/payment-module.component';
 import { RestaurantsComponent } from './component/restaurants/restaurants.component';
@@ -37,6 +36,9 @@ import { ErrorComponent } from './component/error/error.component';
 import { CartComponent } from './component/cart/cart.component';
 import { CustomerAddComponent } from './component/customer-add/customer-add.component';
 import { PaymentSuccessComponent } from './component/payment-success/payment-success.component';
+import { PreviousOrderCustomerComponent } from './component/previous-order-customer/previous-order-customer.component';
+import { PreviousOrderrestaurantComponent } from './component/previous-orderrestaurant/previous-orderrestaurant.component';
+import { QuantityComponent } from './component/quantity/quantity.component';
 
 
 @NgModule({
@@ -47,7 +49,6 @@ import { PaymentSuccessComponent } from './component/payment-success/payment-suc
     MenuComponent,
     FooterComponent,
     RegisterComponent,
-    InvoiceComponent,
     PaymentComponent,
     PaymentModuleComponent,
     RestaurantsComponent,
@@ -67,6 +68,9 @@ import { PaymentSuccessComponent } from './component/payment-success/payment-suc
     CartComponent,
     CustomerAddComponent,
     PaymentSuccessComponent,
+    PreviousOrderCustomerComponent,
+    PreviousOrderrestaurantComponent,
+    QuantityComponent,
   ],
   imports: [
     BrowserModule,

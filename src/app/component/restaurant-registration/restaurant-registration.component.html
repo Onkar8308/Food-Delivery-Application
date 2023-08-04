@@ -1,14 +1,14 @@
 <div class="container register">
   <div class="row">
     <div class="col-md-3 register-left">
-      <h3>Welcome</h3>
-      <p>If Register please login in here</p>
-      <input type="submit" name="Login" value="Login" routerLink="/RestaurantSignup"/><br>
+      <h1>WELCOME!</h1>
+      <p style="font-size: large;"><b>Registered Already? Please login here</b></p>
+      <input type="submit" id="btnlogin" name="Login" value="Login" routerLink="/RestaurantSignup" style="margin: 0; padding: 0; height: 30px; font-size: large;"/><br>
     </div>
     <div class="col-md-9 register-right">
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-          <h3 class="register-heading">Restaurant Registration</h3>
+          <h2 class="register-heading">Restaurant Registration</h2>
             <form [formGroup]=" registrationForm" (ngSubmit)="addRestaurant()" class="form-container" class="row register-form">
               <div class="col-md-6">
 
@@ -84,7 +84,7 @@
                 </div>
                 <span style="color: red;" *ngIf="pincode?.invalid && pincode?.touched">This field is required</span>
               </div>
-              <button type="submit" class="btnRegister btn btn-primary" [disabled]="!registrationForm.valid">Submit</button>
+              <button type="submit" class="btnRegister btn btn-dark" [disabled]="!registrationForm.valid">Submit</button>
             </form>
           </div>
       </div>

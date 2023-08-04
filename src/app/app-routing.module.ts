@@ -4,7 +4,6 @@ import { LoginComponent } from './component/login/login.component';
 import { LogoutComponent } from './component/logout/logout.component';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './component/register/register.component';
-import { InvoiceComponent } from './component/invoice/invoice.component';
 import { PaymentModuleComponent } from './component/payment-module/payment-module.component';
 import { ItemComponent } from './component/item/item.component';
 import { RestaurantsComponent } from './component/restaurants/restaurants.component';
@@ -32,7 +31,6 @@ const routes: Routes = [
    {path:'logoutadmin',component:MenuComponent,canActivate:[RouteGuardService]},
   {path:'login',component:LoginComponent,canActivate:[RouteGuardService]},
   {path:'register',component:RegisterComponent,canActivate:[RouteGuardService]},
-  {path:'invoice',component:InvoiceComponent,canActivate:[RouteGuardService]},
   {path:'paymentModule',component:PaymentModuleComponent,canActivate:[RouteGuardService]},
   {path:'restaurant',component:RestaurantsComponent},
   {path:'item/:id',component:ItemComponent},

@@ -1,6 +1,10 @@
-<h1>Login Form</h1>
-
+<html>
 <div class="container-fluid">
+
+  <div class="content">
+
+
+    <h1>Login Form</h1>
 
  <form (ngSubmit)="loginValid()" #LoginForm="ngForm">
   
@@ -14,7 +18,7 @@
   
    </fieldset>
   
- <span class="text-danger"
+ <span class="text-warning"
   
   *ngIf="(restloginemail.touched || LoginForm.submitted) && restloginemail.errors?.['required']">
   
@@ -22,13 +26,13 @@
   
    </span>
   
-   <span class="text-danger" *ngIf="restloginemail.touched && restloginemail.errors?.['pattern']">
+   <span class="text-warning" *ngIf="restloginemail.touched && restloginemail.errors?.['pattern']">
   
    Enter a valid email address
   
    </span>
   
-  
+  <br>
   
  <fieldset class="form-group">
   
@@ -40,7 +44,7 @@
   
    </fieldset>
   
-   <span class="text-danger"
+   <span class="text-warning"
   
    *ngIf="(restloginpassword.touched || LoginForm.submitted) && restloginpassword.errors?.['required']">
   
@@ -49,24 +53,29 @@
    </span>
 
 
-   <span class="text-danger" *ngIf="restloginpassword.touched && restloginpassword.errors?.['pattern']">
+   <span class="text-warning" *ngIf="restloginpassword.touched && restloginpassword.errors?.['pattern']">
     Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
     letter, 1 number and 1 special character
   </span>
   
   
   
- <br><br>
+ <br>
 
- Role
+ <p>Role</p>
  <select class="form-select" aria-label="Default select example" name="role" #role="ngModel" [(ngModel)]="loginData.role" required>
   <option *ngFor="let r of roles" [ngValue]="r">{{r}}</option>
 </select>
 
 <br><br>
   
-   <button [disabled]="!LoginForm.valid" type="submit" class="btn btn-success">Login</button>
+   <button [disabled]="!LoginForm.valid" type="submit" class="btn btn-danger">Login</button>
   
    </form>
   
+
+  </div>
+
+  
    </div>
+   </html>

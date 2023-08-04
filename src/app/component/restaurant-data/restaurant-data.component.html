@@ -1,19 +1,20 @@
 <app-menu></app-menu>
+<br>
 <table class="table table-striped">
-    <thead>
+    <thead class="table-dark">
       <tr>
         <th scope="col">Restaurant Name</th>
         <th scope="col">Image</th>
         <th scope="col">Address</th>
-        <th scope="col">manger Name</th>
-        <th scope="col">contact Number</th>
+        <th scope="col">Manger Name</th>
+        <th scope="col">Contact Number</th>
         <th scope="col">Status</th>
         <th scope="col">Action</th>
         <th scope="col">Items</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let rest of restaurants | paginate: { itemsPerPage: count, currentPage: p }">
+      <tr  class="table-success" *ngFor="let rest of restaurants | paginate: { itemsPerPage: count, currentPage: p }">
         <td>{{rest.restname}}</td>
         <td>
             <img [src]="rest.pic" alt="Image" height="100px" width="100px" />
@@ -25,15 +26,16 @@
         <td>{{rest.managerName}}</td>
         <td>{{rest.contactNumber}}</td>
         <td *ngIf="rest.status;else notdone">Approved</td>
-        <ng-template #notdone>Not Approved</ng-template>
+        <ng-template #notdone><td>Not Approved</td></ng-template>
 
         <td>
-          <button class="btn btn-primary" (click)="restupdate(rest.restid)">Update</button>
+          <button class="btn btn-success" (click)="restupdate(rest.restid)">Update</button>
           &nbsp;
           <button class="btn btn-danger" (click)="restdelete(rest.restid)">Delete</button>
         </td>
         <td>
-          <button class="btn btn-primary" (click)="viewItems(rest.restid)">View</button>
+          <button class="btn btn-danger" (click)="viewOrder(rest.restid)">view Orders</button>
+          <button class="btn btn-success" (click)="viewItems(rest.restid)">View Item</button>
         </td>
       </tr>
   

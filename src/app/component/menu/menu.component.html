@@ -41,8 +41,8 @@
           </li>
         </ul>
         <ul class="navbar-nav navbar-collapse justify-content-end">
-          <li class="nav-item active" *ngIf="hardcodedAuthentication.isUserLoggedIn()" style="color: aliceblue; margin-top:15px ;" ><h2>
-            Welcome {{customer.customername}}</h2>
+          <li class="nav-item active" *ngIf="hardcodedAuthentication.isUserLoggedIn()" style="color: rgb(226, 183, 148); margin-top:15px ;" ><h2>
+            Welcome, {{customer.customername}}!!</h2>
           </li>
           <li><button *ngIf="!hardcodedAuthentication.isUserLoggedIn() && !hardcodedAuthentication.isAdminLoggedIn() && !hardcodedAuthentication.isRestLoggedIn()"  (click)="Openpopup()" mat-raised-button class="btn btn-outline-primary mr-10">Log in</button></li>
         </ul>

@@ -1,3 +1,14 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    /* color: white; */
+}
+html{
+    background: url("restaurantbg.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-color: grey;
+    background-blend-mode: multiply;
+}
 .container {
     display: flex;
     justify-content: center;
@@ -8,10 +19,11 @@
 }
 
 .form-wrapper {
+    margin: auto;
     border: 1px solid #ccc;
-    padding: 20px;
+    padding: 40px;
     width: 400px;
-    background-color: #f8f9fa;
+    background: url("restaurantbg2.jpeg");
     color: #333;
 }
 
@@ -24,4 +36,8 @@
 .form-group > .form-control,
 .btn-primary {
     width: 100%;
+}
+
+label{
+    font-weight: bold;
 }

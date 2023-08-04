@@ -34,6 +34,7 @@ export class RegisterComponent implements OnInit {
     this.loginservice.addCustomer(this.cust).subscribe(
       customer=>{
         this.cust=customer;
+        alert("Registration Successful! Please Login");
         this.successmessage="Registration Successful! Please Login";
         this.dialog.close();
 

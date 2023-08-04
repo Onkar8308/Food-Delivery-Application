@@ -10,7 +10,7 @@ import { CustomerdataService } from 'src/app/service/customerdata.service';
 })
 export class CustomerDataComponent {
   p: number = 1;
-  count: number = 4;
+  count: number = 6;
   customer:Customer[]=[];
  
   constructor(private customerservice:CustomerdataService,private router:Router, private route:ActivatedRoute){}
