@@ -13,6 +13,7 @@ import { ItemServiceService } from 'src/app/service/item-service.service';
 export class RegistereditemComponent implements OnInit {
   id:number;
 
+  // items : Item[] = [];
 
   constructor(private router: Router, private route: ActivatedRoute, private data:ItemServiceService){};
 
@@ -24,6 +25,15 @@ export class RegistereditemComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    // this.id=this.route.snapshot.params['id'];
+
+    // this.data.getItemByRestId(this.id).subscribe(
+    //   response=>{
+      
+    //   console.log(response);
+    //   this.items=response;
+    //   }
+    //  )
   }
 
   saveItem(): void {
@@ -41,6 +51,7 @@ export class RegistereditemComponent implements OnInit {
 
     this.data.saveItemByRestId(this.id,Items).subscribe(
       (response:any) => {
+        console.log(response);
         this.router.navigate(['item',this.id]);
       },
 
@@ -49,6 +60,14 @@ export class RegistereditemComponent implements OnInit {
       }
     )
 
+    // this.data.saveItem(Items).subscribe(
+    // (response : any) => {
+    //   console.log(response);
+    // },
+    // (error:any) => {
+    //       console.log(error);
+    //     }
+    //   )
   }
   get itemname() {
     return this.registrationForm.get('itemname');

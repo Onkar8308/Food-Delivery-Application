@@ -22,6 +22,7 @@ export class CustomerAddresssService {
   public getCustomerAddById(id:number){
     return this.http.get<CustomerAddress>(`${this.baseUrl}/getCustomerAddById/${id}`); 
   }
+
   public deleteCustomerAdd(id:number){
     return this.http.delete<CustomerAddress>(`${this.baseUrl}/deleteCustomerAddressById/${id}`);
   }

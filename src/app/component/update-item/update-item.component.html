@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <div class="bg-img">
     <div class="content">
         <header>Update Item </header>
@@ -12,7 +13,8 @@
                 This field required
             </span>
             <span class="text-danger" *ngIf="itemname.touched && itemname.errors?.['pattern']">
-                This feild required 
+                This field required
+
             </span>
             <div class="field space">
                 <span class="fa fa-lock"></span>

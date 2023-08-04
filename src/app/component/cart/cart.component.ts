@@ -1,19 +1,22 @@
-import { Component } from '@angular/core';
+import { NgForOf } from '@angular/common';
+import { Component, Inject, Input } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from 'src/app/class/cart';
+import { CustomerAddress } from 'src/app/class/customer-address';
 import { Item } from 'src/app/class/item';
+import { Order } from 'src/app/class/order';
 import { CartService } from 'src/app/service/cart.service';
 import { CustomerAddresssService } from 'src/app/service/customer-addresss.service';
 import { CustomerService } from 'src/app/service/customer.service';
 import { InvoiceService } from 'src/app/service/invoice.service';
+import { ItemServiceService } from 'src/app/service/item-service.service';
+import { OrderService } from 'src/app/service/order.service';
 import { CustomerAddComponent } from '../customer-add/customer-add.component';
 import { PaymentComponent } from '../payment/payment.component';
 import { PreviousOrderCustomerComponent } from '../previous-order-customer/previous-order-customer.component';
-import { CustomerAddress } from 'src/app/class/customer-address';
-import { ItemServiceService } from 'src/app/service/item-service.service';
-import { OrderService } from 'src/app/service/order.service';
+import { Customer } from '../register/register.component';
 
 @Component({
   selector: 'app-cart',
@@ -177,7 +180,5 @@ export class CartComponent {
 const pincodeValidator = (control: AbstractControl): { [key: string]: boolean } | null => {
   const value = control.value;
   const isValid = /^\d{6}$/.test(value); // Check if the value contains exactly 6 digits
-  return isValid ? null : { invalidPincode: true 
+  return isValid ? null : { invalidPincode: true };
 };
-
-}

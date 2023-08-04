@@ -24,5 +24,11 @@ export class RouteGuardService implements CanActivate{
       return false;
     }
     
+
+  //  if(this.hardcodedAuthentication.isAdminLoggedIn()){
+  //   return true;
+  //  }
+  //   window.alert("You dont have access!!! Please connect to Administrator ");
+  //   return false;
   }
 }

@@ -1,6 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Order } from '../class/order';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +39,9 @@ updateOrderStatus(orderId:number){
 
 deleteOrderById(orderId:number){
   return this.http.delete<Order>(`${this.baseUrl}/deleteOrderById/${orderId}`);
+}
+dleteOrderHistory(custId:number){
+    return this.http.delete<Order>(`${this.baseUrl}/deleteOrderhistory/${custId}`);
 }
 
 }

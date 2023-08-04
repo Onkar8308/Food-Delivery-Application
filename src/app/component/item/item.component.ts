@@ -7,8 +7,8 @@ import { HardcodedAuthenticationService } from 'src/app/service/hardcoded-authen
 import { CartService } from 'src/app/service/cart.service';
 import { ItemService } from 'src/app/service/item.service';
 import { MatDialog } from '@angular/material/dialog';
-import { OrderService } from 'src/app/service/order.service';
 import { PreviousOrderrestaurantComponent } from '../previous-orderrestaurant/previous-orderrestaurant.component';
+import { OrderService } from 'src/app/service/order.service';
 import { QuantityComponent } from '../quantity/quantity.component';
 
 

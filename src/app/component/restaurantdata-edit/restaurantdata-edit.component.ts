@@ -101,6 +101,8 @@ export class RestaurantdataEditComponent {
     this.restService.updaterestById(this.id, this.rest).subscribe(
       (response: any) => {
         console.log(response);
+        alert('Restaurant updated successfully')
+
         this.router.navigate(['restaurantadmin']);
       },
       (error: any) => {
@@ -109,8 +111,15 @@ export class RestaurantdataEditComponent {
     );
     }
     if(this.hardCodedAuthantication.isRestLoggedIn()){
+      this.restService.updaterestById(this.id, this.rest).subscribe(
+        (response: any) => {
+          console.log(response);
+          alert('Restaurant updated successfully')
       this.router.navigate(['item',this.id]);
     }
+      );
+  }
+  
   }
   
 }

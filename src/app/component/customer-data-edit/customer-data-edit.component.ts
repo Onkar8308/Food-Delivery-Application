@@ -42,7 +42,7 @@ export class CustomerDataEditComponent implements OnInit {
         this.customerupdate=data;
       })
       if(this.hardcodedAuthentication.isUserLoggedIn()){
-        this.router.navigate(['home']);
+        this.router.navigate(['restaurant']);
       }
       if(this.hardcodedAuthentication.isAdminLoggedIn()){
         

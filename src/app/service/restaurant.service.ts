@@ -7,13 +7,16 @@ import { Restaurant } from '../class/restaurant';
 })
 export class RestaurantService {
 
-  baseUrl:string="http://localhost:9999";
   constructor(private http: HttpClient) { }
   getrestById(id:number){
-    return this.http.get<Restaurant>(`${this.baseUrl}/getRestaurantById/${id}`);
+    return this.http.get<Restaurant>(`http://localhost:9999/getRestaurantById/${id}`);
   }
   updaterestById(id:number,rest:Restaurant){
-    return this.http.put<Restaurant>(`${this.baseUrl}/updateRestaurantById/${id}`,rest);
+    return this.http.put<Restaurant>(`http://localhost:9999/updateRestaurantById/${id}`,rest);
   }
+
  
+  // public getAllRestaurant(searchkeyword:string=""){
+  //   return this.http.get<Restaurant[]>(`http://localhost:9999/getAllRestaurantsearch?searchkey=`+searchkeyword);
+  // }
 }

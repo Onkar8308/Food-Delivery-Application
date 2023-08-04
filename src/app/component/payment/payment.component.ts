@@ -3,7 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DummyPayment } from 'src/app/class/dummy-payment';
+import { Order } from 'src/app/class/order';
 import { CartService } from 'src/app/service/cart.service';
+import { OrderService } from 'src/app/service/order.service';
 import { PaymentSuccessComponent } from '../payment-success/payment-success.component';
 
 @Component({
@@ -16,20 +18,35 @@ export class PaymentComponent implements OnInit{
   email: any;
   cartID:number;
   cartDetails={};
+  newCart={};
   customerId:number;
-  totalAmountToPay:number;
+  totalAmountToPay:any;
+  order:any[]=[];
   
   constructor(private router:Router,
     private dialog:MatDialog,
     private ref:MatDialogRef<PaymentComponent>,
     private cartService:CartService ,
+    private orderService:OrderService,
     @Inject(MAT_DIALOG_DATA) public data:any)
-    { }
+    { 
+      this.totalAmountToPay=data
+    }
 
-  ngOnInit(
-    totalAmountToPay=this.data
-  ): void {
-     
+  ngOnInit(): void {
+    this.email = sessionStorage.getItem('authenticateduser');
+    console.log(this.email);
+
+    this.cartService.getCartByEmail(this.email).subscribe(cartData => {
+      this.cartID = cartData.id;
+      console.log(cartData);
+      this.orderService.getOrderByCustomerIdAndStatusUnpaid(cartData.cust.customerid).subscribe(Order=>{
+        console.log(Order);
+        this.order.push(Order);
+        
+      })
+    });
+
     
   }
 
@@ -54,28 +71,34 @@ export class PaymentComponent implements OnInit{
     ){
        
     this.email = sessionStorage.getItem('authenticateduser');
+    console.log(this.email);
 
     this.cartService.getCartByEmail(this.email).subscribe(cartData => {
       this.cartID = cartData.id;
+      console.log(cartData);
       this.customerId = cartData.cust.customerid;
-      this.cartService.getCartById(this.customerId).subscribe(cart => {
-        if(cart.paymentStatus=="unpaid"){}
-        this.cartDetails = cart;
+      for(let i=0;i<=this.order.length;i++){
+        for(let j=0;j<=this.order.length;j++){
+          this.orderService.updateOrderStatus(this.order[i][j].orderid).subscribe(updatedOrder=>{
+            console.log(updatedOrder);
+          })
+        }
+        
+      }
 
-        this.cartService.updateStatus(this.cartID).subscribe(cart=>{
-         
-        })
-    
-      });
-      });
-      
+    })
+      // this.cartService.deleteItemInCartByID(this.cartID);
 
       this.dialog.open(PaymentSuccessComponent,{
+        // this.router.navigate(['paymentsuccess'])
         height:'73vh',
         width:'70vh'  
       });
       this.ref.close();
       alert("payment successfull");
+      
+      // console.log(DummyPayment.personName)
+      // console.log(this.cardDatils.get('personName')?.value);
     }
     else{
       alert("invalid card details");

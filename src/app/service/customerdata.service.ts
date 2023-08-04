@@ -7,25 +7,24 @@ import { Customer } from '../class/customer';
 })
 export class CustomerdataService {
 
-  baseUrl: string = "http://localhost:9999";
   constructor(private http:HttpClient) { }
 
   retriveAllCustomer(){
     return this.http.get<Customer[]>
-      (`${this.baseUrl}/getAllCustomer`);
+      (`http://localhost:9999/getAllCustomer`);
   }
   getCustomerById(id:number){
     return this.http.get<Customer>
-    (`${this.baseUrl}/getCustomerById/${id}`);
+    (`http://localhost:9999/getCustomerById/${id}`);
   }
 
   deleteCustomerById(id:number){
     return this.http.delete<Customer[]>
-      (`${this.baseUrl}/deleteCustomerById/${id}`)
+      (`http://localhost:9999/deleteCustomerById/${id}`)
   }
 
   updateCustomerById(id:number, customer:Customer){
     return this.http.put<Customer>
-      (`${this.baseUrl}/updateCustomerById/${id}`,customer)
+      (`http://localhost:9999/updateCustomerById/${id}`,customer)
   }
 }

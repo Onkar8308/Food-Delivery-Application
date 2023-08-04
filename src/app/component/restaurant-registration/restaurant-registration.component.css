@@ -9,7 +9,8 @@
     background-color: grey;
     background-blend-mode: multiply;
     /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
-    margin-top: 3%;
+    margin-top: 1%;
+    margin-bottom: 1%;
     padding: 3%;
 }
 .register-left{
@@ -30,7 +31,7 @@
     cursor: pointer;
 }
 .register-right{
-    background: url("restaurantbg2.jpeg");
+    background: url("   restaurantbg2.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     border-top-left-radius: 10% 50%;

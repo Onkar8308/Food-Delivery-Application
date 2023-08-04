@@ -6,10 +6,14 @@ describe('PreviousOrderCustomerComponent', () => {
   let component: PreviousOrderCustomerComponent;
   let fixture: ComponentFixture<PreviousOrderCustomerComponent>;
 
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ PreviousOrderCustomerComponent ]
+    })
+    .compileComponents();
+  });
+
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [PreviousOrderCustomerComponent]
-    });
     fixture = TestBed.createComponent(PreviousOrderCustomerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

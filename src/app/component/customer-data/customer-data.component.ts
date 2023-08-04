@@ -10,19 +10,22 @@ import { CustomerdataService } from 'src/app/service/customerdata.service';
 })
 export class CustomerDataComponent {
   p: number = 1;
-  count: number = 6;
+  count: number = 4;
   customer:Customer[]=[];
  
+  // id:number;
   constructor(private customerservice:CustomerdataService,private router:Router, private route:ActivatedRoute){}
   ngOnInit(): void {
     this.customerservice.retriveAllCustomer().subscribe(
       response =>{
         this.customer = response;
+        console.log(this.customer);
       }
     )
   }
 
   customerUpdate(id:number){
+    console.log(id);
     this.router.navigate(['customerEdit',id]);
   }
 

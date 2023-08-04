@@ -8,5 +8,12 @@ import { HardcodedAuthenticationService } from 'src/app/service/hardcoded-authen
   styleUrls: ['./add-restaurant.component.css']
 })
 export class AddRestaurantComponent  {
+  // isUserLoggedIn: boolean = false;
+
+  // constructor(public hardcodedAuthentication: HardcodedAuthenticationService, private route:ActivatedRoute) {
+  // }
+  // ngOnInit(): void {
+  //   this.isUserLoggedIn = this.hardcodedAuthentication.isUserLoggedIn();
+  // }
 }
 
