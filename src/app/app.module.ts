@@ -37,6 +37,7 @@ import { PaymentSuccessComponent } from './component/payment-success/payment-suc
 import { PreviousOrderrestaurantComponent } from './component/previous-orderrestaurant/previous-orderrestaurant.component';
 import { PreviousOrderCustomerComponent } from './component/previous-order-customer/previous-order-customer.component';
 import { QuantityComponent } from './component/quantity/quantity.component';
+import { ContactUsComponent } from './component/contact-us/contact-us.component';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { QuantityComponent } from './component/quantity/quantity.component';
     PreviousOrderrestaurantComponent,
     PreviousOrderCustomerComponent,
     QuantityComponent,
+    ContactUsComponent,
   ],
   imports: [
     BrowserModule,

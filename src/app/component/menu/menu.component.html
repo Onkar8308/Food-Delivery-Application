@@ -14,10 +14,15 @@
             <!-- user false true-->
             <a class="nav-link" *ngIf="!hardcodedAuthentication.isUserLoggedIn() && !hardcodedAuthentication.isAdminLoggedIn() && !hardcodedAuthentication.isRestLoggedIn()" routerLink="/RegisterRestaurant">Add/Login Restaurant</a>
           </li>
+
+          <li class="nav-item">
+            <a *ngIf="!hardcodedAuthentication.isUserLoggedIn() && !hardcodedAuthentication.isAdminLoggedIn()" class="nav-link" href="/contactus">Contact Us</a>
+          </li>
           
           <li class="nav-item">
             <a *ngIf="!hardcodedAuthentication.isUserLoggedIn() && !hardcodedAuthentication.isAdminLoggedIn()" class="nav-link" href="/help">Help</a>
           </li>
+          
           <form class="d-flex" role="search">
             <!-- <input *ngIf="hardcodedAuthentication.isUserLoggedIn()" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button *ngIf="hardcodedAuthentication.isUserLoggedIn()" class="btn btn-outline-success" type="submit">Search</button> -->

@@ -20,6 +20,7 @@ import { RouteGuardService } from './service/route-guard.service';
 import { HelpComponent } from './component/help/help.component';
 import { CartComponent } from './component/cart/cart.component';
 import { CustomerAddComponent } from './component/customer-add/customer-add.component';
+import { ContactUsComponent } from './component/contact-us/contact-us.component';
 
 
 const routes: Routes = [
@@ -42,7 +43,8 @@ const routes: Routes = [
   {path: 'restaurantadmin',component:RestaurantDataComponent,canActivate:[RouteGuardService]},
   {path:'customeradmin',component:CustomerDataComponent,canActivate:[RouteGuardService]},
   {path:'help',component:HelpComponent},
-  {path:'cart',component:CartComponent},
+  {path:'contactus',component:ContactUsComponent},
+  {path:'cart',component:CartComponent,canActivate:[RouteGuardService]},
   {path:'**',component:ErrorComponent}
 ];
 
