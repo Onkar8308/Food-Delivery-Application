@@ -23,7 +23,6 @@ import { CustomerAddComponent } from './component/customer-add/customer-add.comp
 
 
 const routes: Routes = [
-  // {path:'',component:RestaurantLoginComponent},//this is a default path
   {path:'',component:HomeComponent},
   {path:'home',component:HomeComponent},
    {path:'logoutadmin',component:MenuComponent,canActivate:[RouteGuardService]},
