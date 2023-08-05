@@ -71,7 +71,7 @@
                 <div class="form-group">
                     <label for="pincode" class="control-label">Pincode</label>
                     <input type="text" class="form-control" placeholder="Enter pincode"
-                    name= "pincode" [(ngModel)]="rest.pincode" #pincode="ngModel" minlength="10" maxlength="10" required>
+                    name= "pincode" [(ngModel)]="rest.pincode" #pincode="ngModel" minlength="6" maxlength="6" required>
                 </div>
                 <span class="text-warning"
   
@@ -96,7 +96,7 @@
                 <br>
                 <div class="form-group">
                     <label for="contactNumber" class="control-label">Contact Number:</label>
-                    <input type="text" class="form-control" placeholder="Enter contactNumber"
+                    <input type="text" class="form-control" placeholder="Enter contactNumber" minlength="10" maxlength="10"
                     name= "contactNumber" [(ngModel)]="rest.contactNumber" #contactNumber="ngModel" required>
                 </div>
                 <span class="text-warning"

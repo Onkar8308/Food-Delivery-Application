@@ -1,6 +1,8 @@
 <app-menu></app-menu>
-<table class="table table-striped">
-    <thead>
+<div class="content">
+  <br><br>
+  <table class="table table-dark table-striped">
+    <thead class="table-dark">
       <tr>
         <th scope="col">Restaurant Name</th>
         <th scope="col">Image</th>
@@ -13,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let rest of restaurants | paginate: { itemsPerPage: count, currentPage: p }">
+      <tr *ngFor="let rest of restaurants | paginate: { itemsPerPage: count, currentPage: p }" class="table-success">
         <td>{{rest.restname}}</td>
         <td>
             <!-- Use the img tag to display the image -->
@@ -30,7 +32,7 @@
         </td>
          <ng-template #notDone>
         <td>
-          not Approved
+          Not Approved
 
         </td>
         </ng-template>
@@ -40,7 +42,7 @@
           <button class="btn btn-danger" (click)="restdelete(rest.restid)">Delete</button>
         </td>
         <td>
-          <button class="btn btn-danger" (click)="viewOrder(rest.restid)">view Orders</button>
+          <button class="btn btn-primary" (click)="viewOrder(rest.restid)" style="margin-right: 3px;">View Orders</button>
           <button class="btn btn-primary" (click)="viewItems(rest.restid)">View Item</button>
         </td>
       </tr>
@@ -50,4 +52,6 @@
   <br>
   <div class="text-right">
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+
 </div>

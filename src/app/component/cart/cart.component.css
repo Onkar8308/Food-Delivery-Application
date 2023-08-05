@@ -8,6 +8,10 @@ body{
     background-blend-mode: multiply;
     height: 120vh;                 
 } 
+
+.btn:hover{
+    background-color:#755636 ;
+}
         
 .shop{
     font-size: 20px;
@@ -88,11 +92,11 @@ a:focus,a:active {
     margin-top: 40px !important;
     
 }
-
+/* #593f39 */
 .card-header{
-    background-color: #fff;
+    background-color: #a97b4c;
     border-bottom:0px solid #aaaa !important;
-    background-color: grey;
+    background-color: #a97b4c;
 }
 
 p{
@@ -141,6 +145,6 @@ p{
 }
 
 button{
-    background-color: gray;
+    background-color: #a97b4c;
     border-color: black;
 }

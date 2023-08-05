@@ -63,9 +63,9 @@ export class LoginComponent{
    
       this.hardcodedAuthentication.authenticate(this.loginData.restloginemail,this.loginData.restloginpassword);
 
-      alert("Login Successful");
+      alert("Login Successful!");
 
-      console.log("Login successful");
+      console.log("Login successful!");
  
       this.dialog.close();
      

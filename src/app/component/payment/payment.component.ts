@@ -95,13 +95,13 @@ export class PaymentComponent implements OnInit{
         width:'70vh'  
       });
       this.ref.close();
-      alert("payment successfull");
+      alert("Payment Sucessful!");
       
       // console.log(DummyPayment.personName)
       // console.log(this.cardDatils.get('personName')?.value);
     }
     else{
-      alert("invalid card details");
+      alert("Oops! Invalid card details");
     }
    
   }

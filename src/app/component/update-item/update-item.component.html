@@ -3,8 +3,9 @@
     <div class="content">
         <header>Update Item </header>
         <form (ngSubmit)="updateItem()" #itemForm="ngForm">
-            <div class="field">
-                <span class="fa fa-user"></span>
+
+            <div class="form-group">
+                <label for="itemname" class="control-label">Item Name:</label>
                 <input type="text" required placeholder="Enter Item name" name="itemname" [(ngModel)]="item.itemname"
                     #itemname="ngModel" pattern="[a-zA-Z][a-zA-Z ]+$" required>
             </div>
@@ -16,11 +17,14 @@
                 This field required
 
             </span>
-            <div class="field space">
-                <span class="fa fa-lock"></span>
+            <br>
+
+            <div class="form-group">
+                <label for="itemcost" class="control-label">Item Cost:</label>
                 <input type="number" class="password" required placeholder="Enter Cost of Item" name="itemcost"
-                    [(ngModel)]="item.itemcost" #itemcost="ngModel" required>
+                [(ngModel)]="item.itemcost" #itemcost="ngModel" required>
             </div>
+
             <span class="text-danger"
                 *ngIf="(itemcost.touched || itemForm.submitted) && itemcost.errors?.['required']">
                 This field required
@@ -28,11 +32,14 @@
             <span class="text-danger" *ngIf="itemcost.touched && itemcost.errors?.['pattern']">
                 This field required
             </span>
-            <div class="field space">
-                <span class="fa fa-lock"></span>
+            <br>
+
+            <div class="form-group">
+                <label for="itemcost" class="control-label">Item Status:</label>
                 <input type="text" class="password" required placeholder="Enter Status of Item" name="itemstatus"
                     [(ngModel)]="item.itemstatus" #itemstatus="ngModel" pattern="[a-zA-Z][a-zA-Z ]+$" required>
             </div>
+
             <span class="text-danger"
                 *ngIf="(itemstatus.touched || itemForm.submitted) && itemstatus.errors?.['required']">
                 This field required
@@ -42,9 +49,8 @@
             </span>
 
             <br>
-            <div class="field">
-                <input type="submit" value="Update Item">
-            </div>
+        
+            <button type="submit" class="btn btn-danger">Update Item</button> 
         </form>
     </div>
 </div>

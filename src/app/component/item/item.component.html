@@ -2,7 +2,7 @@
 <div class="bg-img">
   
     <div><button class="btn btn-success" *ngIf="!hardcodedAuthentication.isAdminLoggedIn() && hardcodedAuthentication.isRestLoggedIn() && !hardcodedAuthentication.isUserLoggedIn()" routerLink="/registerItem" (click)="addItem()">Add Item</button>
-    <button class="btn btn-success" *ngIf="!hardcodedAuthentication.isAdminLoggedIn() && hardcodedAuthentication.isRestLoggedIn() && !hardcodedAuthentication.isUserLoggedIn()"  (click)="viewOoders()">View Orders</button>
+    <button style="margin-left: 10px;" class="btn btn-success" *ngIf="!hardcodedAuthentication.isAdminLoggedIn() && hardcodedAuthentication.isRestLoggedIn() && !hardcodedAuthentication.isUserLoggedIn()"  (click)="viewOoders()">View Orders</button>
     </div>
     <div class="container">
                 <div class="row">

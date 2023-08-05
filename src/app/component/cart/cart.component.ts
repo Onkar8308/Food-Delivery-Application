@@ -126,7 +126,7 @@ export class CartComponent {
         console.log(data);
       });
     });
-    alert("address saved succefully");
+    alert("Address Saved Successfully!");
   }
 
 

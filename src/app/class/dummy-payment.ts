@@ -1,6 +1,6 @@
 export class DummyPayment {
-    public static  personName:string="Onkar";
+    public static  personName:string="Priya";
     public static cardNum:string = " 56324795612374";
-    public static expiryDate:string = "02/2000";
-    public static cvv:any="542";
+    public static expiryDate:string = "09/2023";
+    public static cvv:any="123";
 }

@@ -12,6 +12,8 @@ import { CustomerService } from 'src/app/service/customer.service';
   styleUrls: ['./customer-add.component.css']
 })
 export class CustomerAddComponent implements OnInit {
+  p: number = 1;
+  count: number = 4;
   add:string="this is add";
   email:any;
   addId:number;

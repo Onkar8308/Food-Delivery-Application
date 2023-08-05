@@ -1,10 +1,10 @@
-<button class="btn btn-danger" style="margin-left: 110vh;" (click)="deleteHistory()" *ngIf="clearHistory">clear history</button>
-<table class="table table-striped">
-    <thead>
-      <tr>
-       
-         <th scope="col">Order date</th>
-         <th scope="col">Restaurant  Name</th>
+<button class="btn btn-danger" style="margin-left: 117vh;" (click)="deleteHistory()" *ngIf="clearHistory">Clear History</button>
+<br>
+<table class="table table-success table-striped" style="background-color: #212529;">
+    <thead class="table-dark">
+      <tr> 
+         <th scope="col">Order Date</th>
+         <th scope="col">Restaurant Name</th>
          <th scope="col">Mobile Number</th>
          <th scope="col">Email</th>
         <!-- <th scope="col">status</th> -->
@@ -12,11 +12,10 @@
         <th scope="col">Item price</th>
         <th scope="col">Item quantity</th>
         <th scope="col">Action</th>
-
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let order of customerOrder | paginate: { itemsPerPage: count, currentPage: p }">
+      <tr *ngFor="let order of customerOrder | paginate: { itemsPerPage: count, currentPage: p }" class="table-success">
         <td>{{order.orderDate}} </td>
         <td>{{order.res.restname}}</td>
         <td>{{order.res.contactNumber}}</td>
@@ -30,7 +29,6 @@
           <td> 
              <button class="btn btn-outline-danger" (click)="deleteOrder(order.orderid)">delete</button>
         </td>
-
       </tr>
     </tbody>
   </table>

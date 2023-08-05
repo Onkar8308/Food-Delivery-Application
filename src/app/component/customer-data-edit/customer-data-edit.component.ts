@@ -42,10 +42,11 @@ export class CustomerDataEditComponent implements OnInit {
         this.customerupdate=data;
       })
       if(this.hardcodedAuthentication.isUserLoggedIn()){
+        alert("Data Updated Successfully")
         this.router.navigate(['restaurant']);
       }
       if(this.hardcodedAuthentication.isAdminLoggedIn()){
-        
+        alert("Data Updated Successfully")
         this.router.navigate(['customeradmin']);
       }
   }

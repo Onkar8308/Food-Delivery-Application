@@ -1,4 +1,5 @@
 <app-menu></app-menu>
+<body>
     <div class=" container-fluid">
         <div class="row justify-content-center ">
             <div class="col-xl-10">
@@ -6,12 +7,12 @@
                     style="background-image: url('https://wallpaperaccess.com/full/1843875.jpg'); background-color: grey; background-blend-mode: multiply;">
                     <div class="row p-2 mt-5 fs-3 justify-content-between mx-sm-2">
                         <div class="col" style="font-size: large;">
-                            <p class="text-muted space mb-0  shop"> {{cartDetails.cust.customername}}</p>
-                            <p class="text-muted space mb-0  shop">{{cartDetails.cust.customermobilenumber}}</p>
+                            <p class="text space mb-0  shop" style="color: white; font-weight: bold;"> {{cartDetails.cust.customername}}</p>
+                            <p class="text space mb-0  shop" style="color: white; font-weight: bold;">{{cartDetails.cust.customermobilenumber}}</p>
                         </div>
                         <div class="col">
-                            <div class="row justify-content-right " style="margin-left:60vh ;">
-                                <button class="btn btn-primary"(click)="viewPreviousOrders()">View Previous Orders</button>
+                            <div class="row justify-content-right " style="margin-left:35vh ;">
+                                <button class="btn" style="color: white;" (click)="viewPreviousOrders()">View Order History</button>
                             </div>
                         </div>
                     </div>
@@ -20,12 +21,19 @@
                             <nav aria-label="breadcrumb" class="second ">
                                 <ol class="breadcrumb indigo lighten-6 first  ">
                                     <li class="breadcrumb-item font-weight-bold "><a class="black-text text-uppercase "
-                                            href="/restaurant"><span class="mr-md-3 mr-1">BACK TO SHOP</span></a><i
-                                            class="fa fa-angle-double-right " aria-hidden="true"></i></li>
+                                            href="/restaurant"><span class="mr-md-3 mr-1">BACK TO SHOP</span></a>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                                <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                              </svg>
+                                        </li>
                                     <li class="breadcrumb-item font-weight-bold"><a
                                             class="black-text text-uppercase active-2" href="#"><span
-                                                class="mr-md-3 mr-1">SHOPPING BAG</span></a><i
-                                            class="fa fa-angle-double-right text-uppercase " aria-hidden="true"></i>
+                                                class="mr-md-3 mr-1" style="font-size: 12px;">SHOPPING BAG</span></a>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                                    <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                                  </svg>
                                     </li>
                                     <!-- <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase " href="#"><span class="mr-md-3 mr-1">CHECKOUT</span></a></li> -->
                                 </ol>
@@ -35,14 +43,14 @@
                     <div class="row justify-content-around" >
                         <div class="col-md-5" >
                             <form [formGroup]="addressForm" >
-                                <div class="card border-0" style="width: 500px;" >
+                                <div class="card border-0" style="width: 520px;" >
                                     <div class="card-header pb-0" >
                                         <h2 class="card-title space ">Checkout</h2>
                                         <p class="card-text text-muted mt-4  space">SHIPPING DETAILS</p>
                                         <hr class="my-0">
                                     </div>
                                     <div class="container p-0" >
-                                        <div class="card px-4" > 
+                                        <div class="card px-4" style="background: url('restaurantbg2.jpeg') "> 
                                             <div class="row gx-3">
                                                 <div class="col-12">
                                                     <div class="d-flex flex-column">
@@ -66,7 +74,7 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <div class="d-flex flex-column">
-                                                        <p class="text mb-1" style="font-weight: bold; font-size: 17px;">state</p>
+                                                        <p class="text mb-1" style="font-weight: bold; font-size: 17px;">State</p>
                                                         <input class="form-control mb-3" formControlName="state"
                                                             type="text" placeholder="*State">
                                                         
@@ -78,19 +86,19 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <div class="d-flex flex-column">
-                                                        <p class="text mb-1" style="font-weight: bold; font-size: 17px;">country</p>
+                                                        <p class="text mb-1" style="font-weight: bold; font-size: 17px;">Country</p>
                                                         <input class="form-control mb-3" formControlName="country"
-                                                            type="text" placeholder="*country">
+                                                            type="text" placeholder="*Country">
                                                         <span
                                                             *ngIf="addressForm.get('country')?.errors?.required && addressForm.get('country')?.touched"
                                                             style="color: red;">country is required</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
-                                                    <div class="d-flex flex-column" style="font-weight: bold; font-size: 17px;">
-                                                        <p class="text mb-1">pincode</p>
+                                                    <div class="d-flex flex-column">
+                                                        <p class="text mb-1" style="font-weight: bold; font-size: 17px;">Pincode</p>
                                                         <input class="form-control mb-3 pt-2 " formControlName="pincode"
-                                                            type="number" placeholder="*enter 6 digit pincode"
+                                                            type="number" placeholder="*Enter 6 digit pincode"
                                                             pattern="^[0-9]\d{0,5}$" maxlength="10">
                                                         <span
                                                             *ngIf="addressForm.get('pincode')?.errors?.required && addressForm.get('pincode')?.touched "
@@ -100,18 +108,18 @@
                                                         <span *ngIf="addressForm.get('pincode')?.touched 
                                                             && addressForm.get('pincode')?.invalid"
                                                             style="color: red;">
-                                                            Pincode should be 6 digits And pincode should be number.
+                                                            Pincode should be 6 digits and should be number.
                                                         </span>
 
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
-                                                    <button class="btn btn-dark"
-                                                        [disabled]="addressForm.invalid" (click)="saveAdd()">
+                                                <div class="col-12 mb-3">
+                                                    <button class="btn btn-dark" style="background-color: #b48351;"
+                                                    [disabled]="addressForm.invalid" (click)="saveAdd()">
                                                         <span class="ps-3">Save New Address</span>
                                                         <span class="fas fa-arrow-right"></span>
                                                     </button>
-                                                    <button class="btn btn-dark mb-3" (click)="showPreviusAdd()"
+                                                    <button class="btn btn-dark" (click)="showPreviusAdd()"
                                                         style="margin-left: 10vh;">
                                                         <span class="ps-3">Use Previous Address</span>
                                                         <span class="fas fa-arrow-right"></span>
@@ -129,11 +137,12 @@
                                     <h2 class="card-title space">YOUR ORDER <span
                                             class=" small text-muted ml-2 cursor-pointer">EDIT SHOPPING BAG</span> </h2>
                                             <h2 class="small text-muted ml-2 cursor-pointer">clear cart</h2>
-                                            <hr class="my-3">
+                                            <!-- <hr class="my-3"> -->
                                         </div>
+                                        <hr class="my-0" style="background-color: #b48351; color: black;">
                                  <div class="card-header">               
                                 </div>
-                                <div class="card-body pt-0" style="background-color:bisque;" *ngFor="let ord of orders  | paginate: { itemsPerPage: count, currentPage: p }">
+                                <div class="card-body pt-0" style="background: url('restaurantbg2.jpeg');" *ngFor="let ord of orders  | paginate: { itemsPerPage: count, currentPage: p }">
                                     <div class="row  justify-content-between">
                                         <div class="col-auto col-md-7">
                                             <div class="media flex-column flex-sm-row">
@@ -152,7 +161,7 @@
                                           quantity: {{ord.quantity}}
                                         </div> 
                                         <div class=" pl-0 flex-sm-col col-auto  my-auto " >
-                                            <p><b >{{ord.item.itemcost*ord.quantity}}</b></p>
+                                            <p><b >{{ord.item.itemcost*ord.quantity | currency:"INR"}}</b></p>
                                         </div>
                                         
                                         
@@ -161,7 +170,7 @@
                                     <hr class="my-2">
                                     
                                 </div>  
-                                <div class="text-right">
+                                <div class="text-right" style="margin-top: 20px;">
                                     <pagination-controls (pageChange)="p = $event"></pagination-controls>
                                 </div>
 
@@ -172,7 +181,7 @@
                                                 <p><b>Total</b></p>
                                             </div>
                                             <div class="flex-sm-col col-auto">
-                                                <p class="mb-1"><b>{{total}}</b></p>
+                                                <p class="mb-1"><b>{{total | currency:"INR"}}</b></p>
                                             </div>
                                         </div>
                                         <hr class="my-0">
@@ -180,8 +189,8 @@
                                 </div>
                                 <div class="row" *ngIf="total>0">
                                     <div class="col-12">
-                                        <button class="btn btn-primary mb-3" (click)="payment(total)"
-                                            style="margin-left: 30vh;margin-top: 5vh;">
+                                        <button class="btn mb-3" (click)="payment(total)"
+                                            style="margin-left: 25vh;margin-top: 5vh; color: white;">
                                             <span class="ps-3">Pay  &#x20B9;{{total}}</span>
                                             <span class="fas fa-arrow-right"></span>
                                         </button>
@@ -194,3 +203,4 @@
             </div>
         </div>
     </div>
+</body>

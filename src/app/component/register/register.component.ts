@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
         this.cust=customer;
         console.log(customer);
         this.successmessage="Registration Successful! Please Login";
-        alert("registration Successfull")
+        alert("Registration Successful!")
         this.dialog.close();
 
         console.log(this.cust);
