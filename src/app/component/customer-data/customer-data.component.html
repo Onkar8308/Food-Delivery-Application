@@ -11,7 +11,7 @@
         <th scope="col">Action</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody style="height: 40vh;">
       <tr *ngFor="let cus of customer | paginate: { itemsPerPage: count, currentPage: p }" class="table-success">
         <td>{{cus.customerid}}</td>
         <td>{{cus.customername}}</td>
