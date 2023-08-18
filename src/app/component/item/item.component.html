@@ -1,5 +1,5 @@
 <app-menu></app-menu>
-<div class="bg-img">
+<div class="bg-img" style="height: 140vh;">
   
     <div><button class="btn btn-success" *ngIf="!hardcodedAuthentication.isAdminLoggedIn() && hardcodedAuthentication.isRestLoggedIn() && !hardcodedAuthentication.isUserLoggedIn()" routerLink="/registerItem" (click)="addItem()">Add Item</button>
     <button style="margin-left: 10px;" class="btn btn-success" *ngIf="!hardcodedAuthentication.isAdminLoggedIn() && hardcodedAuthentication.isRestLoggedIn() && !hardcodedAuthentication.isUserLoggedIn()"  (click)="viewOoders()">View Orders</button>
