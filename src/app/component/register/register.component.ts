@@ -36,27 +36,47 @@ export class RegisterComponent implements OnInit {
   saveCustomer(){
     console.log("Inside register"+this.customername);
     this.loginservice.addCustomer(this.cust).subscribe(
-      customer=>{
-        this.cust=customer;
-        console.log(customer);
-        this.successmessage="Registration Successful! Please Login";
-        alert("Registration Successful!")
-        this.dialog.close();
-
-        console.log(this.cust);
-        this.cart.saveCart(this.cart1).subscribe(data=>{
-          console.log(data);
-          this.cartId=data.id;  
-    
-          this.cart.addCustomerToCart(this.cartId,customer).subscribe(cartwithcu=>{
-            console.log(cartwithcu);
-      
-          })
-    
-         })
-      }
+      (customer:Customer)=>{
+        if(customer){
+          this.cust=customer;
+          console.log(customer);
+          this.successmessage="Registration Successful! Please Login";
+          alert("Registration Successful!")
+          this.dialog.close();
   
-    )
+          console.log(this.cust);
+          this.cart.saveCart(this.cart1).subscribe(data=>{
+            console.log(data);
+            this.cartId=data.id;  
+      
+            this.cart.addCustomerToCart(this.cartId,customer).subscribe(cartwithcu=>{
+              console.log(cartwithcu);
+        
+            })
+      
+           })
+        }
+        else{
+          console.log("Email address already exists!");
+          alert("Email address already exists!");
+        }
+       
+        
+      },
+      (    error: any) => {
+   
+        console.error("Registration error:", error);
+        alert("Email address already exists!");
+       
+        // Handle login error, show error message, etc.
+       
+        }
+  
+    );
+
+    // if(!this.loginservice.addCustomer(this.cust)){
+    //   alert("Registration Failed..Please try again later..");
+    // }
      
 
    

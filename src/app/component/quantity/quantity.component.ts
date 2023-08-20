@@ -37,6 +37,9 @@ export class QuantityComponent implements OnInit {
     this.intitalQuantity++;
     }
     decrease(){
-      this.intitalQuantity--;
+      if(this.intitalQuantity>1){
+        this.intitalQuantity--;
+      }
+      
     }
 }

@@ -1,5 +1,5 @@
 import { NgForOf } from '@angular/common';
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -23,7 +23,7 @@ import { Customer } from '../register/register.component';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent {
+export class CartComponent implements OnInit {
   p:number=1
   count:number=3
   initialQUuantity:number=1;
@@ -51,7 +51,8 @@ export class CartComponent {
     private customerService:CustomerService,
     private itemService:ItemServiceService,
     private orderService:OrderService,
-    private matDialog:MatDialog
+    private matDialog:MatDialog,
+    private router: Router
     // @Inject(MAT_DIALOG_DATA) public data: any,
   ) { }
 
@@ -68,8 +69,7 @@ export class CartComponent {
   }
 
   ngOnInit(): void {
-    
-
+  
     this.email = sessionStorage.getItem('authenticateduser');
     console.log(this.email);
     this.customerService.getCustomerByEmail(this.email).subscribe(customer=>{
