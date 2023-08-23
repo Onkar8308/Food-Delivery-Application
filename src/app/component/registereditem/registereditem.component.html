@@ -23,16 +23,21 @@
 
 
           <div class="form-group">
-            <label for="itemcost" class="control-label">Item Status:</label>
+            <!-- <label for="itemcost" class="control-label">Item Status:</label>
             <input required minlength="3" maxlength="20" type="text" id="itemstatus"
-            require placeholder="Enter Status" formControlName="itemstatus" name="itemstatus">
+            require placeholder="Enter Status" formControlName="itemstatus" name="itemstatus"> -->
+            <mat-radio-group aria-label="Select an option" class="radiolabel" formControlName="itemstatus" id="itemstatus" name="itemstatus">Item Status: <br>
+              <mat-radio-button value="Available" class="radiovalue">Available</mat-radio-button>
+              <mat-radio-button value="Not Available" class="radiovalue">Not Available</mat-radio-button>
+            </mat-radio-group>
+            
           </div>
           <span style="color: red;" *ngIf="itemstatus?.invalid && itemstatus?.touched">This field is required</span>
           <br>
 
 
           <div class="form-group">
-            <label for="itemimage" class="control-label">Item Image:</label>
+            <label for="itemimage" class="radiolabel">Item Image:</label>
             <input required minlength="3" type="text" id="itemimage"
             require placeholder="Enter Image url" formControlName="itemimage" name="itemimage">
           </div>

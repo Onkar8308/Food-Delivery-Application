@@ -108,9 +108,13 @@
                 </span>
                 <br>
                 <div class="form-group" *ngIf="isrestLogIn">
-                    <label for="status" class="control-label">Approval Status:</label>
+                    <!-- <label for="status" class="control-label">Approval Status:</label>
                     <input type="text" class="form-control" placeholder="approval"
-                    name="status" [(ngModel)]="rest.status" #status="ngModel" required>
+                    name="status" [(ngModel)]="rest.status" #status="ngModel" required> -->
+                    <mat-radio-group aria-label="Select an option" class="radiolabel" name="status" [(ngModel)]="rest.status" #status="ngModel">Restaurant Status: <br>
+                        <mat-radio-button value="true" class="radiovalue">Approve</mat-radio-button>
+                        <mat-radio-button value="false" class="radiovalue">Not Approve</mat-radio-button>
+                      </mat-radio-group>
                 </div>
                 <br>
                 <button type="submit" class="btn btn-danger">Update Restaurant</button> 

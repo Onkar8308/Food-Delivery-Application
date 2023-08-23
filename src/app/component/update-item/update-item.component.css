@@ -157,3 +157,16 @@ button[type="submit"]:hover {
 input{
     height: 30px;
 }
+
+.radiolabel{
+    color: white;
+    padding-left: 5px;
+    font-weight: bold;
+    font-size: 17px;
+}
+.radiovalue {
+    /* Your styles for radio buttons go here */
+    /* For example: */
+    font-weight: bold;
+    color: white;
+  }

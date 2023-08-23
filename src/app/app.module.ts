@@ -38,6 +38,7 @@ import { PreviousOrderrestaurantComponent } from './component/previous-orderrest
 import { PreviousOrderCustomerComponent } from './component/previous-order-customer/previous-order-customer.component';
 import { QuantityComponent } from './component/quantity/quantity.component';
 import { ContactUsComponent } from './component/contact-us/contact-us.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 @NgModule({
@@ -69,7 +70,7 @@ import { ContactUsComponent } from './component/contact-us/contact-us.component'
     PreviousOrderrestaurantComponent,
     PreviousOrderCustomerComponent,
     QuantityComponent,
-    ContactUsComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +83,8 @@ import { ContactUsComponent } from './component/contact-us/contact-us.component'
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
