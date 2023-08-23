@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from 'src/app/class/item';
 import { ItemServiceService } from 'src/app/service/item-service.service';
@@ -19,10 +19,22 @@ export class RegistereditemComponent implements OnInit {
 
   registrationForm = new FormGroup({
     itemname : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+$')]),
-    itemstatus : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+$')]),
+    itemstatus: new FormControl('', [Validators.required]),
+
+    // itemstatus : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+$')]),
     itemcost : new FormControl('', [Validators.required]),
+
     itemimage : new FormControl('', [Validators.required]),
   });
+
+  radioSelectedValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const value = control.value;
+    if (value === null || value === undefined || value === '') {
+      return { 'required': true };
+    }
+    return null;
+  }
+  
 
   ngOnInit(): void {
     // this.id=this.route.snapshot.params['id'];
