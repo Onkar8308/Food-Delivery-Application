@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Restaurant } from '../component/restaurants/restaurants.component';
+import { Restaurant } from '../component/restaurantPage/restaurants/restaurants.component';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({

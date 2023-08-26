@@ -9,7 +9,7 @@ import { ItemService } from 'src/app/service/item.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PreviousOrderrestaurantComponent } from '../previous-orderrestaurant/previous-orderrestaurant.component';
 import { OrderService } from 'src/app/service/order.service';
-import { QuantityComponent } from '../quantity/quantity.component';
+import { QuantityComponent } from '../../customerPage/quantity/quantity.component';
 
 
 

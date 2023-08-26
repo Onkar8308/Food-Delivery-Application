@@ -74,12 +74,6 @@ export class RegisterComponent implements OnInit {
   
     );
 
-    // if(!this.loginservice.addCustomer(this.cust)){
-    //   alert("Registration Failed..Please try again later..");
-    // }
-     
-
-   
 
 
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Restaurant } from '../restaurants/restaurants.component';
+import { Restaurant } from '../../restaurantPage/restaurants/restaurants.component';
 import { HardcodedAuthenticationService } from 'src/app/service/hardcoded-authentication.service';
 import { DataRestaurantService } from 'src/app/service/data-restaurant.service';
 import { Router } from '@angular/router';

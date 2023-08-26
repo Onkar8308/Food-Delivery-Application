@@ -13,10 +13,10 @@ import { CustomerService } from 'src/app/service/customer.service';
 import { InvoiceService } from 'src/app/service/invoice.service';
 import { ItemServiceService } from 'src/app/service/item-service.service';
 import { OrderService } from 'src/app/service/order.service';
-import { CustomerAddComponent } from '../customer-add/customer-add.component';
+import { CustomerAddComponent } from '../../adminPage/customer-add/customer-add.component';
 import { PaymentComponent } from '../payment/payment.component';
 import { PreviousOrderCustomerComponent } from '../previous-order-customer/previous-order-customer.component';
-import { Customer } from '../register/register.component';
+import { Customer } from '../../homePage/register/register.component';
 
 @Component({
   selector: 'app-cart',

@@ -8,7 +8,7 @@ import { Restaurant } from 'src/app/class/restaurant';
 import { CartService } from 'src/app/service/cart.service';
 import { DataRestaurantService } from 'src/app/service/data-restaurant.service';
 import { OrderService } from 'src/app/service/order.service';
-import { PreviousOrderrestaurantComponent } from '../previous-orderrestaurant/previous-orderrestaurant.component';
+import { PreviousOrderrestaurantComponent } from '../../restaurantPage/previous-orderrestaurant/previous-orderrestaurant.component';
 
 @Component({
   selector: 'app-restaurant-data',

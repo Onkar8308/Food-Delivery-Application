@@ -12,7 +12,8 @@ export class PaymentSuccessComponent {
   newCart={}
   constructor(private router:Router,
     private ref:MatDialogRef<PaymentSuccessComponent>,
-    private cartService:CartService) { }
+    private cartService:CartService
+    ) { }
 
   ngOnInit(): void {
    
