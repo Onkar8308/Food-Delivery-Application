@@ -38,7 +38,7 @@ import { PreviousOrderrestaurantComponent } from './component/restaurantPage/pre
 import { PreviousOrderCustomerComponent } from './component/customerPage/previous-order-customer/previous-order-customer.component';
 import { QuantityComponent } from './component/customerPage/quantity/quantity.component';
 import { ContactUsComponent } from './component/homePage/contact-us/contact-us.component';
-
+import { MatRadioModule } from '@angular/material/radio'
 
 @NgModule({
   declarations: [
@@ -83,7 +83,7 @@ import { ContactUsComponent } from './component/homePage/contact-us/contact-us.c
     MatFormFieldModule,
     MatInputModule,
     NgxPaginationModule,
-    MatRadioModule
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
