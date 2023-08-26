@@ -13,7 +13,8 @@ import { ItemServiceService } from 'src/app/service/item-service.service';
 export class RegistereditemComponent implements OnInit {
   id:number;
 
-  // items : Item[] = [];
+  items : Item[] = [];
+  flag = false;
 
   constructor(private router: Router, private route: ActivatedRoute, private data:ItemServiceService){};
 
@@ -37,15 +38,6 @@ export class RegistereditemComponent implements OnInit {
   
 
   ngOnInit(): void {
-    // this.id=this.route.snapshot.params['id'];
-
-    // this.data.getItemByRestId(this.id).subscribe(
-    //   response=>{
-      
-    //   console.log(response);
-    //   this.items=response;
-    //   }
-    //  )
   }
 
   saveItem(): void {
@@ -60,26 +52,36 @@ export class RegistereditemComponent implements OnInit {
       itemcost : this.registrationForm.value.itemcost,
       itemimage : this.registrationForm.value.itemimage,
     };
+    this.data.getItemByRestId(this.id).subscribe(
+      dataItem=>{
+        this.items=dataItem;
+        for(let i=0; i<this.items.length; i++){
+          if(this.items[i].itemname == this.registrationForm.value.itemname){
+            this.flag=true;
+            break;
+          }
+        }
+        console.log(this.flag);
+        if(this.flag==false){
+          this.data.saveItemByRestId(this.id,Items).subscribe(
+              (response:any) => {
+                console.log(response);
+                this.router.navigate(['item',this.id]);
+              },
 
-    this.data.saveItemByRestId(this.id,Items).subscribe(
-      (response:any) => {
-        console.log(response);
-        this.router.navigate(['item',this.id]);
+                (error:any) => {
+                  console.log(error);
+                }
+          )
+        }
+        else{
+          alert("Item is already registered");
+        }
       },
-
-      (error:any) => {
+      (error:any)=>{
         console.log(error);
       }
-    )
-
-    // this.data.saveItem(Items).subscribe(
-    // (response : any) => {
-    //   console.log(response);
-    // },
-    // (error:any) => {
-    //       console.log(error);
-    //     }
-    //   )
+      )
   }
   get itemname() {
     return this.registrationForm.get('itemname');
