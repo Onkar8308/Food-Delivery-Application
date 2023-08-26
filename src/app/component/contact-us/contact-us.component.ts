@@ -23,9 +23,9 @@ export class ContactUsComponent{
 
   async send(){
 
-    emailjs.init("4RlWfsevBFwWtRTgm");
+    emailjs.init("BvpeX8XY1Hp4FYpq-");
 
-    let response = await emailjs.send("service_zvguf8q","template_a5vi4ao",{
+    let response = await emailjs.send("service_2k7xodr","template_0xkyv3q",{
     from_name: this.form.value.from_name,
     to_name: this.form.value.to_name,
     from_email: this.form.value.from_email,
