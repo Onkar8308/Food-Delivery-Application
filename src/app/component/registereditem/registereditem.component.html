@@ -27,8 +27,8 @@
             <input required minlength="3" maxlength="20" type="text" id="itemstatus"
             require placeholder="Enter Status" formControlName="itemstatus" name="itemstatus"> -->
             <mat-radio-group aria-label="Select an option" class="radiolabel" formControlName="itemstatus" id="itemstatus" name="itemstatus">Item Status: <br>
-              <mat-radio-button value="Available" class="radiovalue">Available</mat-radio-button>
-              <mat-radio-button value="Not Available" class="radiovalue">Not Available</mat-radio-button>
+              <mat-radio-button value="Available" [ariaChecked]="true" class="radiovalue" > <div style="color: white;">Available</div></mat-radio-button>
+              <mat-radio-button value="Not Available" class="radiovalue"> <div style="color: white;">Not Available</div></mat-radio-button>
             </mat-radio-group>
             
           </div>
