@@ -1,7 +1,7 @@
 <html>
-    <div class="body">
-        <table class="table table-success table-striped">
-            <thead class="table-dark">
+<div class="body">
+    <table class="table table-success table-striped">
+        <thead class="table-dark">
             <tr>
                 <th scope="col">Area</th>
                 <th scope="col">City</th>
@@ -9,28 +9,29 @@
                 <th scope="col">State</th>
                 <th scope="col">Pincode</th>
                 <th scope="col">Action</th>
-                
+
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let customerAdd of customerAddress| paginate: { itemsPerPage: count, currentPage: p }" class="table-success">
+            <tr *ngFor="let customerAdd of customerAddress| paginate: { itemsPerPage: count, currentPage: p }"
+                class="table-success">
                 <td>{{customerAdd.area}}</td>
                 <td>{{customerAdd.city }}</td>
                 <td>{{customerAdd.country}}</td>
                 <td>{{customerAdd.state}}</td>
                 <td>{{customerAdd.pincode}}</td>
                 <td>
-                  <button style="margin-right:2px ; width: 55px;" (click)="getSelectedADd(customerAdd.addressid)"   class=" btn btn-outline-primary">Use </button>
-                  <button style="margin-right:20px ; width: 70px;" (click)="deleteCustomerAdd(customerAdd.addressid)"   class=" btn btn-outline-danger">Delete </button>
+                    <button style="margin-right:2px ; width: 55px;" (click)="getSelectedADd(customerAdd.addressid)"
+                        class=" btn btn-outline-primary">Use </button>
+                    <button style="margin-right:20px ; width: 70px;" (click)="deleteCustomerAdd(customerAdd.addressid)"
+                        class=" btn btn-outline-danger">Delete </button>
                 </td>
-                <!-- <td>
-                  <button style="margin-right:20px ;" (click)="getSelectedADd(customerAdd.addressid)" class=" btn btn-outline-danger">delete </button>
-                  </td>                -->
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <br>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+
 </html>
 
 <div class="text-right">

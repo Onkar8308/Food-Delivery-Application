@@ -59,9 +59,10 @@ button[type="submit"]:hover {
     font-weight: bold;
     font-size: 17px;
 }
-.radiovalue {
-    /* Your styles for radio buttons go here */
-    /* For example: */
+
+/* .radiovalue {
+    Your styles for radio buttons go here
     font-weight: bold;
-    color: white;
-  }
+    color: rgb(61, 32, 224);
+    color: aqua;
+  } */
