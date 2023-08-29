@@ -39,6 +39,7 @@ import { PreviousOrderCustomerComponent } from './component/customerPage/previou
 import { QuantityComponent } from './component/customerPage/quantity/quantity.component';
 import { ContactUsComponent } from './component/homePage/contact-us/contact-us.component';
 import { MatRadioModule } from '@angular/material/radio'
+import { MatSelectModule } from '@angular/material/select'
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { MatRadioModule } from '@angular/material/radio'
     MatFormFieldModule,
     MatInputModule,
     NgxPaginationModule,
-    MatRadioModule,
+    MatSelectModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
