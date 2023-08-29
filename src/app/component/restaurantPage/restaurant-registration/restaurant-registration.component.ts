@@ -26,7 +26,6 @@ export class RestaurantRegistrationComponent implements OnInit {
     this.dataService.getCountries().subscribe(
       (response) => {
         this.countries = response.data;
-        console.log(this.countries);
         this.loading = false;
       },
       (error) => {
@@ -80,7 +79,6 @@ export class RestaurantRegistrationComponent implements OnInit {
     this.dataService.getStates(this.countryId).subscribe(
       (response) => {
         this.states = response.data;
-        console.log(this.states);
         this.loading = false;
       },
       (error) => {
@@ -107,7 +105,6 @@ export class RestaurantRegistrationComponent implements OnInit {
     this.dataService.getCities(this.stateId).subscribe(
       (response) => {
         this.cities = response.data;
-        console.log(this.cities);
         this.loading = false;
       },
       (error) => {
