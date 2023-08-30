@@ -76,9 +76,22 @@
                                                 <div class="col-12">
                                                     <div class="d-flex flex-column">
                                                         <p class="text mb-1"
-                                                            style="font-weight: bold; font-size: 17px;">City </p>
+                                                            style="font-weight: bold; font-size: 17px;">Country </p>
                                                         <!-- <input class="form-control mb-3" formControlName="city"
                                                             type="text" placeholder="*City"> -->
+                                                        <mat-form-field class="form-group">
+                                                            <!-- <mat-label>Country</mat-label> -->
+                                                            <mat-select (valueChange)="selectCountry($event)"
+                                                                class="form-control" name="country"
+                                                                formControlName="country">
+                                                                <mat-option value="">Select</mat-option>
+                                                                <mat-option *ngFor="let country of countries"
+                                                                    [value]="country.name"
+                                                                    [attr.data-country-name]="country.name">{{
+                                                                    country.name}}
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
 
                                                         <span
                                                             *ngIf="addressForm.get('city')?.errors?.required && addressForm.get('city')?.touched"
@@ -89,8 +102,21 @@
                                                     <div class="d-flex flex-column">
                                                         <p class="text mb-1"
                                                             style="font-weight: bold; font-size: 17px;">State</p>
-                                                        <input class="form-control mb-3" formControlName="state"
-                                                            type="text" placeholder="*State">
+                                                        <mat-form-field class="form-group">
+                                                            <!-- <mat-label>State</mat-label> -->
+                                                            <mat-select class="form-control"
+                                                                (valueChange)="selectState($event)" name="state"
+                                                                formControlName="state">
+                                                                <mat-option value="">Select</mat-option>
+                                                                <mat-option *ngFor="let state of states"
+                                                                    [value]="state.name"
+                                                                    [attr.data-state-name]="state.name">{{
+                                                                    state.name }}
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+
+
 
 
                                                         <span
@@ -101,12 +127,23 @@
                                                 <div class="col-6">
                                                     <div class="d-flex flex-column">
                                                         <p class="text mb-1"
-                                                            style="font-weight: bold; font-size: 17px;">Country</p>
-                                                        <input class="form-control mb-3" formControlName="country"
-                                                            type="text" placeholder="*Country">
+                                                            style="font-weight: bold; font-size: 17px;">City</p>
+                                                        <mat-form-field class="form-group">
+                                                            <!-- <mat-label>City</mat-label> -->
+                                                            <mat-select class="form-control" name="city"
+                                                                formControlName="city">
+                                                                <mat-option value="" class="form-control">Select
+                                                                </mat-option>
+                                                                <mat-option *ngFor="let city of cities"
+                                                                    [value]="city.name"
+                                                                    [attr.data-city-name]="city.name">{{
+                                                                    city.name }}
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
                                                         <span
                                                             *ngIf="addressForm.get('country')?.errors?.required && addressForm.get('country')?.touched"
-                                                            style="color: red;">country is required</span>
+                                                            style="color: red;">country is requ ired</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
@@ -220,9 +257,8 @@
                 </div>
             </div>
         </div>
-        
-       
+
+
     </div>
 
 </body>
-

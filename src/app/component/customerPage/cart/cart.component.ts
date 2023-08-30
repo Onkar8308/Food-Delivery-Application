@@ -6,6 +6,7 @@ import { CustomerAddress } from 'src/app/class/customer-address';
 import { Item } from 'src/app/class/item';
 import { CustomerAddresssService } from 'src/app/service/customer-addresss.service';
 import { CustomerService } from 'src/app/service/customer.service';
+import { DataService } from 'src/app/service/data.service';
 import { ItemServiceService } from 'src/app/service/item-service.service';
 import { OrderService } from 'src/app/service/order.service';
 import { CustomerAddComponent } from '../../adminPage/customer-add/customer-add.component';
@@ -35,6 +36,15 @@ export class CartComponent implements OnInit {
   itemCost1:number;
   valueOfItemInInt:number=parseInt(this.quantityofItem);
   selectedAdd:CustomerAddress;
+  public loading = false;
+  public countries: any[] = [];
+  public states: any[] = [];
+  public cities: any[] = [];
+  countryId: any;
+  countryName: string;
+  stateId: any;
+  stateName: string;
+  cityId: any;
 
   constructor(private dialog: MatDialog,
     private builder: FormBuilder,
@@ -43,33 +53,18 @@ export class CartComponent implements OnInit {
     private itemService:ItemServiceService,
     private orderService:OrderService,
     private matDialog:MatDialog,
-    private router: Router
-    // @Inject(MAT_DIALOG_DATA) public data: any,
+    private dataService:DataService
   ) { }
 
-  onSelected(value:string,id:number):void{
-    this.quantityofItem=value;
-    this.itemService.getItemById(id).subscribe(item=>{
-      console.log(item.itemcost);
-      this.itemCost= item.itemcost *parseInt( value);
-      console.log(this.itemCost);
-    })
-    // for(let i= 0;i<this.cartDetails.itemList.length;i++){
-    // }
-
-  }
-
   ngOnInit(): void {
-  
+    this.getCountries();
     this.email = sessionStorage.getItem('authenticateduser');
     console.log(this.email);
       
     this.customerService.getCustomerByEmail(this.email).subscribe(customerData => {
-      
-      // console.log(cartData);
+    
       this.customer=customerData;
       this.customerId = customerData.customerid;
-      // console.log(this.cartID);
       console.log(this.customerId);
 
       this.orderService.getOrderByCustomerIdAndStatusUnpaid(this.customerId).subscribe(orderUnpaid=>{
@@ -82,17 +77,120 @@ export class CartComponent implements OnInit {
       
     });
 
-    // console.log(this.cartID)
 
 
   }
 
+
+  private getCountries() {
+    this.loading = true;
+    this.dataService.getCountries().subscribe(
+      (response) => {
+        this.countries = response.data;
+        this.loading = false;
+      },
+      (error) => {
+        console.log('Something went wrong: ', error);
+      }
+    );
+  }
+
+  
+  public getCountryId(){
+    for(let i=0;i<this.countries.length;i++){
+      if(this.countries[i].name == this.countryName){
+          this.countryId = this.countries[i].id;
+          break;
+      }
+    }
+  }
+
+  public getStateId(){
+    for(let i=0;i<this.states.length;i++){
+      if(this.states[i].name == this.stateName){
+          this.stateId = this.states[i].id;
+          break;
+      }
+    }
+  }
+
+
+  /**
+   * Selects country, and gets the states for it
+   * @param country
+   * @returns void
+   */
+  public selectCountry(country: any) {
+    if (!country) {
+      this.addressForm.controls['state'].setValue('');
+      this.addressForm.controls['city'].setValue('');
+      this.states = [];
+      this.cities = [];
+      return;
+    }
+    this.loading = true;
+    this.countryName = country;
+    this.getCountryId();
+    this.dataService.getStates(this.countryId).subscribe(
+      (response) => {
+        this.states = response.data;
+        this.loading = false;
+      },
+      (error) => {
+        console.log('Something went wrong: ', error);
+      }
+    );
+  }
+  /**
+   * Selects the state and gets cities for it
+   * @param state
+   * @returns void
+   */
+  public selectState(state: any) {
+    if (!state) {
+      this.addressForm.controls['city'].setValue('');
+      this.cities = [];
+      return;
+    }
+    this.loading = true;
+    this.stateName = state;
+
+    this.getStateId();
+  
+    this.dataService.getCities(this.stateId).subscribe(
+      (response) => {
+        this.cities = response.data;
+        this.loading = false;
+      },
+      (error) => {
+        console.log('Something went wrong: ', error);
+      }
+    );
+  }
+
+
+
+
+  onSelected(value:string,id:number):void{
+    this.quantityofItem=value;
+    this.itemService.getItemById(id).subscribe(
+      (item)=>{
+      console.log(item.itemcost);
+      this.itemCost= item.itemcost *parseInt( value);
+      console.log(this.itemCost);
+    })
+    
+
+  }
+
+  
+
   addressForm = this.builder.group({
-    area: this.builder.control('', [Validators.required, Validators.minLength(10)]),
-    city: this.builder.control('', [Validators.required,Validators.minLength(3)]),
-    state: this.builder.control('', [Validators.required,Validators.minLength(3)]),
+    area: this.builder.control('', [Validators.required, Validators.minLength(10),Validators.maxLength(20)]),
+    city: this.builder.control('', [Validators.required,Validators.required]),
+    state: this.builder.control('', [Validators.required,Validators.required]),
     pincode: this.builder.control('', [Validators.required, Validators.pattern('^[1-9]{1}[0-9]{2}\\s{0,1}[0-9]{3}$')]),
-    country: this.builder.control('', [Validators.required,Validators.minLength(3)])
+    country: this.builder.control('', [Validators.required,Validators.required])
   })
 
   saveAdd() {

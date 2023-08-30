@@ -1,9 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { map, Observable } from "rxjs";
-// import { City } from "../models/city.model";
-// import { Country } from "../models/country.model";
-// import { State } from "../models/state.model";
 import { environment } from 'src/environments/environment';
 
 

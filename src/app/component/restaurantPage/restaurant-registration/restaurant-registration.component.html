@@ -67,66 +67,44 @@
               </div>
               <span style="color: red;" *ngIf="area?.invalid && area?.touched">This field is required</span>
 
-              <div class="form-group">
-                <mat-form-field>
-                  <mat-label>City</mat-label>
-                  <mat-select name="city" formControlName="city">
-                    <mat-option value="">Select</mat-option>
-                    <mat-option *ngFor="let city of cities" [value]="city.name" [attr.data-city-name]="city.name">{{
-                      city.name }}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
+
+              <mat-form-field class="form-group">
+                <mat-label>City</mat-label>
+                <mat-select class="form-control" name="city" formControlName="city">
+                  <mat-option value="" class="form-control">Select</mat-option>
+                  <mat-option *ngFor="let city of cities" [value]="city.name" [attr.data-city-name]="city.name">{{
+                    city.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
 
 
-                <!-- <input type="text" class="form-control" id="city" placeholder="Enter your city" formControlName="city"
-                    name="city"> -->
-              </div>
-              <!-- <span style="color: red;" *ngIf="city?.invalid && city?.touched">This field is required</span> -->
 
-              <div class="col-md-6">
-                <div class="form-group">
-                  <mat-form-field>
-                    <mat-label>State</mat-label>
-                    <mat-select (valueChange)="selectState($event)" name="state" formControlName="state">
-                      <mat-option value="">Select</mat-option>
-                      <mat-option *ngFor="let state of states" [value]="state.name" [attr.data-state-name]="state.name">{{
-                        state.name }}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>
-
-                </div>
-
-                <!-- <input type="text" class="form-control" id="state" placeholder="Enter your state"
-                    formControlName="state" name="state"> -->
-              </div>
-              <!-- <span style="color: red;" *ngIf="state?.invalid && state?.touched">This field is required</span>
-                 -->
-              <div class="col-md-6">
-                <div class="form-group">
-                  <mat-form-field>
-                    <mat-label>Country</mat-label>
-                    <mat-select (valueChange)="selectCountry($event)" name="country" formControlName="country">
-                      <mat-option value="">Select</mat-option>
-                      <mat-option *ngFor="let country of countries" [value]="country.name"
-                        [attr.data-country-name]="country.name">{{ country.name}}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>
-
-                  <!-- <select class="custom-select" (change)="changeCountry($event)" formControlName="countryControl">
-                      <option value="">Choose your city</option>
-                      <option *ngFor="let country of countries$ | async" [ngValue]="country">{{ country.name }}</option>
-                    </select> -->
+              <mat-form-field class="form-group">
+                <mat-label>State</mat-label>
+                <mat-select class="form-control" (valueChange)="selectState($event)" name="state"
+                  formControlName="state">
+                  <mat-option value="">Select</mat-option>
+                  <mat-option *ngFor="let state of states" [value]="state.name" [attr.data-state-name]="state.name">{{
+                    state.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
 
 
-                  <!-- <input type="text" class="form-control" id="country" placeholder="Enter your Country"
-                      formControlName="country" name="country"> -->
-                </div>
-              </div>
 
-              <!-- <span style="color: red;" *ngIf="country?.invalid && country?.touched">This field is required</span> -->
+              <mat-form-field class="form-group">
+                <mat-label>Country</mat-label>
+                <mat-select (valueChange)="selectCountry($event)" class="form-control" name="country"
+                  formControlName="country">
+                  <mat-option value="">Select</mat-option>
+                  <mat-option *ngFor="let country of countries" [value]="country.name"
+                    [attr.data-country-name]="country.name">{{ country.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+
               <div class="form-group">
                 <input type="text" class="form-control" id="pincode" placeholder="Enter your pincode"
                   formControlName="pincode" name="pincode">

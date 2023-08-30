@@ -20,6 +20,14 @@ export class RestaurantRegistrationComponent implements OnInit {
   stateId: any;
   stateName: string;
   cityId: any;
+
+  constructor(
+    private data: DataViewRestaurantService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private dataService: DataService,
+  ) {  }
+
  
   private getCountries() {
     this.loading = true;
@@ -34,18 +42,7 @@ export class RestaurantRegistrationComponent implements OnInit {
     );
   }
 
-  constructor(
-    private data: DataViewRestaurantService,
-<<<<<<< HEAD
-    private router: Router
-  ) {}
-=======
-    private route: ActivatedRoute,
-    private router: Router,
-    private dataService: DataService,
-  ) {  }
->>>>>>> 9381d335597cbac2e3f9d5802d000038b676f982
-
+  
   public getCountryId(){
     for(let i=0;i<this.countries.length;i++){
       if(this.countries[i].name == this.countryName){
