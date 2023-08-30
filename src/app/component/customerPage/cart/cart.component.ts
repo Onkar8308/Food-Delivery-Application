@@ -1,22 +1,16 @@
-import { NgForOf } from '@angular/common';
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Cart } from 'src/app/class/cart';
+import { MatDialog } from '@angular/material/dialog';
+import {  Router } from '@angular/router';
 import { CustomerAddress } from 'src/app/class/customer-address';
 import { Item } from 'src/app/class/item';
-import { Order } from 'src/app/class/order';
-import { CartService } from 'src/app/service/cart.service';
 import { CustomerAddresssService } from 'src/app/service/customer-addresss.service';
 import { CustomerService } from 'src/app/service/customer.service';
-import { InvoiceService } from 'src/app/service/invoice.service';
 import { ItemServiceService } from 'src/app/service/item-service.service';
 import { OrderService } from 'src/app/service/order.service';
 import { CustomerAddComponent } from '../../adminPage/customer-add/customer-add.component';
 import { PaymentComponent } from '../payment/payment.component';
 import { PreviousOrderCustomerComponent } from '../previous-order-customer/previous-order-customer.component';
-import { Customer } from '../../homePage/register/register.component';
 
 @Component({
   selector: 'app-cart',
@@ -25,12 +19,11 @@ import { Customer } from '../../homePage/register/register.component';
 })
 export class CartComponent implements OnInit {
   p:number=1
-  count:number=3
+  count:number=2
   initialQUuantity:number=1;
   email: any;
   inputdata: any;
   cartID!: number;
-  cartDetails!: Cart;
   item: Item[]=[];
   customer:any;
   total: number = 0;
@@ -38,14 +31,12 @@ export class CartComponent implements OnInit {
   quantityofItem:any=1;
   addId:number;
   itemCost:any;
-  order:any[]=[];
-  orders:any;
+  orders:any[]=[];
   itemCost1:number;
   valueOfItemInInt:number=parseInt(this.quantityofItem);
   selectedAdd:CustomerAddress;
 
   constructor(private dialog: MatDialog,
-    private cartService: CartService,
     private builder: FormBuilder,
     private customeraddService: CustomerAddresssService,
     private customerService:CustomerService,
@@ -72,34 +63,23 @@ export class CartComponent implements OnInit {
   
     this.email = sessionStorage.getItem('authenticateduser');
     console.log(this.email);
-    this.customerService.getCustomerByEmail(this.email).subscribe(customer=>{
-      // console.log(customer);
-      this.customer = customer;
-    })  
-    this.cartService.getCartByEmail(this.email).subscribe(cartData => {
-      this.cartID = cartData.id;
+      
+    this.customerService.getCustomerByEmail(this.email).subscribe(customerData => {
+      
       // console.log(cartData);
-      this.customerId = cartData.cust.customerid;
+      this.customer=customerData;
+      this.customerId = customerData.customerid;
       // console.log(this.cartID);
       console.log(this.customerId);
 
       this.orderService.getOrderByCustomerIdAndStatusUnpaid(this.customerId).subscribe(orderUnpaid=>{
         this.orders=orderUnpaid;
-        this.order.push( orderUnpaid);
-        console.log(this.order);
-       for(let i=0;i<=this.order.length;i++){
-        for(let j=0;j<=this.order.length;j++){
-          console.log( this.order[i][j].item.itemcost);
-          this.total+=this.order[i][j].item.itemcost*this.order[i][j].quantity;
-        }
+    
+       for(let i=0;i<=this.orders.length;i++){
+          this.total+=this.orders[i].item.itemcost*this.orders[i].quantity;
        }
       })
-      this.cartService.getCartById(this.customerId).subscribe(cart => {
-       
-        this.cartDetails = cart;
-        console.log(this.cartDetails);
       
-      });
     });
 
     // console.log(this.cartID)

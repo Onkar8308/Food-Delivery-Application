@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { CartService } from 'src/app/service/cart.service';
 
 @Component({
   selector: 'app-payment-success',
@@ -11,8 +10,7 @@ import { CartService } from 'src/app/service/cart.service';
 export class PaymentSuccessComponent {
   newCart={}
   constructor(private router:Router,
-    private ref:MatDialogRef<PaymentSuccessComponent>,
-    private cartService:CartService
+    private ref:MatDialogRef<PaymentSuccessComponent>
     ) { }
 
   ngOnInit(): void {

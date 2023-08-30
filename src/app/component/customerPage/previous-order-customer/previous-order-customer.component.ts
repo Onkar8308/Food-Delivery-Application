@@ -47,15 +47,17 @@ export class PreviousOrderCustomerComponent implements OnInit {
       this.customer = customer;
     })  
   }
-  orderAgain(custId:number,restId:number,itemId:number,cartId:number,itemcost:number,quantity:number){
-console.log(custId,restId,itemId,cartId,itemcost,quantity);
-    this.orderService.saveOrder(custId,restId,itemId,cartId,quantity).subscribe(repeatedCart=>{
+  orderAgain(custId:number,restId:number,itemId:number,itemcost:number,quantity:number){
+console.log(custId,restId,itemId,itemcost,quantity);
+    this.orderService.saveOrder(custId,restId,itemId,quantity).subscribe(repeatedCart=>{
       console.log(repeatedCart);
     })
 
     alert("item added to your cart succesfully")
     this.matDialogref.close();
-    this.router.navigate(['cart']);
+    this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['cart']);
+  });
   }
 
   deleteOrder(orderId:number){

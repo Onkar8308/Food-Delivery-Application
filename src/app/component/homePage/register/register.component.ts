@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CartService } from 'src/app/service/cart.service';
 import { LoginService } from 'src/app/service/login.service';
 
 @Component({
@@ -15,17 +14,17 @@ export class RegisterComponent implements OnInit {
   cartId:number;
   cart1 = { };
 
-  // cust:Customer=new Customer(this.customername,0,'','');
   customername:string="";
   customermobilenumber:string='';
-  //customeremail:string="ijk@gmail.com";
   customeremail:string="";
   password:string="";
   successmessage:string="";
-  //cust:Customer;
   cust:Customer=new Customer(this.customername,this.customermobilenumber,this.customeremail,this.password);
 
-  constructor(public dialog: MatDialogRef<RegisterComponent>,private loginservice:LoginService,private route:ActivatedRoute, private router:Router,private cart:CartService){}
+  constructor(public dialog: MatDialogRef<RegisterComponent>,
+    private loginservice:LoginService,
+    private route:ActivatedRoute,){}
+
   ngOnInit(): void {
     this.customername=this.route.snapshot.params['customername']; //to take url id 
     
@@ -45,16 +44,7 @@ export class RegisterComponent implements OnInit {
           this.dialog.close();
   
           console.log(this.cust);
-          this.cart.saveCart(this.cart1).subscribe(data=>{
-            console.log(data);
-            this.cartId=data.id;  
-      
-            this.cart.addCustomerToCart(this.cartId,customer).subscribe(cartwithcu=>{
-              console.log(cartwithcu);
         
-            })
-      
-           })
         }
         else{
           console.log("Email address already exists!");

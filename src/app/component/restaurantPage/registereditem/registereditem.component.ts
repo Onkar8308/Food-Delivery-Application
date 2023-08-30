@@ -16,7 +16,9 @@ export class RegistereditemComponent implements OnInit {
   items : Item[] = [];
   flag = false;
 
-  constructor(private router: Router, private route: ActivatedRoute, private data:ItemServiceService){};
+  constructor(private router: Router, 
+    private route: ActivatedRoute,
+   private data:ItemServiceService){};
 
   registrationForm = new FormGroup({
     itemname : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+$')]),

@@ -12,7 +12,6 @@ export class RestaurantRegistrationComponent implements OnInit {
 
   constructor(
     private data: DataViewRestaurantService,
-    private route: ActivatedRoute,
     private router: Router
   ) {}
 

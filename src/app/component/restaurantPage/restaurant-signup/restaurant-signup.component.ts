@@ -17,8 +17,11 @@ export class RestaurantSignupComponent {
     restloginpassword: ''
   };
 
-  constructor(private loginservice: RestaurantLoginService, private router: Router,
-    private hardcodedAuth:HardcodedAuthenticationService) { }
+  constructor(private loginservice: RestaurantLoginService,
+     private router: Router,
+    private hardcodedAuth:HardcodedAuthenticationService) {
+
+     }
 
   loginRestaurant() {
     console.log("Inside login");

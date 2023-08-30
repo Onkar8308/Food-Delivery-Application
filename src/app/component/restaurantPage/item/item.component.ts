@@ -4,11 +4,8 @@ import { Item } from 'src/app/class/item';
 import { ItemServiceService } from 'src/app/service/item-service.service';
 import { Restaurant } from '../restaurants/restaurants.component';
 import { HardcodedAuthenticationService } from 'src/app/service/hardcoded-authentication.service';
-import { CartService } from 'src/app/service/cart.service';
-import { ItemService } from 'src/app/service/item.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PreviousOrderrestaurantComponent } from '../previous-orderrestaurant/previous-orderrestaurant.component';
-import { OrderService } from 'src/app/service/order.service';
 import { QuantityComponent } from '../../customerPage/quantity/quantity.component';
 
 
@@ -36,10 +33,7 @@ customerid:number;
     private itemservice: ItemServiceService,
     private router:Router,
     private route:ActivatedRoute,
-    private  cart:CartService,
-    private item:ItemService,
-    private matDialog: MatDialog,
-    private orderService:OrderService) {
+    private matDialog: MatDialog) {
     console.log('Application loaded. Initializing data.');
   };
 
@@ -47,15 +41,7 @@ customerid:number;
   ngOnInit(): void {
     
       this.email=  sessionStorage.getItem('authenticateduser');
-    console.log(this.email);
-    
-    this.cart.getCartByEmail(this.email).subscribe(cartData=>{
-      this.cartID = cartData.id;
-      this.customerid=cartData.cust.customerid;
-      console.log(this.cartID);
-      console.log(cartData);
-    });
-    
+    console.log(this.email);  
     
     this.id=this.route.snapshot.params['id'];
       this.itemservice.getItemByRestId(this.id).subscribe(
@@ -75,28 +61,6 @@ customerid:number;
       width:"50vh",
       data:{itemId:itemId,restId:this.id,custID:this.customerid,cartId:this.cartID}
     })
-
-    // this.itemservice.getItemById(id).subscribe(data=>{
-    //   console.log(data);
-    //   this.cartItem=data;  
-      
-    //   //geting item details
-      
-     
-
-    //   this.cart.addItemToCart(this.cartID,data).subscribe(data1=>{   //asiging item to cartt
-    //     console.log(data1);
-    //     prompt( 
-    //     );  
-    //     this.orderService.saveOrder(this.customerid,data.rest.restid,data.itemid,this.cartID,this.intitalQuantity).subscribe(order=>{
-    //       console.log(order);
-    //     })
-    //     this.item.assignItemToRestById(this.id,data.itemid).subscribe(updatedres=>{
-    //       console.log(updatedres);
-    //     })
-    // })
-    
-    // })
   }
 
   updateItem(id:number): void {

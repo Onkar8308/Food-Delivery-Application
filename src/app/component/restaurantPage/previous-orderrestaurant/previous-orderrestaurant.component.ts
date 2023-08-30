@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Order } from 'src/app/class/order';
 import { OrderService } from 'src/app/service/order.service';
 
 @Component({
