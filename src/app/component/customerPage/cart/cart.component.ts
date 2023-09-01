@@ -186,7 +186,7 @@ export class CartComponent implements OnInit {
   
 
   addressForm = this.builder.group({
-    area: this.builder.control('', [Validators.required, Validators.minLength(10),Validators.maxLength(20)]),
+    area: this.builder.control('', [Validators.required]),
     city: this.builder.control('', [Validators.required,Validators.required]),
     state: this.builder.control('', [Validators.required,Validators.required]),
     pincode: this.builder.control('', [Validators.required, Validators.pattern('^[1-9]{1}[0-9]{2}\\s{0,1}[0-9]{3}$')]),

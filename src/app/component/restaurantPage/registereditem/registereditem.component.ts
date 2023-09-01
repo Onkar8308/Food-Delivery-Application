@@ -22,7 +22,7 @@ export class RegistereditemComponent implements OnInit {
 
   registrationForm = new FormGroup({
     itemname : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+$')]),
-    itemstatus: new FormControl('', [Validators.required]),
+    itemstatus: new FormControl('',[Validators.required]),
 
     // itemstatus : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+$')]),
     itemcost : new FormControl('', [Validators.required]),

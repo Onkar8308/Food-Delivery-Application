@@ -111,13 +111,13 @@
                     <!-- <label for="status" class="control-label">Approval Status:</label>
                     <input type="text" class="form-control" placeholder="approval"
                     name="status" [(ngModel)]="rest.status" #status="ngModel" required> -->
-                    <mat-radio-group aria-label="Select an option" class="radiolabel" name="status" [(ngModel)]="rest.status" #status="ngModel">Restaurant Status: <br>
+                    <mat-radio-group aria-label="Select an option" class="radiolabel" name="status" [(ngModel)]="rest.status" #status="ngModel" required>Restaurant Status: <br>
                         <mat-radio-button value="true" class="radiovalue" style="color: white;"> <div style="color: white;"> Approve</div> </mat-radio-button>
                         <mat-radio-button value="false" class="radiovalue"> <div style="color: white;"> Not Approve</div></mat-radio-button>
                       </mat-radio-group>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-danger">Update Restaurant</button> 
+                <button type="submit" [disabled]="!itemForm.valid" class="btn btn-danger">Update Restaurant</button> 
             </form>
         </div>
     </div>

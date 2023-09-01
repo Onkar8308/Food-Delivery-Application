@@ -6,7 +6,7 @@
 
         <div class="form-group">
           <label for="itemname" class="control-label">Item Name:</label>
-          <input required minlength="3" type="text" id="itemname"
+          <input required minlength="3" maxlength="25" type="text" id="itemname"
               placeholder="Enter Item name" formControlName="itemname" name="itemname">
         </div>
           <span style="color: red;" *ngIf="itemname?.invalid && itemname?.touched">This field is required</span>
@@ -27,7 +27,7 @@
             <input required minlength="3" maxlength="20" type="text" id="itemstatus"
             require placeholder="Enter Status" formControlName="itemstatus" name="itemstatus"> -->
             <mat-radio-group aria-label="Select an option" class="radiolabel" formControlName="itemstatus" id="itemstatus" name="itemstatus">Item Status: <br>
-              <mat-radio-button value="Available" [ariaChecked]="true" class="radiovalue" > <div style="color: white;">Available</div></mat-radio-button>
+              <mat-radio-button value="Available" class="radiovalue" [checked]="true"> <div style="color: white;">Available</div></mat-radio-button>
               <mat-radio-button value="Not Available" class="radiovalue"> <div style="color: white;">Not Available</div></mat-radio-button>
             </mat-radio-group>
             
@@ -44,7 +44,7 @@
           <span style="color: red;" *ngIf="itemimage?.invalid && itemimage?.touched">This field is required</span>
           <br>
 
-          <button type="submit" class="btn btn-danger">Save Item</button> 
+          <button type="submit" [disabled]="!registrationForm.valid" class="btn btn-danger">Save Item</button> 
           <!-- <div class="field">
               <input type="submit" value="Save Item" (click)="saveItem">
           </div>    -->
