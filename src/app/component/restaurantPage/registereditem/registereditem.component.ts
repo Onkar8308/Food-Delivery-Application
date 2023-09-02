@@ -30,6 +30,7 @@ export class RegistereditemComponent implements OnInit {
     itemimage : new FormControl('', [Validators.required]),
   });
 
+
   radioSelectedValidator(control: AbstractControl): { [key: string]: boolean } | null {
     const value = control.value;
     if (value === null || value === undefined || value === '') {
