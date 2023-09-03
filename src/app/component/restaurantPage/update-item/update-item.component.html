@@ -35,9 +35,6 @@
             <br>
 
             <div class="form-group">
-                <!-- <label for="itemcost" class="control-label">Item Status:</label>
-                <input type="text" class="password" required placeholder="Enter Status of Item" name="itemstatus"
-                    [(ngModel)]="item.itemstatus" #itemstatus="ngModel" pattern="[a-zA-Z][a-zA-Z ]+$" required> -->
                     <mat-radio-group style="float: left;clear: none; display: block; padding: 0px 1em 0px 8px;" aria-label="Select an option" class="radiolabel" [(ngModel)]="item.itemstatus" #itemstatus="ngModel" name="itemstatus">Item Status: <br>
                         <mat-radio-button style="float: left; clear: none; margin: 2px 0 0 2px;" value="Available" class="radiovalue" aria-checked="true">  <div style="color: white;">Available</div></mat-radio-button>
                         <mat-radio-button style="float: left; clear: none; margin: 2px 0 0 2px;" value="Not Available" class="radiovalue"> <div style="color: white;">Not Available</div></mat-radio-button>

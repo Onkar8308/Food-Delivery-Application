@@ -56,9 +56,6 @@
                 <input type="text" class="form-control" id="pic" placeholder="Enter your pic url" formControlName="pic"
                   name="pic">
               </div>
-
-
-
             </div>
             <div class="col-md-6">
               <div class="form-group">
@@ -68,8 +65,6 @@
               <span style="color: red;" *ngIf="area?.invalid && area?.touched">This field is required</span>
 
               <br>
-              <!-- <mat-form-field class="form-group" style="padding: 0; width: 305px; font-size: 12px; background-color: white;"> -->
-                <!-- <mat-label>Country</mat-label> -->
                 <mat-select id="country" style="font-size: 15px; font-family: 'Poppins', sans-serif; color: #383d41;" (valueChange)="selectCountry($event)" class="form-control" name="country"
                   formControlName="country">
                   <mat-option  value="">Select Country</mat-option>
@@ -82,9 +77,6 @@
 
               <br>
               <br>
-            <!-- <div class="col-md-6">
-              <mat-form-field class="form-group" style="width: 305px; background-color: white;"> -->
-                <!-- <mat-label>State</mat-label> -->
                 <mat-select id="state" style="font-size: 15px; font-family: 'Poppins', sans-serif; color: #383d41;" class="form-control" (valueChange)="selectState($event)" name="state"
                   formControlName="state">
                   <mat-option value="">Select State</mat-option>
@@ -93,14 +85,9 @@
                   </mat-option>
                 </mat-select>
                 <span style="color: red;" *ngIf="state?.invalid && state?.touched">This field is required</span>
-              <!-- </mat-form-field>
-              </div> -->
+              
               <br>
               <br>
-
-              <!-- <div class="col-md-6">
-              <mat-form-field class="form-group" style="width: 305px; background-color: white;"> -->
-                <!-- <mat-label>City</mat-label> -->
                 <mat-select id="city" style="font-size: 15px; font-family: 'Poppins', sans-serif; color: #383d41;" class="form-control" name="city" formControlName="city">
                   <mat-option value="" class="form-control">Select City</mat-option>
                   <mat-option *ngFor="let city of cities" [value]="city.name" [attr.data-city-name]="city.name">{{
@@ -108,10 +95,7 @@
                   </mat-option>
                 </mat-select>
                 <span style="color: red;" *ngIf="city?.invalid && city?.touched">This field is required</span>
-              <!-- </mat-form-field>
-            </div> -->
-
-
+          
               <div class="form-group">
                 <input type="text" class="form-control" id="pincode" placeholder="Enter your pincode"
                   formControlName="pincode" name="pincode" minlength="6" maxlength="6">
@@ -119,7 +103,6 @@
               <span style="color: red;" *ngIf="pincode?.invalid && pincode?.touched">This field is required</span>
             </div>
             <button type="submit" [disabled]="!registrationForm.valid" class="btnRegister btn btn-dark">Submit</button>
-            <!-- [disabled]="!registrationForm.valid" -->
           </form>
         </div>
       </div>

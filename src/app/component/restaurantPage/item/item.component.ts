@@ -25,7 +25,7 @@ export class ItemComponent implements OnInit {
   cartID:number;
   cartItem:Item
   email:any;
-customerid:number;
+  customerid:number;
 
   restaurant : Restaurant;
 
@@ -39,20 +39,15 @@ customerid:number;
 
 
   ngOnInit(): void {
-    
       this.email=  sessionStorage.getItem('authenticateduser');
-    console.log(this.email);  
-    
-    this.id=this.route.snapshot.params['id'];
-      this.itemservice.getItemByRestId(this.id).subscribe(
-        data=>{
-          this.items=data;
-          console.log(this.items);
-        }
-       )
+      console.log(this.email);  
+      this.id=this.route.snapshot.params['id'];
+        this.itemservice.getItemByRestId(this.id).subscribe(
+          data=>{
+            this.items=data;
+            console.log(this.items);
+          })
   }
-
-  
 
   addToCart(itemId:number): void {
     this.id=this.route.snapshot.params['id'];

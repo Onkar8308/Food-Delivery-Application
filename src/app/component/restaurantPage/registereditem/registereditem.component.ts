@@ -86,15 +86,19 @@ export class RegistereditemComponent implements OnInit {
       }
       )
   }
+
   get itemname() {
     return this.registrationForm.get('itemname');
   }
+
   get itemstatus() {
     return this.registrationForm.get('itemstatus');
   }
+
   get itemcost() {
     return this.registrationForm.get('itemcost');
   }
+  
   get itemimage() {
     return this.registrationForm.get('itemimage');
   }

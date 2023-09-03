@@ -18,7 +18,6 @@
       <tr *ngFor="let rest of restaurants | paginate: { itemsPerPage: count, currentPage: p }" class="table-success">
         <td>{{rest.restname}}</td>
         <td>
-            <!-- Use the img tag to display the image -->
             <img [src]="rest.pic" alt="Image" height="100px" width="100px" />
           </td>
         <td>{{rest.area}} , {{rest.city}} ,{{rest.state}} 
@@ -28,7 +27,6 @@
         <td>{{rest.managerName}}</td>
         <td>{{rest.contactNumber}}</td>
         <td  *ngIf="rest.status ; else notDone">Approved
-
         </td>
          <ng-template #notDone>
         <td>

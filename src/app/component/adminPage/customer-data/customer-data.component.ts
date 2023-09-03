@@ -13,7 +13,6 @@ export class CustomerDataComponent {
   count: number = 4;
   customer:Customer[]=[];
  
-  // id:number;
   constructor(private customerservice:CustomerdataService,private router:Router, private route:ActivatedRoute){}
   ngOnInit(): void {
     this.customerservice.retriveAllCustomer().subscribe(

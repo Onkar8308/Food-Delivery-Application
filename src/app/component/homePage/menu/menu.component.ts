@@ -20,8 +20,6 @@ export class MenuComponent{
   email:any;
   customer:any;
   email1:any;
-  //restaurant2:Restaurant[]=[];
-
   isUserLoggedIn:boolean=false;
 
   constructor(private restaurantservice:DataRestaurantService,
@@ -29,7 +27,6 @@ export class MenuComponent{
     private dialog:MatDialog, public hardcodedAuthentication:HardcodedAuthenticationService,public router:Router){}
 
   ngOnInit(): void {
-    //this.restaurantservice.getAllRestaurant();
     this.getAllRestaurants();
     this.isUserLoggedIn=this.hardcodedAuthentication.isUserLoggedIn();
     this.email = sessionStorage.getItem('authenticateduser');
@@ -51,27 +48,15 @@ export class MenuComponent{
     this.restaurantservice.getAllRestaurant(searchkeyword)
     .subscribe(
       (response:Restaurant[])=>{
-        // resp = this.restaurant;
         console.log("**********"+response);
         response.forEach((res)=>this.restaurant.push(res));
         console.log('msg',this.restaurant);
         this.restaurantservice.setRestaurantData(this.restaurant);
-         //console.log("**********"+response);
-        //resp = this.restaurant
-
       }
       ,(error: HttpErrorResponse)=>{
         console.log(error);
       }
     )
-    // this.restaurantservice.retriveAllRestaurant().subscribe(
-    //   response =>{
-    //     this.restaurant = response;
-    //     console.log(response);
-    //     // console.log(this.restaurant)
-    //   }
-    // )
-
    }
 
 
@@ -109,7 +94,6 @@ export class MenuComponent{
     
     if(this.hardcodedAuthentication.isUserLoggedIn()){
         console.log(this.customer.customerid);
-
         this.router.navigate(['customerEdit',this.customer.customerid]);
       }
       
@@ -121,9 +105,5 @@ export class MenuComponent{
           this.router.navigate(['restaurantEdit',restaurantId])
         })
       }
-     
-    
-  }
-
-  
+  }  
 }

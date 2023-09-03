@@ -1,6 +1,5 @@
 *{
     font-family: 'Poppins', sans-serif;
-    /* color: white; */
 }
   .register{
     background: url("restaurantbg.jpeg");
@@ -8,7 +7,6 @@
     background-repeat: no-repeat;
     background-color: grey;
     background-blend-mode: multiply;
-    /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
     margin-top: 1%;
     margin-bottom: 1%;
     padding: 3%;

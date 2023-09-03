@@ -183,8 +183,6 @@ export class CartComponent implements OnInit {
 
   }
 
-  
-
   addressForm = this.builder.group({
     area: this.builder.control('', [Validators.required]),
     city: this.builder.control('', [Validators.required,Validators.required]),
@@ -219,7 +217,6 @@ export class CartComponent implements OnInit {
   }
 
   increase(id:number,cost:number){
-  // totalEacheItem
   this.initialQUuantity++;
   if(id==1){
     this.itemCost1=cost;
@@ -235,7 +232,6 @@ export class CartComponent implements OnInit {
 
   showPreviusAdd(){
     this.dialog.open(CustomerAddComponent, {
-      // this.router.navigate(['paymentsuccess'])
       height: '73vh',
       width: '90vh',  
     });
@@ -247,7 +243,6 @@ export class CartComponent implements OnInit {
     console.log(this.cartID);
 
     this.dialog.open(PaymentComponent, {
-      // this.router.navigate(['paymentsuccess'])
       height: '73vh',
       width: '70vh',
       data:this.total
