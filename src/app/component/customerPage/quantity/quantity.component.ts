@@ -28,10 +28,13 @@ export class QuantityComponent implements OnInit {
     this.email = sessionStorage.getItem('authenticateduser');
     console.log(this.email);
       
-    this.customerService.getCustomerByEmail(this.email).subscribe(customerData => {
+    this.customerService.getCustomerByEmail(this.email).subscribe((customerData) => {
       
     this.orderservice.saveOrder(customerData.customerid,this.data.restId,this.data.itemId,this.intitalQuantity).subscribe(order=>{
       console.log(order);
+    },
+    (error)=>{
+      console.log(error);
     })
     alert("item with quantity "+this.intitalQuantity+" is added to cart");
     this.matdialogref.close();
