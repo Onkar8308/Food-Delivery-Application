@@ -16,6 +16,7 @@ export class RestaurantdataEditComponent {
   id: number;
   rest: Restaurant;
   selectedImage: File | null = null;
+  isChecked: boolean;
 
   constructor(
     private router: Router,

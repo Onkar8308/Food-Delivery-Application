@@ -28,14 +28,14 @@ export class HomeComponent {
     this.isUserLoggedIn=this.hardcodedAuthentication.isUserLoggedIn();
    }
 
-   searchByKeyword(searchkeyword: string=""){
-    console.log(searchkeyword)
-    this.restaurant = [];
-    this.getAllRestaurants(searchkeyword);
-   } 
+  //  searchByKeyword(searchkeyword: string=""){
+  //   console.log(searchkeyword)
+  //   this.restaurant = [];
+  //   this.getAllRestaurants(searchkeyword);
+  //  } 
 
-   public getAllRestaurants(searchkeyword:string=""){
-    this.restaurantservice.getAllRestaurant(searchkeyword)
+   public getAllRestaurants(){
+    this.restaurantservice.getAllRestaurant()
     .subscribe(
       (response:Restaurant[])=>{
         response.forEach((res)=>this.restaurant.push(res));

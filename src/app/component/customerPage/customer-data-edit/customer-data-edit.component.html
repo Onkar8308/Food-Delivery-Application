@@ -12,6 +12,8 @@
             name="customername"
             [(ngModel)]="customer.customername"
             #customername="ngModel"
+            minlength="3"
+            maxlength="20"
             required
           />
           <div *ngIf="(customername.dirty || customername.touched) && customername.errors?.['required']">
@@ -36,6 +38,8 @@
             name="password"
             [(ngModel)]="customer.password"
             #password="ngModel"
+            minlength="5"
+            maxlength="20"
           />
           <div *ngIf="password.invalid && (password.dirty || password.touched)">
             <div *ngIf="password.errors?.['required']" class="text-danger">Password is required.</div>

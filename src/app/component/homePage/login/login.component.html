@@ -36,7 +36,7 @@
       <br>
       
       <p>Role</p>
-        <select class="form-select" aria-label="Default select example" name="role" #role="ngModel" [(ngModel)]="loginData.role" required>
+        <select class="form-select" aria-label="Default select" name="role" #role="ngModel" [(ngModel)]="loginData.role" required>
           <option *ngFor="let r of roles" [ngValue]="r">{{r}}</option>
         </select>
       <br><br>

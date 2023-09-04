@@ -69,18 +69,17 @@
                   formControlName="country">
                   <mat-option  value="">Select Country</mat-option>
                   <mat-option *ngFor="let country of countries" [value]="country.name"
-                    [attr.data-country-name]="country.name">{{ country.name}}
+                    >{{ country.name}}
                   </mat-option>
                 </mat-select>
                 <span style="color: red;" *ngIf="country?.invalid && country?.touched">This field is required</span>
-              <!-- </mat-form-field> -->
 
               <br>
               <br>
                 <mat-select id="state" style="font-size: 15px; font-family: 'Poppins', sans-serif; color: #383d41;" class="form-control" (valueChange)="selectState($event)" name="state"
                   formControlName="state">
                   <mat-option value="">Select State</mat-option>
-                  <mat-option *ngFor="let state of states" [value]="state.name" [attr.data-state-name]="state.name">{{
+                  <mat-option *ngFor="let state of states" [value]="state.name">{{
                     state.name }}
                   </mat-option>
                 </mat-select>
@@ -90,7 +89,7 @@
               <br>
                 <mat-select id="city" style="font-size: 15px; font-family: 'Poppins', sans-serif; color: #383d41;" class="form-control" name="city" formControlName="city">
                   <mat-option value="" class="form-control">Select City</mat-option>
-                  <mat-option *ngFor="let city of cities" [value]="city.name" [attr.data-city-name]="city.name">{{
+                  <mat-option *ngFor="let city of cities" [value]="city.name">{{
                     city.name }}
                   </mat-option>
                 </mat-select>
