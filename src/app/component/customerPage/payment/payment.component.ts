@@ -38,7 +38,7 @@ export class PaymentComponent implements OnInit{
    
       this.orderService.getOrderByCustomerIdAndStatusUnpaid(customerData.customerid).subscribe(Order=>{
         console.log(Order);
-        this.order.push(Order);
+        this.order=(Order);
         
       })
     });
@@ -75,18 +75,17 @@ export class PaymentComponent implements OnInit{
     });
     this.ref.close();
     alert("Payment Sucessful!");
-  
-      for(let i=0;i<=this.order.length;i++){
-        for(let j=0;j<=this.order.length;j++){
-          this.orderService.updateOrderStatus(this.order[i][j].orderid).subscribe(updatedOrder=>{
-            console.log(updatedOrder);
-          })
-        }
-        
-       
-        
-      }
+    
+    for(let i=0;i<=this.order.length;i++){
+      
+      this.orderService.updateOrderStatus(this.order[i].orderid).subscribe(updatedOrder=>{
+        console.log(updatedOrder);
+      },
+      (error:any)=>{
+        console.log(error);
+      });
     }
+  }
     else{
       alert("Oops! Invalid card details");
     }
