@@ -22,7 +22,6 @@ import { RestaurantRegistrationComponent } from './component/restaurantPage/rest
 import { UpdateItemComponent} from './component/restaurantPage/update-item/update-item.component';
 import { CustomerDataComponent } from './component/adminPage/customer-data/customer-data.component';
 import { CustomerDataEditComponent } from './component/customerPage/customer-data-edit/customer-data-edit.component';
-import { AdminComponent } from './class/admin/admin.component';
 import { RestaurantDataComponent } from './component/adminPage/restaurant-data/restaurant-data.component';
 import { RestaurantdataEditComponent } from './component/restaurantPage/restaurantdata-edit/restaurantdata-edit.component';
 import { HomeComponent } from './component/homePage/home/home.component';
@@ -58,7 +57,6 @@ import { MatSelectModule } from '@angular/material/select'
     UpdateItemComponent,
     CustomerDataComponent,
     CustomerDataEditComponent,
-    AdminComponent,
     RestaurantDataComponent,
     RestaurantdataEditComponent,
     HomeComponent,

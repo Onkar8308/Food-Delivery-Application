@@ -16,7 +16,6 @@ export class RestaurantDataComponent {
   p: number = 1;
   count: number = 4;
   id:number;
-  // cartList:any[]=[];
   restaurants:Restaurant[]=[];
   itemList:Item[]=[];
 
@@ -36,9 +35,9 @@ export class RestaurantDataComponent {
   restupdate(id:number){
     this.router.navigate(['restaurantEdit',id]);
   }
+
   restdelete(id:number){
     this.id=this.route.snapshot.params['id'];
-
     this.restrservice.deleterest(id).subscribe(
       respose=>{
         this.restaurants=respose;
@@ -57,8 +56,7 @@ export class RestaurantDataComponent {
       width:'120vh',
       height:'90vh',
       data:restId
-    })
-    
+    }) 
   }
 
 }

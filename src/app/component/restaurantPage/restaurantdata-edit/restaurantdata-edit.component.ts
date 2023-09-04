@@ -41,60 +41,6 @@ export class RestaurantdataEditComponent {
     }
   }
 
-  // async updateRest() {
-  //   if (this.selectedImage) {
-  //     const base64String = await this.toBase64(this.selectedImage);
-  //     // Include the Base64 image data in the request body
-  //     this.rest.pic = base64String;
-  //     console.log(base64String);
-  //   }
-
-  //   this.restService.updaterestById(this.id, this.rest).subscribe(
-  //     (response: any) => {
-  //       console.log(response);
-  //     },
-  //     (error: any) => {
-  //       console.log(error);
-  //     }
-  //   );
-  // }
-
-  // toBase64(file: File): Promise<string> {
-  //   return new Promise((resolve, reject) => {
-  //     const reader = new FileReader();
-  //     reader.readAsDataURL(file);
-  //     reader.onload = () => resolve(reader.result as string);
-  //     reader.onerror = (error) => reject(error);
-  //   });
-  // }
-
-  // onImageChange(event: Event) {
-  //   const inputElement = event.target as HTMLInputElement;
-  //   if (inputElement.files && inputElement.files.length > 0) {
-  //     this.selectedImage = inputElement.files[0];
-  //   }
-  // }
-  
-  onImageChange(event: Event) {
-    const inputElement = event.target as HTMLInputElement;
-    if (inputElement.files && inputElement.files.length > 0) {
-      this.selectedImage = inputElement.files[0];
-      this.showImagePreview();
-    }
-  }
-  
-  showImagePreview() {
-    if (this.selectedImage) {
-      const reader = new FileReader();
-      reader.readAsDataURL(this.selectedImage);
-      reader.onload = () => {
-        this.rest.pic = reader.result as string;
-      };
-    } else {
-      this.rest.pic = "null";
-    }
-  }
-  
   updateRest() {
     
     if(this.hardCodedAuthantication.isAdminLoggedIn()){
@@ -115,11 +61,8 @@ export class RestaurantdataEditComponent {
         (response: any) => {
           console.log(response);
           alert('Restaurant updated successfully')
-      this.router.navigate(['item',this.id]);
+          this.router.navigate(['item',this.id]);
+        });
     }
-      );
   }
-  
-  }
-  
 }

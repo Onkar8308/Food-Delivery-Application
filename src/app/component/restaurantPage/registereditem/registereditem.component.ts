@@ -22,13 +22,14 @@ export class RegistereditemComponent implements OnInit {
 
   registrationForm = new FormGroup({
     itemname : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+$')]),
-    itemstatus: new FormControl('', [Validators.required]),
+    itemstatus: new FormControl('',[Validators.required]),
 
     // itemstatus : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+$')]),
     itemcost : new FormControl('', [Validators.required]),
 
     itemimage : new FormControl('', [Validators.required]),
   });
+
 
   radioSelectedValidator(control: AbstractControl): { [key: string]: boolean } | null {
     const value = control.value;
@@ -85,15 +86,19 @@ export class RegistereditemComponent implements OnInit {
       }
       )
   }
+
   get itemname() {
     return this.registrationForm.get('itemname');
   }
+
   get itemstatus() {
     return this.registrationForm.get('itemstatus');
   }
+
   get itemcost() {
     return this.registrationForm.get('itemcost');
   }
+  
   get itemimage() {
     return this.registrationForm.get('itemimage');
   }

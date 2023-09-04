@@ -9,7 +9,6 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class DataService {
-	// private countryData = countrystatecityjson;
 	private BASE_URL = environment.apiUrl;
 	constructor(private http: HttpClient) {}
 	/**

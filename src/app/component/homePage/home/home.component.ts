@@ -24,7 +24,6 @@ export class HomeComponent {
 
  
   ngOnInit(): void {
-    //this.restaurantservice.getAllRestaurant();
     this.getAllRestaurants();
     this.isUserLoggedIn=this.hardcodedAuthentication.isUserLoggedIn();
    }
@@ -39,14 +38,9 @@ export class HomeComponent {
     this.restaurantservice.getAllRestaurant(searchkeyword)
     .subscribe(
       (response:Restaurant[])=>{
-        // resp = this.restaurant;
-       // console.log("**********"+response);
         response.forEach((res)=>this.restaurant.push(res));
         console.log('msg',this.restaurant);
         this.restaurantservice.setRestaurantData(this.restaurant);
-         //console.log("**********"+response);
-        //resp = this.restaurant
-
       }
       ,(error: HttpErrorResponse)=>{
         console.log(error);

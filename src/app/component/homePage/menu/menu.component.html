@@ -24,8 +24,6 @@
           </li>
           
           <form class="d-flex" role="search">
-            <!-- <input *ngIf="hardcodedAuthentication.isUserLoggedIn()" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button *ngIf="hardcodedAuthentication.isUserLoggedIn()" class="btn btn-outline-success" type="submit">Search</button> -->
             <mat-form-field *ngIf="hardcodedAuthentication.isUserLoggedIn()">
               <mat-label style="color: aliceblue;">Search any restaurant</mat-label>
               <input matInput

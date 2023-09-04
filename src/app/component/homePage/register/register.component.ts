@@ -29,7 +29,6 @@ export class RegisterComponent implements OnInit {
     this.customername=this.route.snapshot.params['customername']; //to take url id 
     
     this.cust=new Customer(this.customername,this.customermobilenumber,this.customeremail,this.password);
-    //console.log(this.customeremail=this.customeremail);
   }
 
   saveCustomer(){
@@ -42,32 +41,19 @@ export class RegisterComponent implements OnInit {
           this.successmessage="Registration Successful! Please Login";
           alert("Registration Successful!")
           this.dialog.close();
-  
           console.log(this.cust);
-        
         }
         else{
           console.log("Email address already exists!");
           alert("Email address already exists!");
-        }
-       
-        
+        } 
       },
-      (    error: any) => {
-   
+      (error: any) => {
         console.error("Registration error:", error);
         alert("Email address already exists!");
-       
-        // Handle login error, show error message, etc.
-       
-        }
-  
+      }
     );
-
-
-
   }
-
 }
 
 

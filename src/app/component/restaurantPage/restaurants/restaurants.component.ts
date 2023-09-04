@@ -34,14 +34,7 @@ ngOnInit(): void {
       console.log(customer);
       this.customer = customer;
     }) 
-    
-  // this.restaurantservice.retriveAllRestaurant().subscribe(
-  //   response =>{
-  //     this.restaurant = response;
-  //     console.log("nidhi"+response);
-  //   }
-  // )
-  this.restaurantservice.getRestaurantData().subscribe((data) => {
+    this.restaurantservice.getRestaurantData().subscribe((data) => {
         // Update the restaurants array with the data from the service
         this.restaurant = data;
         console.log("NNNNNN"+data);

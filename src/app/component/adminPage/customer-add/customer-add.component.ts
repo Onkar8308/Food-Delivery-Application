@@ -51,7 +51,7 @@ export class CustomerAddComponent implements OnInit {
       pincode = ${this.selectedAdd.pincode}`
       
       );
-            this.matDialogref.close()
+      this.matDialogref.close()
   }
 
   deleteCustomerAdd(id:number){

@@ -32,10 +32,11 @@
     z-index: 999;
     width: 370px;
     text-align: center;
-    padding: 60px 32px;
+    padding: 50px 32px;
     box-shadow: -3px -3px 9px #aaa9a9a2,
     3px 3px 7px rgba(147, 149, 151, 0.671);
-    background-color: rgba(255,255,255,0.13);
+    background-color: rgba(255, 255, 255, 0.11);
+    /* backdrop-filter: blur(1px); */
 }
 
 .content header {
@@ -144,15 +145,18 @@ label{
     font-weight: bold;
     font-size: 17px;
 }
+
 .radiolabel{
     color: white;
     padding-left: 5px;
     font-weight: bold;
     font-size: 17px;
 }
+#radio1:checked + div{
+    font-weight: bold;
+ }
+
 .radiovalue {
-    /* Your styles for radio buttons go here */
-    /* For example: */
     font-weight: bold;
     color: white;
   }

@@ -29,7 +29,6 @@
                                     class="form-control" required>
                             </div>
                             <span class="text-warning" *ngIf="from_name && from_name.invalid && from_name.touched">This field is required</span>
-                            <!-- (registerFormControl.name.touched || submitted) && registerFormControl.name.errors?.required -->
                         </div>
                         <!--Grid column-->
 
@@ -40,12 +39,6 @@
                                 <input type="text" formControlName="from_email" id="email" name="email"
                                     class="form-control" required>
                                     <span class="text-warning" *ngIf="from_email && from_email.invalid && from_email.touched">This field is required</span>
-                                    <!-- <div [hidden]="!from_email?.hasError('minlength')">
-                                        Email can not be shorter than 5 characters.
-                                      </div>
-                                      <div [hidden]="!from_email?.hasError('pattern')">
-                                        Username is required.
-                                      </div> -->
                                 </div>
                         </div>
                         <!--Grid column-->
@@ -79,11 +72,6 @@
                                     class="form-control md-textarea" required></textarea>
                                     <span class="text-warning" *ngIf="message && message.invalid && message.touched">This field is required</span>
                             </div>
-                            <!-- 
-                            <p>Value: {{ from_name.value }}</p>
-                            <p>{{from_email.value}}</p>
-                            <p>{{subject.value}}</p>
-                            <p>{{message.value}}</p> -->
 
                         </div>
                     </div>

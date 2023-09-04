@@ -43,7 +43,6 @@ export class PreviousOrderCustomerComponent implements OnInit {
     this.email = sessionStorage.getItem('authenticateduser');
     console.log(this.email);
     this.customerService.getCustomerByEmail(this.email).subscribe(customer=>{
-      // console.log(customer);
       this.customer = customer;
     })  
   }
@@ -76,6 +75,4 @@ console.log(custId,restId,itemId,itemcost,quantity);
     alert("history cleared")
       this.matDialogref.close();
   }
-  
-
 }
