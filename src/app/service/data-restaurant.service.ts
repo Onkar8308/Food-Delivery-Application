@@ -37,6 +37,4 @@ export class DataRestaurantService {
   getRestaurantData(): BehaviorSubject<Restaurant[]> {
     return this.restaurantData;
   }
-
-  
 }
